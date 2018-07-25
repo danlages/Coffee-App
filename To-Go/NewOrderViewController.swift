@@ -10,19 +10,17 @@ import UIKit
 
 //MARK: TableViewCells
 
-class OrderTableViewCell: UITableViewCell
-{
+class OrderTableViewCell: UITableViewCell {
     
     
 }
 
-class AddToOrderTableViewCell: UITableViewCell
-{
+class AddToOrderTableViewCell: UITableViewCell {
     
     
 }
 
-class NewOrderViewController: UIViewController, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate{
+class NewOrderViewController: UIViewController, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     //MARK:Properties
     
@@ -64,8 +62,7 @@ class NewOrderViewController: UIViewController, UITableViewDelegate, UIPickerVie
         navbar();
     }
     
-    func navbar()
-    {
+    func navbar() {
         navigationController?.navigationBar.prefersLargeTitles = true
     }
     
@@ -95,8 +92,7 @@ class NewOrderViewController: UIViewController, UITableViewDelegate, UIPickerVie
         return timePickerData[row]
     }
     
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent: Int)
-    {
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent: Int) {
         selectPickupTimeTextField.text = timePickerData[row]
         dismissKeyboard()
         
@@ -116,8 +112,7 @@ class NewOrderViewController: UIViewController, UITableViewDelegate, UIPickerVie
     
     //MARK: Place Order Code
     
-    func ValidateEntry()
-    {
+    func ValidateEntry() {
         //Validate Text Fields
         let collectionName = nameForCollectionTextField.text
         let collectionTimeText = selectPickupTimeTextField.text

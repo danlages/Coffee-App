@@ -79,13 +79,11 @@ class LocalTableViewController: UITableViewController {
         cell.destinatioNameLabel.text = destination.name
         cell.distanceLabel.text = "10 KM"
 
-        if destination.takingOrders == true
-        {
+        if destination.takingOrders == true {
             cell.orderStatusLabel.text = "Avaliable for Orders"
         }
 
-        else
-        {
+        else {
             cell.orderStatusLabel.text = "Not Taking Orders"
         }
 
