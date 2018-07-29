@@ -1,5 +1,5 @@
 //
-//  ActiveOrderViewController.swift
+//  ActiveOrderVC.swift
 //  To-Go
 //
 //  Created by Daniel Lages on 13/06/2018.
@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class ActiveOrderViewController: UIViewController {
+class ActiveOrderVC: UIViewController {
 
     //MARK:Properties
     

@@ -1,5 +1,5 @@
 //
-//  LocalTableViewController.swift
+//  SelectCafeTableVC.swift
 //  To-Go
 //
 //  Created by Daniel Lages on 07/06/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LocalTableViewController: UITableViewController {
+class SelectCafeTableVC: UITableViewController {
     
     //MARK: Properties
     
@@ -65,11 +65,11 @@ class LocalTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellIdentifier = "LocalStoreTableViewCell" //Name used to recognise cell prototype - set in attributes inspector
+        let cellIdentifier = "SelectCafeTableViewCell" //Name used to recognise cell prototype - set in attributes inspector
         
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? LocalStoreTableViewCell else {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SelectCafeTableViewCell else {
             
-            fatalError("The Dequeued cell is not an instance of LocalStoreTableViewCell.")
+            fatalError("The Dequeued cell is not an instance of SelectCafeTableViewCell.")
         }
         
         let destination = destinations[indexPath.row]

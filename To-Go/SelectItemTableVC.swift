@@ -1,5 +1,5 @@
 //
-//  MenuTableViewController.swift
+//  SelectItemTableVC.swift
 //  To-Go
 //
 //  Created by Daniel Lages on 09/06/2018.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MenuTableViewController: UITableViewController {
+class SelectItemTableVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

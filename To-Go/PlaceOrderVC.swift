@@ -1,5 +1,5 @@
 //
-//  NewOrderViewController.swift
+//  PlaceOrderVC.swift
 //  To-Go
 //
 //  Created by Daniel Lages on 07/06/2018.
@@ -20,7 +20,7 @@ class AddToOrderTableViewCell: UITableViewCell {
     
 }
 
-class NewOrderViewController: UIViewController, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     //MARK:Properties
     
