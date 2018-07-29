@@ -10,6 +10,12 @@ import UIKit
 
 class SelectItemTableViewCell: UITableViewCell {
 
+    //MARK: Properties
+    
+    @IBOutlet weak var menuItemName: UILabel!
+    @IBOutlet weak var menuItemPrice: UILabel!
+    @IBOutlet weak var menuItemSize: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

@@ -21,6 +21,7 @@
 		6942F0E320D15C4100E5A194 /* ActiveOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6942F0E220D15C4100E5A194 /* ActiveOrderVC.swift */; };
 		694334AD20CC3DAB00B70252 /* SelectItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694334AC20CC3DAB00B70252 /* SelectItemTableViewCell.swift */; };
 		694334AF20CC3E2600B70252 /* SelectItemTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694334AE20CC3E2600B70252 /* SelectItemTableVC.swift */; };
+		89BA0602210DEAB200FA0A3E /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA0601210DEAB200FA0A3E /* MenuItem.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +62,7 @@
 		6942F0E220D15C4100E5A194 /* ActiveOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveOrderVC.swift; sourceTree = "<group>"; };
 		694334AC20CC3DAB00B70252 /* SelectItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectItemTableViewCell.swift; sourceTree = "<group>"; };
 		694334AE20CC3E2600B70252 /* SelectItemTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectItemTableVC.swift; sourceTree = "<group>"; };
+		89BA0601210DEAB200FA0A3E /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,14 +113,15 @@
 		690CA1E620C99968009C6701 /* To-Go */ = {
 			isa = PBXGroup;
 			children = (
-				2F9954D520ECF55F008D4E65 /* Destination.swift */,
-				690CA1EB20C99968009C6701 /* SecondViewController.swift */,
-				6942F0E220D15C4100E5A194 /* ActiveOrderVC.swift */,
+				690CA21B20C9A6EF009C6701 /* SelectCafeTableVC.swift */,
+				690CA21F20C9A784009C6701 /* SelectCafeTableViewCell.swift */,
 				694334AE20CC3E2600B70252 /* SelectItemTableVC.swift */,
 				694334AC20CC3DAB00B70252 /* SelectItemTableViewCell.swift */,
-				690CA21F20C9A784009C6701 /* SelectCafeTableViewCell.swift */,
 				690CA21D20C9A742009C6701 /* PlaceOrderVC.swift */,
-				690CA21B20C9A6EF009C6701 /* SelectCafeTableVC.swift */,
+				6942F0E220D15C4100E5A194 /* ActiveOrderVC.swift */,
+				2F9954D520ECF55F008D4E65 /* Destination.swift */,
+				89BA0601210DEAB200FA0A3E /* MenuItem.swift */,
+				690CA1EB20C99968009C6701 /* SecondViewController.swift */,
 				690CA1ED20C99968009C6701 /* Main.storyboard */,
 				690CA1F020C99969009C6701 /* Assets.xcassets */,
 				690CA1F220C99969009C6701 /* LaunchScreen.storyboard */,
@@ -286,6 +289,7 @@
 				694334AD20CC3DAB00B70252 /* SelectItemTableViewCell.swift in Sources */,
 				690CA1E820C99968009C6701 /* AppDelegate.swift in Sources */,
 				690CA21C20C9A6EF009C6701 /* SelectCafeTableVC.swift in Sources */,
+				89BA0602210DEAB200FA0A3E /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

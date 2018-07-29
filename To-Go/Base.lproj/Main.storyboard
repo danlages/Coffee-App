@@ -527,7 +527,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="85" id="ht1-mS-uT7" customClass="SelectItemTableViewCell" customModule="To_Go" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="SelectItemTableViewCell" rowHeight="85" id="ht1-mS-uT7" customClass="SelectItemTableViewCell" customModule="To_Go" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="85"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ht1-mS-uT7" id="S0E-Eg-aud" customClass="SelectItemTableViewCell" customModule="To_Go" customModuleProvider="target">
@@ -537,7 +537,7 @@
                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Zj9-fR-baw" userLabel="Cell Content Left">
                                             <rect key="frame" x="16" y="15" width="116.5" height="51"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cappucchino" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3X-MA-kHp">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Cappucchino" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I3X-MA-kHp" userLabel="Item">
                                                     <rect key="frame" x="0.0" y="0.0" width="116.5" height="24"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                     <nil key="textColor"/>
@@ -568,6 +568,9 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="menuItemName" destination="I3X-MA-kHp" id="YKy-Ih-AXv"/>
+                                    <outlet property="menuItemPrice" destination="Nef-Mt-mlQ" id="93H-m4-Rvl"/>
+                                    <outlet property="menuItemSize" destination="e6m-QZ-vIl" id="9fL-4z-egY"/>
                                     <segue destination="Muq-nB-yxP" kind="show" id="DdL-Dq-jUq">
                                         <segue key="commit" inheritsFrom="parent" id="ztF-bY-xiy"/>
                                         <segue key="preview" inheritsFrom="commit" id="ywX-kp-Woz"/>

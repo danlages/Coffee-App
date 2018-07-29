@@ -10,9 +10,15 @@ import UIKit
 
 class SelectItemTableVC: UITableViewController {
 
+    //MARK: Properties
+    
+    var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        loadSampleMenuItems()
+        
         navbar()
         
         // Uncomment the following line to preserve selection between presentations
@@ -30,27 +36,50 @@ class SelectItemTableVC: UITableViewController {
         self.navigationItem.searchController = search
     }
 
+    //MARK: Sample Data
+    
+    private func loadSampleMenuItems() {
+        
+        guard let menuItem1 = MenuItem(name: "Coffee", size: "Small", price: "£2.00") else{
+            
+            fatalError("Unable to create the training ground menu item") //Error message
+        }
+        
+        menuItems += [menuItem1]
+        
+    }
+    
     // MARK: Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        return menuItems.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
-
-        // Configure the cell...
+        
+        let cellIdentifier = "SelectItemTableViewCell" //Name used to recognise cell prototype - set in attributes inspector
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SelectItemTableViewCell else {
+            
+            fatalError("The Dequeued cell is not an instance of SelectItemTableViewCell.")
+        }
+        
+        let menuItem = menuItems[indexPath.row]
+        
+        //Determine and set cell information
+        
+        cell.menuItemName.text = menuItem.name
+        cell.menuItemSize.text = menuItem.size
+        cell.menuItemPrice.text = menuItem.price
 
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

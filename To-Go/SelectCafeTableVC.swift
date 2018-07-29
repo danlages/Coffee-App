@@ -19,7 +19,7 @@ class SelectCafeTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        loadSampleDesitnations()
+        loadSampleDestinations()
         
         navbar()
         
@@ -40,7 +40,7 @@ class SelectCafeTableVC: UITableViewController {
     
     //MARK: Sample Data
     
-    private func loadSampleDesitnations() {
+    private func loadSampleDestinations() {
         
         guard let destination1 = Destination(name: "The Coffee Shop", email: "theCoffee@gmail.co,uk", password: "coffee", addressNo: 6, addressStreet: "PenarthStation", addressPostcode: "CF64 3QL", openingTime: "10:00", closingTime: "13:00", takingOrders: true, verification: true) else{
             
