@@ -24,9 +24,9 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         
         locationManager.delegate = self //CLLocationManager Delegate
         locationManager.requestLocation()
-        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestWhenInUseAuthorization() //Only require information when app is in the forground
         locationManager.startUpdatingLocation()
-        
+        locationManager.distanceFilter = 100 //Only update distance information when user has moved given number of meters from previous update to improve efficiency
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -80,9 +80,8 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
                 let destCoordinates = CLLocation(latitude: destLat!, longitude: destLong!) //Determine at set lat and long coordinates
                 let distance = String(format: "%2f km", destCoordinates.distance(from: userLocation) / 1000)
                 
-                print ("Distance in KM is: \(distance)") //work out the error here!
+                print ("Distance in KM is: \(distance)")
             }
-            
             //Filter table based on closest location
         }
     }
@@ -101,8 +100,6 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
 
         return destinations.count
     }
-
-
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "SelectCafeTableViewCell" //Name used to recognise cell prototype - set in attributes inspector
