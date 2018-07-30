@@ -7,21 +7,26 @@
 //
 
 import UIKit
+import CoreLocation
 
-class SelectCafeTableVC: UITableViewController {
+class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     
     //MARK: Properties
-    
+        
     var destinations  = [Destination]()  //Creates a mutable array of destination objects - allowing for the addition of items after initilsation
     
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         loadSampleDestinations()
-        
         navbar()
+        
+        locationManager.delegate = self //CLLocationManager Delegate
+        locationManager.requestLocation()
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -37,12 +42,11 @@ class SelectCafeTableVC: UITableViewController {
         self.navigationItem.searchController = search
     }
     
-    
     //MARK: Sample Data
     
     private func loadSampleDestinations() {
         
-        guard let destination1 = Destination(name: "The Coffee Shop", email: "theCoffee@gmail.co,uk", password: "coffee", addressNo: 6, addressStreet: "PenarthStation", addressPostcode: "CF64 3QL", openingTime: "10:00", closingTime: "13:00", takingOrders: true, verification: true) else{
+        guard let destination1 = Destination(name: "The Coffee Shop", email: "theCoffee@gmail.co,uk", password: "coffee", addressNo: "2", addressStreet: "Portmanmoor Road", addressPostcode: "CF24 5HQ", openingTime: "10:00", closingTime: "13:00", takingOrders: true, verification: true) else{
             
             fatalError("Unable to create the training ground destination") //Error message
         }
@@ -50,8 +54,44 @@ class SelectCafeTableVC: UITableViewController {
         destinations += [destination1]
         
     }
-
-    // MARK: - Table view data source
+    
+    //MARK: Determine Distance Using Core Location API
+    
+    let locationManager = CLLocationManager() //Define Location manager object.
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        //Delegate function allows us to handle loaction information
+        let location:CLLocationCoordinate2D = manager.location!.coordinate //Determine user location
+        let userLat = location.latitude
+        let userLong = location.longitude
+        let userLocation = CLLocation(latitude: userLat, longitude: userLong)
+        
+        let geoCoder = CLGeocoder()
+        
+        for dest in destinations {
+            // Determine location of each destination displayed in table view
+            let destinationAddress = (dest.addressNo + ", " + dest.addressStreet + ", " + dest.addressPostcode) //Group address variables to analyse the geo-location
+            geoCoder.geocodeAddressString(destinationAddress) {
+                placemarks, error in
+                let placemark = placemarks?.first
+                
+                let destLat = placemark?.location?.coordinate.latitude
+                let destLong = placemark?.location?.coordinate.longitude
+                let destCoordinates = CLLocation(latitude: destLat!, longitude: destLong!) //Determine at set lat and long coordinates
+                let distance = String(format: "%2f km", destCoordinates.distance(from: userLocation) / 1000)
+                
+                print ("Distance in KM is: \(distance)") //work out the error here!
+            }
+            
+            //Filter table based on closest location
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        
+    }
+    
+    //MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -89,50 +129,4 @@ class SelectCafeTableVC: UITableViewController {
 
         return cell
     }
-
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -17,7 +17,7 @@ class Destination
     var name: String
     var email: String
     var password: String
-    var addressNo: Int
+    var addressNo: String
     var addressStreet: String
     var addressPostcode: String
     var openingTime: String
@@ -27,7 +27,7 @@ class Destination
     
     //MARK: Initialization
 
-    init?(name: String, email: String, password: String, addressNo: Int, addressStreet: String, addressPostcode: String, openingTime: String, closingTime: String, takingOrders: Bool, verification: Bool)
+    init?(name: String, email: String, password: String, addressNo: String, addressStreet: String, addressPostcode: String, openingTime: String, closingTime: String, takingOrders: Bool, verification: Bool)
     {
         guard !name.isEmpty else //guard statement: Must be true for code after statement to be executed
         {
