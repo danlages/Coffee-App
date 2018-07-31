@@ -134,11 +134,11 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49W-Nv-7Wb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
+
             <point key="canvasLocation" x="2914" y="1194"/>
-=======
+
             <point key="canvasLocation" x="1839" y="725"/>
->>>>>>> 924c3ce3aacf6a66dcf8883271087c8f8305c604
+924c3ce3aacf6a66dcf8883271087c8f8305c604
         </scene>
         <!--Favorites-->
         <scene sceneID="kv1-kc-ALb">

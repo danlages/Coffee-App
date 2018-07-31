@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		2F9954D620ECF55F008D4E65 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9954D520ECF55F008D4E65 /* Destination.swift */; };
 		3C443FEE9403B524BDC729C5 /* Pods_To_GoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CC0DCAE92C9AE278757C1C /* Pods_To_GoTests.framework */; };
-		51F226C67DA333ACB1E80090 /* Pods_To_Go.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB38815962A90B661FDFF43F /* Pods_To_Go.framework */; };
+		51F226C67DA333ACB1E80090 /* Pods_To_Go.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB38815962A90B661FDFF43F /* Pods_To_Go.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		690CA1E820C99968009C6701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690CA1E720C99968009C6701 /* AppDelegate.swift */; };
 		690CA1EF20C99968009C6701 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690CA1ED20C99968009C6701 /* Main.storyboard */; };
 		690CA1F120C99969009C6701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690CA1F020C99969009C6701 /* Assets.xcassets */; };
@@ -330,7 +330,7 @@
 /* Begin PBXShellScriptBuildPhase section */
 		5F4B95D64DE137F6B113D0D2 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
+			buildActionMask = 12;
 			files = (
 			);
 			inputPaths = (
@@ -593,7 +593,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZC337WJBMX;
+				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				INFOPLIST_FILE = "To-Go/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -613,7 +613,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZC337WJBMX;
+				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				INFOPLIST_FILE = "To-Go/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
