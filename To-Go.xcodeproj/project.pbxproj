@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2F9954D620ECF55F008D4E65 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9954D520ECF55F008D4E65 /* Destination.swift */; };
 		690CA1E820C99968009C6701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690CA1E720C99968009C6701 /* AppDelegate.swift */; };
-		690CA1EC20C99968009C6701 /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690CA1EB20C99968009C6701 /* SecondViewController.swift */; };
 		690CA1EF20C99968009C6701 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690CA1ED20C99968009C6701 /* Main.storyboard */; };
 		690CA1F120C99969009C6701 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 690CA1F020C99969009C6701 /* Assets.xcassets */; };
 		690CA1F420C99969009C6701 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 690CA1F220C99969009C6701 /* LaunchScreen.storyboard */; };
@@ -22,6 +21,7 @@
 		694334AD20CC3DAB00B70252 /* SelectItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694334AC20CC3DAB00B70252 /* SelectItemTableViewCell.swift */; };
 		694334AF20CC3E2600B70252 /* SelectItemTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694334AE20CC3E2600B70252 /* SelectItemTableVC.swift */; };
 		89BA0602210DEAB200FA0A3E /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA0601210DEAB200FA0A3E /* MenuItem.swift */; };
+		89BA0606210FA5B200FA0A3E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA0605210FA5B200FA0A3E /* LoginVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,6 @@
 		2F9954D520ECF55F008D4E65 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		690CA1E420C99968009C6701 /* To-Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "To-Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		690CA1E720C99968009C6701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		690CA1EB20C99968009C6701 /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		690CA1EE20C99968009C6701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		690CA1F020C99969009C6701 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		690CA1F320C99969009C6701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -63,6 +62,7 @@
 		694334AC20CC3DAB00B70252 /* SelectItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectItemTableViewCell.swift; sourceTree = "<group>"; };
 		694334AE20CC3E2600B70252 /* SelectItemTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectItemTableVC.swift; sourceTree = "<group>"; };
 		89BA0601210DEAB200FA0A3E /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		89BA0605210FA5B200FA0A3E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +113,7 @@
 		690CA1E620C99968009C6701 /* To-Go */ = {
 			isa = PBXGroup;
 			children = (
+				89BA0605210FA5B200FA0A3E /* LoginVC.swift */,
 				690CA21B20C9A6EF009C6701 /* SelectCafeTableVC.swift */,
 				690CA21F20C9A784009C6701 /* SelectCafeTableViewCell.swift */,
 				694334AE20CC3E2600B70252 /* SelectItemTableVC.swift */,
@@ -121,7 +122,6 @@
 				6942F0E220D15C4100E5A194 /* ActiveOrderVC.swift */,
 				2F9954D520ECF55F008D4E65 /* Destination.swift */,
 				89BA0601210DEAB200FA0A3E /* MenuItem.swift */,
-				690CA1EB20C99968009C6701 /* SecondViewController.swift */,
 				690CA1ED20C99968009C6701 /* Main.storyboard */,
 				690CA1F020C99969009C6701 /* Assets.xcassets */,
 				690CA1F220C99969009C6701 /* LaunchScreen.storyboard */,
@@ -284,7 +284,7 @@
 				6942F0E320D15C4100E5A194 /* ActiveOrderVC.swift in Sources */,
 				694334AF20CC3E2600B70252 /* SelectItemTableVC.swift in Sources */,
 				690CA22020C9A784009C6701 /* SelectCafeTableViewCell.swift in Sources */,
-				690CA1EC20C99968009C6701 /* SecondViewController.swift in Sources */,
+				89BA0606210FA5B200FA0A3E /* LoginVC.swift in Sources */,
 				2F9954D620ECF55F008D4E65 /* Destination.swift in Sources */,
 				694334AD20CC3DAB00B70252 /* SelectItemTableViewCell.swift in Sources */,
 				690CA1E820C99968009C6701 /* AppDelegate.swift in Sources */,
@@ -504,6 +504,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				INFOPLIST_FILE = "To-GoTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -525,6 +526,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				INFOPLIST_FILE = "To-GoTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -545,6 +547,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				INFOPLIST_FILE = "To-GoUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -565,6 +568,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				INFOPLIST_FILE = "To-GoUITests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
