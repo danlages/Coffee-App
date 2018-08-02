@@ -19,8 +19,17 @@ class CustomerRegisterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navbar()
 
         // Do any additional setup after loading the view.
+    }
+    
+    //MARK: Navigation Bar
+    
+    func navbar()
+    {
+        navigationController?.navigationBar.prefersLargeTitles = true // Large navigation bar
     }
 
     //MARK: - Public Functions
