@@ -544,7 +544,7 @@
             <objects>
                 <viewController title="Place Order" id="Muq-nB-yxP" customClass="PlaceOrderVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R7k-lT-Qdq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iyV-J3-Lx3" userLabel="User Entry Stack">
@@ -813,7 +813,7 @@
             <objects>
                 <tableViewController title="Select Item" id="xOJ-aU-hKB" customClass="SelectItemTableVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qjC-LQ-Rs7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -912,7 +912,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Y8Z-er-Af1"/>
-        <segue reference="ztF-bY-xiy"/>
+        <segue reference="7qc-W4-v36"/>
+        <segue reference="DdL-Dq-jUq"/>
     </inferredMetricsTieBreakers>
 </document>
