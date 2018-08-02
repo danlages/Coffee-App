@@ -23,10 +23,11 @@
 		694334AD20CC3DAB00B70252 /* SelectItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694334AC20CC3DAB00B70252 /* SelectItemTableViewCell.swift */; };
 		694334AF20CC3E2600B70252 /* SelectItemTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694334AE20CC3E2600B70252 /* SelectItemTableVC.swift */; };
 		89BA0602210DEAB200FA0A3E /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA0601210DEAB200FA0A3E /* MenuItem.swift */; };
-		89BA0606210FA5B200FA0A3E /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA0605210FA5B200FA0A3E /* LoginVC.swift */; };
+		89BA0606210FA5B200FA0A3E /* CustomerLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA0605210FA5B200FA0A3E /* CustomerLoginVC.swift */; };
 		89BA06082110C35300FA0A3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89BA06072110C35300FA0A3E /* GoogleService-Info.plist */; };
 		89BA06092110C35300FA0A3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89BA06072110C35300FA0A3E /* GoogleService-Info.plist */; };
 		89BA060A2110C35300FA0A3E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 89BA06072110C35300FA0A3E /* GoogleService-Info.plist */; };
+		89BA060C2113524600FA0A3E /* CustomerRegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA060B2113524600FA0A3E /* CustomerRegisterVC.swift */; };
 		94FDD5481BCFF9E2B2DD885F /* Pods_To_GoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7841F19F3DBAB51F9923CDC9 /* Pods_To_GoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -73,8 +74,9 @@
 		6FFCC7A25032F1B5A93452D6 /* Pods-To-GoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To-GoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-To-GoTests/Pods-To-GoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7841F19F3DBAB51F9923CDC9 /* Pods_To_GoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_GoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		89BA0601210DEAB200FA0A3E /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
-		89BA0605210FA5B200FA0A3E /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		89BA0605210FA5B200FA0A3E /* CustomerLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerLoginVC.swift; sourceTree = "<group>"; };
 		89BA06072110C35300FA0A3E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		89BA060B2113524600FA0A3E /* CustomerRegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerRegisterVC.swift; sourceTree = "<group>"; };
 		9AAEA1B262D4DDFC100E0871 /* Pods-To-Go.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To-Go.debug.xcconfig"; path = "Pods/Target Support Files/Pods-To-Go/Pods-To-Go.debug.xcconfig"; sourceTree = "<group>"; };
 		D597923920A3E3A5AD3B7C91 /* Pods-To-GoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To-GoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-To-GoUITests/Pods-To-GoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DB38815962A90B661FDFF43F /* Pods_To_Go.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_Go.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -147,7 +149,8 @@
 		690CA1E620C99968009C6701 /* To-Go */ = {
 			isa = PBXGroup;
 			children = (
-				89BA0605210FA5B200FA0A3E /* LoginVC.swift */,
+				89BA0605210FA5B200FA0A3E /* CustomerLoginVC.swift */,
+				89BA060B2113524600FA0A3E /* CustomerRegisterVC.swift */,
 				690CA21B20C9A6EF009C6701 /* SelectCafeTableVC.swift */,
 				690CA21F20C9A784009C6701 /* SelectCafeTableViewCell.swift */,
 				694334AE20CC3E2600B70252 /* SelectItemTableVC.swift */,
@@ -335,11 +338,13 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-To-Go/Pods-To-Go-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -413,7 +418,8 @@
 				6942F0E320D15C4100E5A194 /* ActiveOrderVC.swift in Sources */,
 				694334AF20CC3E2600B70252 /* SelectItemTableVC.swift in Sources */,
 				690CA22020C9A784009C6701 /* SelectCafeTableViewCell.swift in Sources */,
-				89BA0606210FA5B200FA0A3E /* LoginVC.swift in Sources */,
+				89BA060C2113524600FA0A3E /* CustomerRegisterVC.swift in Sources */,
+				89BA0606210FA5B200FA0A3E /* CustomerLoginVC.swift in Sources */,
 				2F9954D620ECF55F008D4E65 /* Destination.swift in Sources */,
 				694334AD20CC3DAB00B70252 /* SelectItemTableViewCell.swift in Sources */,
 				690CA1E820C99968009C6701 /* AppDelegate.swift in Sources */,
