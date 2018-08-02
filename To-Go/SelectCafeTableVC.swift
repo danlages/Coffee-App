@@ -37,7 +37,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     
     func navbar()
     {
-        navigationController?.navigationBar.prefersLargeTitles = true // Lage navigation bar
+        navigationController?.navigationBar.prefersLargeTitles = true // Large navigation bar
         let search = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController = search
     }
