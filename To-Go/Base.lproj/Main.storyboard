@@ -134,7 +134,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="49W-Nv-7Wb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2737" y="1003"/>
+            <point key="canvasLocation" x="-1964" y="1871"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="kv1-kc-ALb">
@@ -199,7 +199,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10N-Ts-LSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="1274"/>
+            <point key="canvasLocation" x="252" y="1032"/>
         </scene>
         <!--Select Account Type-->
         <scene sceneID="AJl-zb-hcd">
@@ -261,7 +261,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VOi-eJ-HUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2826" y="1160"/>
+            <point key="canvasLocation" x="-2826" y="1871"/>
         </scene>
         <!--Customer Register-->
         <scene sceneID="mJ3-tF-e5s">
@@ -381,12 +381,12 @@
                         <outlet property="confirmPasswordTextField" destination="xp1-Bu-f8I" id="UiH-Az-DeE"/>
                         <outlet property="emailTextField" destination="AbV-tZ-TmX" id="K2d-3T-d5D"/>
                         <outlet property="passwordTextField" destination="2oD-wH-ZbU" id="0Da-Lo-bz3"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="registerToSelectCafe" id="WuQ-ef-cXg"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="registerToSelectCafe" id="WuQ-ef-cXg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKs-yE-s2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-546" y="-472"/>
+            <point key="canvasLocation" x="-524" y="-534"/>
         </scene>
         <!--Customer Login-->
         <scene sceneID="wSm-js-fXa">
@@ -460,7 +460,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="tMr-HA-dwW" id="BIm-gb-oTU"/>
                         <outlet property="passwordTextField" destination="boU-HE-SPu" id="0ER-Ax-tuI"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="loginToSelectCafe" id="pMn-ri-Iqg"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="loginToSelectCafe" id="pMn-ri-Iqg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLI-vK-WBU" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -484,7 +484,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="313"/>
+            <point key="canvasLocation" x="252" y="233"/>
         </scene>
         <!--Select Cafe -->
         <scene sceneID="AGx-Sz-lsM">
@@ -557,7 +557,7 @@
             <objects>
                 <viewController title="Place Order" id="Muq-nB-yxP" customClass="PlaceOrderVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="R7k-lT-Qdq">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="iyV-J3-Lx3" userLabel="User Entry Stack">
@@ -727,7 +727,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iUR-xY-kNj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2612" y="242"/>
+            <point key="canvasLocation" x="2399" y="313"/>
         </scene>
         <!--Active Order-->
         <scene sceneID="15M-GM-KZG">
@@ -819,14 +819,14 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyP-WC-Ypr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5036" y="162.3688155922039"/>
+            <point key="canvasLocation" x="3959" y="313"/>
         </scene>
         <!--Select Item-->
         <scene sceneID="JPg-r8-rTK">
             <objects>
                 <tableViewController title="Select Item" id="xOJ-aU-hKB" customClass="SelectItemTableVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="qjC-LQ-Rs7">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -902,11 +902,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zt6-1K-tbU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3464.8000000000002" y="-704.79760119940033"/>
+            <point key="canvasLocation" x="3194" y="-624"/>
         </scene>
         <!--Order-->
         <scene sceneID="vpm-tA-EWM">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dtX-r1-fMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DCZ-7l-Q1a" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Order" id="zkd-8B-uKg"/>
                     <toolbarItems/>
@@ -919,9 +920,8 @@
                         <segue destination="AMh-eF-trx" kind="relationship" relationship="rootViewController" id="qV5-t5-qN5"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dtX-r1-fMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="992.79999999999995" y="-448.42578710644682"/>
+            <point key="canvasLocation" x="1047" y="-448"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EnT-lm-5GL">
@@ -943,8 +943,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="7qc-W4-v36"/>
-        <segue reference="ztF-bY-xiy"/>
-        <segue reference="pMn-ri-Iqg"/>
+        <segue reference="Y8Z-er-Af1"/>
+        <segue reference="DdL-Dq-jUq"/>
+        <segue reference="WuQ-ef-cXg"/>
     </inferredMetricsTieBreakers>
 </document>
