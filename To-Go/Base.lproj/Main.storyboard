@@ -242,7 +242,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mbN-Ch-XUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2834" y="452"/>
+            <point key="canvasLocation" x="-2889" y="451"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fx3-sU-Dl2">
@@ -271,10 +271,10 @@
             </objects>
             <point key="canvasLocation" x="-1938" y="987"/>
         </scene>
-        <!--View Controller-->
+        <!--Customer Register-->
         <scene sceneID="mJ3-tF-e5s">
             <objects>
-                <viewController id="jEX-yZ-06a" sceneMemberID="viewController">
+                <viewController id="jEX-yZ-06a" userLabel="Customer Register" customClass="CustomerRegisterVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EA8-Ts-Tct">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -286,7 +286,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="sy9-dJ-oVU">
-                                <rect key="frame" x="80" y="142.5" width="215" height="382.5"/>
+                                <rect key="frame" x="80" y="127.5" width="215" height="413"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2eh-0P-b8e">
                                         <rect key="frame" x="66" y="0.0" width="83" height="20.5"/>
@@ -320,8 +320,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUt-Bm-FPv">
-                                        <rect key="frame" x="53.5" y="141" width="108" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZUt-Bm-FPv">
+                                        <rect key="frame" x="50" y="141" width="115.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -336,8 +336,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z63-d7-fpP">
-                                        <rect key="frame" x="70.5" y="211.5" width="74" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z63-d7-fpP">
+                                        <rect key="frame" x="67" y="211.5" width="81.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -352,8 +352,8 @@
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnF-vd-HfW">
-                                        <rect key="frame" x="38" y="282" width="139.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnF-vd-HfW">
+                                        <rect key="frame" x="34" y="282" width="147" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -372,9 +372,15 @@
                                         <rect key="frame" x="79" y="352.5" width="57" height="30"/>
                                         <state key="normal" title="Register"/>
                                         <connections>
-                                            <segue destination="49e-Tb-3d3" kind="show" id="B7J-i7-al0"/>
+                                            <action selector="RegisterTapped:" destination="jEX-yZ-06a" eventType="touchUpInside" id="zLD-Mu-6m2"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Required Fields" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BbC-4m-XhB">
+                                        <rect key="frame" x="45" y="392.5" width="125.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -387,6 +393,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rnE-or-65e"/>
                     </view>
+                    <connections>
+                        <outlet property="confirmPasswordTextField" destination="xp1-Bu-f8I" id="UiH-Az-DeE"/>
+                        <outlet property="emailTextField" destination="AbV-tZ-TmX" id="K2d-3T-d5D"/>
+                        <outlet property="passwordTextField" destination="2oD-wH-ZbU" id="0Da-Lo-bz3"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="registerToSelectCafe" id="WuQ-ef-cXg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKs-yE-s2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -395,7 +407,7 @@
         <!--Customer Login-->
         <scene sceneID="wSm-js-fXa">
             <objects>
-                <viewController id="8NJ-Qu-0rA" userLabel="Customer Login" customClass="LoginVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="8NJ-Qu-0rA" userLabel="Customer Login" customClass="CustomerLoginVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Q1-sv-S3c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -439,13 +451,13 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="842-8e-eBu">
                                         <rect key="frame" x="65" y="181" width="38" height="30"/>
                                         <state key="normal" title="Login"/>
                                         <connections>
-                                            <segue destination="49e-Tb-3d3" kind="show" id="TPN-l1-BWD"/>
+                                            <action selector="LoginTapped:" destination="8NJ-Qu-0rA" eventType="touchUpInside" id="sAu-io-CQy"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -469,10 +481,15 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zJq-Wb-0Vr"/>
                     </view>
+                    <connections>
+                        <outlet property="emailTextField" destination="tMr-HA-dwW" id="BIm-gb-oTU"/>
+                        <outlet property="passwordTextField" destination="boU-HE-SPu" id="0ER-Ax-tuI"/>
+                        <segue destination="49e-Tb-3d3" kind="show" identifier="loginToSelectCafe" id="pMn-ri-Iqg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLI-vK-WBU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1998" y="0.0"/>
+            <point key="canvasLocation" x="-2102" y="0.0"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="yl2-sM-qoP">
@@ -491,7 +508,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="0.0" y="0.0"/>
+            <point key="canvasLocation" x="-322" y="0.0"/>
         </scene>
         <!--Select Cafe -->
         <scene sceneID="AGx-Sz-lsM">
@@ -934,6 +951,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="Y8Z-er-Af1"/>
         <segue reference="ztF-bY-xiy"/>
-        <segue reference="TPN-l1-BWD"/>
+        <segue reference="WuQ-ef-cXg"/>
     </inferredMetricsTieBreakers>
 </document>
