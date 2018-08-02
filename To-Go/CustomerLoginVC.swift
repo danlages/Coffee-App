@@ -18,8 +18,15 @@ class CustomerLoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-   
+        
+        navbar()
+    }
+    
+    //MARK: Navigation Bar
+    
+    func navbar()
+    {
+        navigationController?.navigationBar.prefersLargeTitles = true // Large navigation bar
     }
 
     //MARK: - Public Functions
