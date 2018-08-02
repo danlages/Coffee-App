@@ -381,7 +381,7 @@
                         <outlet property="confirmPasswordTextField" destination="xp1-Bu-f8I" id="UiH-Az-DeE"/>
                         <outlet property="emailTextField" destination="AbV-tZ-TmX" id="K2d-3T-d5D"/>
                         <outlet property="passwordTextField" destination="2oD-wH-ZbU" id="0Da-Lo-bz3"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="registerToSelectCafe" id="WuQ-ef-cXg"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="registerToSelectCafe" id="WuQ-ef-cXg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lKs-yE-s2m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -460,7 +460,7 @@
                     <connections>
                         <outlet property="emailTextField" destination="tMr-HA-dwW" id="BIm-gb-oTU"/>
                         <outlet property="passwordTextField" destination="boU-HE-SPu" id="0ER-Ax-tuI"/>
-                        <segue destination="49e-Tb-3d3" kind="show" identifier="loginToSelectCafe" id="pMn-ri-Iqg"/>
+                        <segue destination="49e-Tb-3d3" kind="showDetail" identifier="loginToSelectCafe" id="pMn-ri-Iqg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FLI-vK-WBU" userLabel="First Responder" sceneMemberID="firstResponder"/>
