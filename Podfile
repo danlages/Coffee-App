@@ -7,6 +7,7 @@ target 'To-Go' do
 
   # Pods for To-Go
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
 
   target 'To-GoTests' do
     inherit! :search_paths
