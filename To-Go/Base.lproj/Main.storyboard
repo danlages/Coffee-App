@@ -336,7 +336,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="*Confirm Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vnF-vd-HfW">
                                         <rect key="frame" x="34" y="282" width="147" height="20.5"/>
@@ -352,7 +352,7 @@
                                         </constraints>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="avq-Ox-OLa">
                                         <rect key="frame" x="79" y="352.5" width="57" height="30"/>
@@ -945,6 +945,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="7qc-W4-v36"/>
         <segue reference="ztF-bY-xiy"/>
-        <segue reference="pMn-ri-Iqg"/>
+        <segue reference="WuQ-ef-cXg"/>
     </inferredMetricsTieBreakers>
 </document>
