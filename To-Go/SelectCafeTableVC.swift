@@ -126,4 +126,17 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
 
         return cell
     }
+    
+    //MARK: Cell Actions
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let favouriteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Favourite", handler: {(action:UITableViewRowAction, indexPath: IndexPath) -> Void in
+        
+            //Enter Favourite code here
+        })
+        
+        favouriteAction.backgroundColor = UIColor.lightGray //Colour of row action
+        return [favouriteAction] //Return actions (variable names) here
+    }
 }
