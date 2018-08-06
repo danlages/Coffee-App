@@ -100,6 +100,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
 
         return destinations.count
     }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cellIdentifier = "SelectCafeTableViewCell" //Name used to recognise cell prototype - set in attributes inspector
