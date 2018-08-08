@@ -155,6 +155,7 @@
 		690CA1E620C99968009C6701 /* To-Go */ = {
 			isa = PBXGroup;
 			children = (
+				2F8C4F04211B1BD300328514 /* SelectAccountVC.swift */,
 				89BA0605210FA5B200FA0A3E /* CustomerLoginVC.swift */,
 				89BA060B2113524600FA0A3E /* CustomerRegisterVC.swift */,
 				690CA21B20C9A6EF009C6701 /* SelectCafeTableVC.swift */,
@@ -168,7 +169,6 @@
 				2F9954D520ECF55F008D4E65 /* Destination.swift */,
 				89BA0601210DEAB200FA0A3E /* MenuItem.swift */,
 				690CA1ED20C99968009C6701 /* Main.storyboard */,
-				2F8C4F04211B1BD300328514 /* SelectAccountVC.swift */,
 				690CA1F020C99969009C6701 /* Assets.xcassets */,
 				690CA1F220C99969009C6701 /* LaunchScreen.storyboard */,
 				690CA1E720C99968009C6701 /* AppDelegate.swift */,
