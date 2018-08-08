@@ -48,7 +48,7 @@ class AddToOrderVC: UITableViewController {
     
     private func loadSampleMenuItems() {
         
-        guard let menuItem1 = MenuItem(name: "Coffee", size: "Small", price: "£2.00") else{
+        guard let menuItem1 = MenuItem(name: "Coffee", size: "Small", price: 2) else{
             
             fatalError("Unable to create the training ground menu item") //Error message
         }
@@ -83,7 +83,7 @@ class AddToOrderVC: UITableViewController {
         
         cell.menuItemName.text = menuItem.name
         cell.menuItemSize.text = menuItem.size
-        cell.menuItemPrice.text = menuItem.price
+        cell.menuItemPrice.text = String(menuItem.price)
 
         return cell
     }

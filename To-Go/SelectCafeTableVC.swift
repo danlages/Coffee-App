@@ -87,13 +87,6 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         }
   
         
-        /*guard let destination1 = Destination(name: "The Coffee Shop", email: "theCoffee@gmail.co,uk", addressNo: "2", addressStreet: "Portmanmoor Road", addressPostcode: "CF24 5HQ", openingTime: "10:00", closingTime: "13:00", takingOrders: true, verification: true) else{
-            
-            fatalError("Unable to create the training ground destination") //Error message
-        }
-        
-        destinations += [destination1]*/
-        
     }
     
     //MARK: Determine Distance Using Core Location API
