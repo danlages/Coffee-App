@@ -19,7 +19,6 @@ struct cafe{
     static var openingTime: String = ""
     static var closingTime: String = ""
     static var takingOrders: Bool = true
-    static var verification: Bool = true
 }
 
 class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
@@ -75,9 +74,9 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
                     cafe.openingTime = document.data()["Opening Time"] as? String ?? ""
                     cafe.closingTime = document.data()["Closing Time"] as? String ?? ""
                     cafe.takingOrders = document.data()["Taking Orders"] as? Bool ?? true
-                    cafe.verification = document.data()["Verification"]as? Bool ?? true
                     
-                    guard let destination = Destination(name: cafe.name, email: cafe.email, addressNo: cafe.addressNo, addressStreet: cafe.addressStreet, addressPostcode: cafe.addressPostcode, openingTime: cafe.openingTime, closingTime: cafe.closingTime, takingOrders: cafe.takingOrders, verification: cafe.verification) else{
+                    
+                    guard let destination = Destination(name: cafe.name, email: cafe.email, addressNo: cafe.addressNo, addressStreet: cafe.addressStreet, addressPostcode: cafe.addressPostcode, openingTime: cafe.openingTime, closingTime: cafe.closingTime, takingOrders: cafe.takingOrders) else{
                         
                         fatalError("Unable to create the training ground destination") //Error message
                     }
