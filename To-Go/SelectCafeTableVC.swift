@@ -8,6 +8,19 @@
 
 import UIKit
 import CoreLocation
+import FirebaseFirestore
+
+struct cafe{
+    static var name: String = ""
+    static var email: String = ""
+    static var addressNo: String = ""
+    static var addressStreet: String = ""
+    static var addressPostcode: String = ""
+    static var openingTime: String = ""
+    static var closingTime: String = ""
+    static var takingOrders: Bool = true
+    static var verification: Bool = true
+}
 
 class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     
@@ -18,7 +31,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    
         loadSampleDestinations()
         navbar()
         
@@ -44,14 +57,43 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     
     //MARK: Sample Data
     
-    private func loadSampleDestinations() {
+    func loadSampleDestinations() {
         
-        guard let destination1 = Destination(name: "The Coffee Shop", email: "theCoffee@gmail.co,uk", password: "coffee", addressNo: "2", addressStreet: "Portmanmoor Road", addressPostcode: "CF24 5HQ", openingTime: "10:00", closingTime: "13:00", takingOrders: true, verification: true) else{
+        let db = Firestore.firestore()
+        db.collection("Cafe").getDocuments { (snapshot, error) in
+            if error != nil{
+                print("Error loading Cafes: \(String(describing: error))")
+            }
+            else{
+                for document in (snapshot?.documents)! {
+                    
+                    cafe.name = document.data()["Name"] as? String ?? ""
+                    cafe.email = document.data()["Email"] as? String ?? ""
+                    cafe.addressNo = document.data()["Address No."] as? String ?? ""
+                    cafe.addressStreet = document.data()["Address Street"] as? String ?? ""
+                    cafe.addressPostcode = document.data()["Address Postcode"] as? String ?? ""
+                    cafe.openingTime = document.data()["Opening Time"] as? String ?? ""
+                    cafe.closingTime = document.data()["Closing Time"] as? String ?? ""
+                    cafe.takingOrders = document.data()["Taking Orders"] as? Bool ?? true
+                    cafe.verification = document.data()["Verification"]as? Bool ?? true
+                    
+                    guard let destination = Destination(name: cafe.name, email: cafe.email, addressNo: cafe.addressNo, addressStreet: cafe.addressStreet, addressPostcode: cafe.addressPostcode, openingTime: cafe.openingTime, closingTime: cafe.closingTime, takingOrders: cafe.takingOrders, verification: cafe.verification) else{
+                        
+                        fatalError("Unable to create the training ground destination") //Error message
+                    }
+                    self.destinations += [destination]
+                }
+                self.tableView.reloadData()
+            }
+        }
+  
+        
+        /*guard let destination1 = Destination(name: "The Coffee Shop", email: "theCoffee@gmail.co,uk", addressNo: "2", addressStreet: "Portmanmoor Road", addressPostcode: "CF24 5HQ", openingTime: "10:00", closingTime: "13:00", takingOrders: true, verification: true) else{
             
             fatalError("Unable to create the training ground destination") //Error message
         }
         
-        destinations += [destination1]
+        destinations += [destination1]*/
         
     }
     
@@ -109,7 +151,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
             
             fatalError("The Dequeued cell is not an instance of SelectCafeTableViewCell.")
         }
-        
+
         let destination = destinations[indexPath.row]
         
         //Determine and set cell information
