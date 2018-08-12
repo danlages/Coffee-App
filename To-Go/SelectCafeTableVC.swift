@@ -32,7 +32,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        loadSampleDestinations()
+        loadDestinations()
         navbar()
         
         locationManager.delegate = self //CLLocationManager Delegate
@@ -49,7 +49,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        //Set selected cafe so correct menu items show
         let destination = segue.destination as? SelectItemTableVC
         let cellIndex = tableView.indexPathForSelectedRow?.row
         
@@ -63,10 +63,21 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         self.navigationItem.searchController = search
     }
     
+    //Check current time to auto display if cafe is taking orders
+    func getCurrentTime() -> String{
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss"
+        //NEED TO CHECK IF TIME ZONE IS GMT(WINTER) OR GMT+01(SUMMER)
+        formatter.timeZone = TimeZone(identifier:"GMT+01")
+        let currentTime = formatter.string(from: date)
+        return currentTime
+    }
+    
     //MARK: Sample Data
     
-    func loadSampleDestinations() {
-        
+    func loadDestinations() {
+        //Load cafe information from firebase
         let db = Firestore.firestore()
         db.collection("Cafe").getDocuments { (snapshot, error) in
             if error != nil{
@@ -160,6 +171,8 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         cell.destinatioNameLabel.text = destination.name
         cell.distanceLabel.text = "10 KM"
 
+        //CHECK IF CURRENT TIME IS BETWEEN OPENING AND CLOSING TO DETERMINE
+        //IF CAFE IS TAKING ORDERS
         if destination.takingOrders == true {
             cell.orderStatusLabel.text = "Avaliable for Orders"
         }
