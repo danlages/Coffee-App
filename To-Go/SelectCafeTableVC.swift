@@ -27,6 +27,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         
     var destinations  = [Destination]()  //Creates a mutable array of destination objects - allowing for the addition of items after initilsation
     
+    var selectedCafe = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -45,6 +46,14 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let destination = segue.destination as? SelectItemTableVC
+        let cellIndex = tableView.indexPathForSelectedRow?.row
+        
+        destination?.selectedCafe = destinations[cellIndex!].name
     }
     
     func navbar()

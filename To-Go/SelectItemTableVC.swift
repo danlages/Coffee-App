@@ -20,6 +20,7 @@ class SelectItemTableVC: UITableViewController {
     //MARK: Properties
     
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
+    var selectedCafe = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -48,8 +49,8 @@ class SelectItemTableVC: UITableViewController {
     private func loadSampleMenuItems() {
         
         let db = Firestore.firestore()
-        ////////////////////////NEED TO PULL NAME OF CLICKED SHOP
-        db.collection("Cafe").document("The Coffee Shop").collection("Menu").getDocuments { (snapshot, error) in
+    
+        db.collection("Cafe").document(selectedCafe).collection("Menu").getDocuments { (snapshot, error) in
             if error != nil {
                 print("Error loading Cafes: \(String(describing: error))")
             }
