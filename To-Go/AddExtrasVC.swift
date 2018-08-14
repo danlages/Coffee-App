@@ -8,9 +8,11 @@
 
 import UIKit
 
-class AddExtrasTableVC: UITableViewController {
+class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK: - Properties
+    
+    @IBOutlet weak var tableView: UITableView!
     
     var sectionHeaders = ["Sizes", "Extras", "Flavours"]
     
@@ -26,6 +28,9 @@ class AddExtrasTableVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -40,22 +45,23 @@ class AddExtrasTableVC: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
         return sectionsArray.count
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return sectionsArray[section].count
     }
 
-    override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
         label.text = sectionHeaders[section]
+        label.backgroundColor = UIColor.lightGray
         return label
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
         let cellIdentifier = "AddExtrasTableViewCell" //Name used to recognise cell prototype - set in attributes inspector
         
