@@ -48,7 +48,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Set selected cafe so correct menu items show
-        let destination = segue.destination as? SelectItemTableVC
+        let destination = segue.destination as? SelectItemVC
         let cellIndex = tableView.indexPathForSelectedRow?.row
         
         destination?.selectedCafe = destinations[cellIndex!].name
