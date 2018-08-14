@@ -16,18 +16,16 @@ class Destination
     
     var name: String
     var email: String
-    var password: String
     var addressNo: String
     var addressStreet: String
     var addressPostcode: String
     var openingTime: String
     var closingTime: String
     var takingOrders: Bool
-    var verification: Bool
     
     //MARK: Initialization
 
-    init?(name: String, email: String, password: String, addressNo: String, addressStreet: String, addressPostcode: String, openingTime: String, closingTime: String, takingOrders: Bool, verification: Bool)
+    init?(name: String, email: String, addressNo: String, addressStreet: String, addressPostcode: String, openingTime: String, closingTime: String, takingOrders: Bool)
     {
         guard !name.isEmpty else //guard statement: Must be true for code after statement to be executed
         {
@@ -36,14 +34,12 @@ class Destination
         
         self.name = name
         self.email = email
-        self.password = password
         self.addressNo = addressNo
         self.addressStreet = addressStreet
         self.addressPostcode = addressPostcode
         self.openingTime = openingTime
         self.closingTime = closingTime
         self.takingOrders = takingOrders
-        self.verification = verification
         
     }
 

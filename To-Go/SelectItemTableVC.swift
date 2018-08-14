@@ -7,12 +7,20 @@
 //
 
 import UIKit
+import FirebaseFirestore
+
+struct item{
+    static var name: String = ""
+    static var price: Float = 999.99
+    static var size: String = ""
+}
 
 class SelectItemTableVC: UITableViewController {
 
     //MARK: Properties
     
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
+    var selectedCafe = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,12 +48,34 @@ class SelectItemTableVC: UITableViewController {
     
     private func loadSampleMenuItems() {
         
-        guard let menuItem1 = MenuItem(name: "Coffee", size: "Small", price: "£2.00") else{
+        let db = Firestore.firestore()
+    
+        db.collection("Cafe").document(selectedCafe).collection("Menu").getDocuments { (snapshot, error) in
+            if error != nil {
+                print("Error loading Cafes: \(String(describing: error))")
+            }
+            else {
+                for document in (snapshot?.documents)! {
+                    item.name = document.data()["Name"] as? String ?? ""
+                    item.price = document.data()["Price"] as? Float ?? 999.99
+                    item.size = document.data()["Size"] as? String ?? ""
+                    
+                    guard let menuItem = MenuItem(name: item.name, size: item.size, price: item.price) else{
+                        
+                        fatalError("Unable to create the training ground menu item") //Error message
+                    }
+                    self.menuItems += [menuItem]
+                }
+                self.tableView.reloadData()
+            }
+        }
+        
+        /*guard let menuItem1 = MenuItem(name: "Coffee", size: "Small", price: "£2.00") else{
             
             fatalError("Unable to create the training ground menu item") //Error message
         }
         
-        menuItems += [menuItem1]
+        menuItems += [menuItem1]*/
         
     }
     
@@ -74,7 +104,7 @@ class SelectItemTableVC: UITableViewController {
         
         cell.menuItemName.text = menuItem.name
         cell.menuItemSize.text = menuItem.size
-        cell.menuItemPrice.text = menuItem.price
+        cell.menuItemPrice.text = String(menuItem.price)
 
         return cell
     }

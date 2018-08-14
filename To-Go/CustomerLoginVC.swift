@@ -8,7 +8,6 @@
 
 import UIKit
 import FirebaseAuth
-
 class CustomerLoginVC: UIViewController {
 
     //MARK: - Properties

@@ -15,11 +15,11 @@ class MenuItem
     
     var name: String
     var size: String
-    var price: String
+    var price: Float
     
     //MARK: Initialization
     
-    init?(name: String, size: String, price: String)
+    init?(name: String, size: String, price: Float)
     {
         guard !name.isEmpty else //guard statement: Must be true for code after statement to be executed
         {

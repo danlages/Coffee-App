@@ -8,6 +8,18 @@
 
 import UIKit
 import CoreLocation
+import FirebaseFirestore
+
+struct cafe{
+    static var name: String = ""
+    static var email: String = ""
+    static var addressNo: String = ""
+    static var addressStreet: String = ""
+    static var addressPostcode: String = ""
+    static var openingTime: String = ""
+    static var closingTime: String = ""
+    static var takingOrders: Bool = true
+}
 
 class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     
@@ -15,11 +27,12 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         
     var destinations  = [Destination]()  //Creates a mutable array of destination objects - allowing for the addition of items after initilsation
     
+    var selectedCafe = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        loadSampleDestinations()
+    
+        loadDestinations()
         navbar()
         
         locationManager.delegate = self //CLLocationManager Delegate
@@ -35,6 +48,14 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        //Set selected cafe so correct menu items show
+        let destination = segue.destination as? SelectItemTableVC
+        let cellIndex = tableView.indexPathForSelectedRow?.row
+        
+        destination?.selectedCafe = destinations[cellIndex!].name
+    }
+    
     func navbar()
     {
         navigationController?.navigationBar.prefersLargeTitles = true // Large navigation bar
@@ -42,16 +63,49 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         self.navigationItem.searchController = search
     }
     
+    //Check current time to auto display if cafe is taking orders
+    func getCurrentTime() -> String{
+        let date = Date()
+        let formatter = DateFormatter()
+        formatter.dateFormat = "HH:mm:ss"
+        //NEED TO CHECK IF TIME ZONE IS GMT(WINTER) OR GMT+01(SUMMER)
+        formatter.timeZone = TimeZone(identifier:"GMT+01")
+        let currentTime = formatter.string(from: date)
+        return currentTime
+    }
+    
     //MARK: Sample Data
     
-    private func loadSampleDestinations() {
-        
-        guard let destination1 = Destination(name: "The Coffee Shop", email: "theCoffee@gmail.co,uk", password: "coffee", addressNo: "2", addressStreet: "Portmanmoor Road", addressPostcode: "CF24 5HQ", openingTime: "10:00", closingTime: "13:00", takingOrders: true, verification: true) else{
-            
-            fatalError("Unable to create the training ground destination") //Error message
+    func loadDestinations() {
+        //Load cafe information from firebase
+        let db = Firestore.firestore()
+        db.collection("Cafe").getDocuments { (snapshot, error) in
+            if error != nil{
+                print("Error loading Cafes: \(String(describing: error))")
+            }
+            else{
+                for document in (snapshot?.documents)! {
+                    
+                    cafe.name = document.data()["Name"] as? String ?? ""
+                    cafe.email = document.data()["Email"] as? String ?? ""
+                    cafe.addressNo = document.data()["Address No."] as? String ?? ""
+                    cafe.addressStreet = document.data()["Address Street"] as? String ?? ""
+                    cafe.addressPostcode = document.data()["Address Postcode"] as? String ?? ""
+                    cafe.openingTime = document.data()["Opening Time"] as? String ?? ""
+                    cafe.closingTime = document.data()["Closing Time"] as? String ?? ""
+                    cafe.takingOrders = document.data()["Taking Orders"] as? Bool ?? true
+                    
+                    
+                    guard let destination = Destination(name: cafe.name, email: cafe.email, addressNo: cafe.addressNo, addressStreet: cafe.addressStreet, addressPostcode: cafe.addressPostcode, openingTime: cafe.openingTime, closingTime: cafe.closingTime, takingOrders: cafe.takingOrders) else{
+                        
+                        fatalError("Unable to create the training ground destination") //Error message
+                    }
+                    self.destinations += [destination]
+                }
+                self.tableView.reloadData()
+            }
         }
-        
-        destinations += [destination1]
+  
         
     }
     
@@ -109,7 +163,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
             
             fatalError("The Dequeued cell is not an instance of SelectCafeTableViewCell.")
         }
-        
+
         let destination = destinations[indexPath.row]
         
         //Determine and set cell information
@@ -117,6 +171,8 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         cell.destinatioNameLabel.text = destination.name
         cell.distanceLabel.text = "10 KM"
 
+        //CHECK IF CURRENT TIME IS BETWEEN OPENING AND CLOSING TO DETERMINE
+        //IF CAFE IS TAKING ORDERS
         if destination.takingOrders == true {
             cell.orderStatusLabel.text = "Avaliable for Orders"
         }
