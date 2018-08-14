@@ -35,6 +35,15 @@ class SelectItemTableVC: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? AddExtrasVC
+        let cellIndex = tableView.indexPathForSelectedRow?.row
+        
+        destination?.selectedItem = menuItems[cellIndex!].name
+        destination?.selectedCafe = selectedCafe
+    }
+    
     //MARK: Navigation Bar and Search
     
     func navbar()
@@ -52,7 +61,7 @@ class SelectItemTableVC: UITableViewController {
     
         db.collection("Cafe").document(selectedCafe).collection("Menu").getDocuments { (snapshot, error) in
             if error != nil {
-                print("Error loading Cafes: \(String(describing: error))")
+                print("Error loading Items: \(String(describing: error))")
             }
             else {
                 for document in (snapshot?.documents)! {
@@ -69,14 +78,6 @@ class SelectItemTableVC: UITableViewController {
                 self.tableView.reloadData()
             }
         }
-        
-        /*guard let menuItem1 = MenuItem(name: "Coffee", size: "Small", price: "£2.00") else{
-            
-            fatalError("Unable to create the training ground menu item") //Error message
-        }
-        
-        menuItems += [menuItem1]*/
-        
     }
     
     // MARK: Table view data source
