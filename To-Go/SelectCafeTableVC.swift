@@ -27,8 +27,6 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         
     var destinations  = [Destination]()  //Creates a mutable array of destination objects - allowing for the addition of items after initilsation
     
-    var selectedCafe = ""
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     

@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
@@ -14,22 +15,18 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBOutlet weak var tableView: UITableView!
     
-    var sectionHeaders = ["Sizes", "Extras", "Flavours"]
+    var sectionHeaders = [String]()
+    var sectionsArray = [[String]]()
     
-    var sectionsArray = [
-        ["regular", "large"],
-        ["milk", "sugar", "syrup"],
-        ["choc", "vanilla"]
-    ]
-    
-    var extras = ["milk", "sugar", "syrup"]
-    var sizes = ["regular", "large"]
+    var selectedItem = ""
+    var selectedCafe = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.tableView.delegate = self
         self.tableView.dataSource = self
+        loadExtras()
         
     }
 
@@ -38,21 +35,71 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         // Dispose of any resources that can be recreated.
     }
 
+    //MARK: - load extras for selected item
+    private func loadExtras(){
+        
+        let db = Firestore.firestore()
+        
+        db.collection("Cafe").document(selectedCafe).collection("Menu").document(selectedItem).collection("Collection Names").getDocuments { (snapshot, error) in
+            if error != nil {
+                print("Error loading Extras: \(String(describing: error))")
+            }
+            else {
+                for document in (snapshot?.documents)! {
+                    
+                    self.sectionHeaders.append(document.documentID)
+                }
+                
+                for i in 0...(self.sectionHeaders.count - 1) {
+                    db.collection("Cafe").document(self.selectedCafe).collection("Menu").document(self.selectedItem).collection(self.sectionHeaders[i]).getDocuments(completion: { (snapshot, error) in
+                        if error != nil {
+                            print("Error loading section header documents: \(String(describing: error))")
+                        }
+                        else {
+                            var tempArray = [String]()
+                            for document in (snapshot?.documents)! {
+                                tempArray.append(document.documentID)
+                            }
+                            self.sectionsArray.append(tempArray)
+                            self.tableView.reloadData()
+                        }
+                    })
+                }
+            }
+        }
+    }
+    
+    
     // MARK: - Table view data source
 
-    
     func numberOfSections(in tableView: UITableView) -> Int {
-        return sectionsArray.count
+        if sectionsArray.count == 0 {
+            return 1
+        }
+        else{
+            return sectionsArray.count
+        }
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sectionsArray[section].count
+        if sectionsArray.count == 0 {
+            return 1
+        }
+        else {
+            return sectionsArray[section].count
+        }
     }
 
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
-        label.text = sectionHeaders[section]
-        label.backgroundColor = UIColor.lightGray
+        if sectionHeaders.count == 0 {
+            label.text = ""
+        }
+        else {
+            label.text = sectionHeaders[section]
+            label.backgroundColor = UIColor.lightGray
+        }
+    
         return label
     }
     
@@ -65,10 +112,16 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             fatalError("The Dequeued cell is not an instance of SelectItemTableViewCell.")
         }
         
-        let extra = sectionsArray[indexPath.section][indexPath.row]
-        
-        cell.extra.text = extra
-        cell.price.text = "£0.00"
+        if sectionsArray.count == 0 {
+            cell.extra.text = ""
+            cell.price.text = ""
+        }
+        else
+        {
+            let extra = sectionsArray[indexPath.section][indexPath.row]
+            cell.extra.text = extra
+            cell.price.text = "£0.00"
+        }
 
         return cell
     }
