@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 import FirebaseFirestore
+import MapKit
+
 
 struct cafe{
     static var name: String = ""
@@ -25,7 +27,11 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     
     //MARK: Properties
         
+    @IBOutlet weak var destinationMapView: MKMapView! //Used at TableView Header - consider changing to simply View controller if required.
+    
+    
     var destinations  = [Destination]()  //Creates a mutable array of destination objects - allowing for the addition of items after initilsation
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,11 +45,14 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         locationManager.startUpdatingLocation()
         locationManager.distanceFilter = 100 //Only update distance information when user has moved given number of meters from previous update to improve efficiency
         
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -118,8 +127,15 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         let userLong = location.longitude
         let userLocation = CLLocation(latitude: userLat, longitude: userLong)
         
-        let geoCoder = CLGeocoder()
+        //Convert data to readable 2D coordinate region
+        let span = MKCoordinateSpanMake(0.01, 0.01)
+        let currentLocal = userLocation.coordinate
+        let region = MKCoordinateRegionMake(currentLocal, span)
         
+        destinationMapView.setRegion(region, animated: true) // Represent User Location on map
+        self.destinationMapView.showsUserLocation = true
+        
+        let geoCoder = CLGeocoder()
         for dest in destinations {
             // Determine location of each destination displayed in table view
             let destinationAddress = (dest.addressNo + ", " + dest.addressStreet + ", " + dest.addressPostcode) //Group address variables to analyse the geo-location
@@ -168,6 +184,15 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         
         cell.destinatioNameLabel.text = destination.name
         cell.distanceLabel.text = "10 KM"
+        
+        //MARK: Cell Asthetics
+        cell.layer.borderWidth = 0.5
+        cell.layer.borderColor = accentColor.cgColor
+        
+        let cellTextColor = UIColor.white
+        cell.destinatioNameLabel.textColor = cellTextColor
+        cell.distanceLabel.textColor = cellTextColor
+        cell.orderStatusLabel.textColor = cellTextColor
 
         //CHECK IF CURRENT TIME IS BETWEEN OPENING AND CLOSING TO DETERMINE
         //IF CAFE IS TAKING ORDERS
@@ -178,6 +203,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         else {
             cell.orderStatusLabel.text = "Not Taking Orders"
         }
+        
 
         return cell
     }
