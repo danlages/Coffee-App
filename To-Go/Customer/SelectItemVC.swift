@@ -70,6 +70,7 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                     }
                     self.menuItems += [menuItem]
                 }
+                
                 self.selectItemTableView.reloadData()
             }
         }

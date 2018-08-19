@@ -11,7 +11,7 @@
 		2F8796A821238B6C00EA2E23 /* SelectItemVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8796A721238B6C00EA2E23 /* SelectItemVC.swift */; };
 		2F8C4F05211B1BD300328514 /* SelectAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C4F04211B1BD300328514 /* SelectAccountVC.swift */; };
 		2F9954D620ECF55F008D4E65 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9954D520ECF55F008D4E65 /* Destination.swift */; };
-		2FE0E0A3211897A6000D51A8 /* ViewOrderTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE0E0A2211897A6000D51A8 /* ViewOrderTableVC.swift */; };
+		2FE0E0A3211897A6000D51A8 /* ViewOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE0E0A2211897A6000D51A8 /* ViewOrderVC.swift */; };
 		3C443FEE9403B524BDC729C5 /* Pods_To_GoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CC0DCAE92C9AE278757C1C /* Pods_To_GoTests.framework */; };
 		51F226C67DA333ACB1E80090 /* Pods_To_Go.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB38815962A90B661FDFF43F /* Pods_To_Go.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		690CA1E820C99968009C6701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690CA1E720C99968009C6701 /* AppDelegate.swift */; };
@@ -63,7 +63,7 @@
 		2F8796A721238B6C00EA2E23 /* SelectItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemVC.swift; sourceTree = "<group>"; };
 		2F8C4F04211B1BD300328514 /* SelectAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountVC.swift; sourceTree = "<group>"; };
 		2F9954D520ECF55F008D4E65 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
-		2FE0E0A2211897A6000D51A8 /* ViewOrderTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderTableVC.swift; sourceTree = "<group>"; };
+		2FE0E0A2211897A6000D51A8 /* ViewOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderVC.swift; sourceTree = "<group>"; };
 		4FDD60D7A1D67DCEB4B95FB8 /* Pods-To-GoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To-GoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-To-GoTests/Pods-To-GoTests.release.xcconfig"; sourceTree = "<group>"; };
 		56CC0DCAE92C9AE278757C1C /* Pods_To_GoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_GoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		690CA1E420C99968009C6701 /* To-Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "To-Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -232,7 +232,7 @@
 				694334AC20CC3DAB00B70252 /* SelectItemTableViewCell.swift */,
 				89BA06172123151F00FA0A3E /* AddExtrasVC.swift */,
 				89BA06192123154800FA0A3E /* AddExtrasTableViewCell.swift */,
-				2FE0E0A2211897A6000D51A8 /* ViewOrderTableVC.swift */,
+				2FE0E0A2211897A6000D51A8 /* ViewOrderVC.swift */,
 				690CA21D20C9A742009C6701 /* PlaceOrderVC.swift */,
 				6942F0E220D15C4100E5A194 /* ActiveOrderVC.swift */,
 			);
@@ -481,7 +481,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				89BA06182123151F00FA0A3E /* AddExtrasVC.swift in Sources */,
-				2FE0E0A3211897A6000D51A8 /* ViewOrderTableVC.swift in Sources */,
+				2FE0E0A3211897A6000D51A8 /* ViewOrderVC.swift in Sources */,
 				690CA21E20C9A742009C6701 /* PlaceOrderVC.swift in Sources */,
 				6942F0E320D15C4100E5A194 /* ActiveOrderVC.swift in Sources */,
 				690CA22020C9A784009C6701 /* SelectCafeTableViewCell.swift in Sources */,

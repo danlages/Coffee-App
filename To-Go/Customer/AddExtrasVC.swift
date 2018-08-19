@@ -36,7 +36,7 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
 
     //MARK: - load extras for selected item
-    private func loadExtras(){
+    private func loadExtras() {
         
         let db = Firestore.firestore()
         
@@ -130,7 +130,7 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none  //Check if checkmark is present 
         }
         else{
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark

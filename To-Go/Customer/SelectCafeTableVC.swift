@@ -87,7 +87,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         //Load cafe information from firebase
         let db = Firestore.firestore()
         db.collection("Cafe").getDocuments { (snapshot, error) in
-            if error != nil{
+            if error != nil {
                 print("Error loading Cafes: \(String(describing: error))")
             }
             else{
@@ -112,8 +112,6 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
                 self.tableView.reloadData()
             }
         }
-  
-        
     }
     
     //MARK: Determine Distance Using Core Location API
@@ -203,8 +201,6 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         else {
             cell.orderStatusLabel.text = "Not Taking Orders"
         }
-        
-
         return cell
     }
     
