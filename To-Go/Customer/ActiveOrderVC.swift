@@ -8,31 +8,101 @@
 
 import UIKit
 import MapKit
+import FirebaseFirestore
 
-class ActiveOrderVC: UIViewController {
+class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     //MARK:Properties
     
-    @IBOutlet weak var activeDestinationNameLabel: UILabel!
+    @IBOutlet weak var activeOrderDestinationLabel: UILabel!
     
-    @IBOutlet weak var activeDestinationMapView: MKMapView!
+    @IBOutlet weak var activeOrderMapView: MKMapView!
     
-    @IBOutlet weak var activeOrderCountdownLabel: UILabel!
+    @IBOutlet weak var activeOrderTimerLabel: UILabel!
     
-    @IBOutlet weak var activeOrderCostLabel: UILabel!
+    @IBOutlet weak var activeOrderCollectedButton: UIButton!
+
+    @IBOutlet weak var activeOrderTableView: UITableView!
     
-    @IBOutlet weak var activeOrderCollectionTimeLabel: UILabel!
     
-    @IBOutlet weak var orderCollectedButton: UIButton!
+    var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
+    var selectedCafe = ""
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.activeOrderTableView.delegate = self
+        self.activeOrderTableView.dataSource = self
+        
+        loadSampleMenuItems()
+        
         // Do any additional setup after loading the view.
     }
     
+    private func loadSampleMenuItems() {
+        
+        let db = Firestore.firestore()
+        
+        db.collection("Cafe").document(selectedCafe).collection("Menu").getDocuments { (snapshot, error) in
+            if error != nil {
+                print("Error loading Cafes: \(String(describing: error))")
+            }
+            else {
+                for document in (snapshot?.documents)! {
+                    item.name = document.data()["Name"] as? String ?? ""
+                    item.price = document.data()["Price"] as? Float ?? 999.99
+                    item.size = document.data()["Size"] as? String ?? ""
+                    
+                    guard let menuItem = MenuItem(name: item.name, size: item.size, price: item.price) else{
+                        
+                        fatalError("Unable to create the training ground menu item") //Error message
+                    }
+                    self.menuItems += [menuItem]
+                }
+                
+                self.activeOrderTableView.reloadData()
+            }
+        }
+        
+        /*guard let menuItem1 = MenuItem(name: "Coffee", size: "Small", price: "£2.00") else{
+         
+         fatalError("Unable to create the training ground menu item") //Error message
+         }
+         
+         menuItems += [menuItem1]*/
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return menuItems.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellIdentifier = "SelectItemTableViewCell" //Name used to recognise cell prototype - set in attributes inspector
+        
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SelectItemTableViewCell else {
+            
+            fatalError("The Dequeued cell is not an instance of SelectItemTableViewCell.")
+        }
+        
+        let menuItem = menuItems[indexPath.row]
+        
+        //Determine and set cell information
+        
+        cell.menuItemName.text = menuItem.name
+        cell.menuItemSize.text = menuItem.size
+        cell.menuItemPrice.text = String(menuItem.price)
+        
+        return cell
+    }
+    
 
+    
     /*
     // MARK: - Navigation
 
