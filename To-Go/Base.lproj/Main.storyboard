@@ -212,7 +212,8 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="362"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vt2-lh-Pag">
-                                                <rect key="frame" x="154" y="166.33333333333334" width="67" height="30"/>
+                                                <rect key="frame" x="126.66666666666669" y="160" width="123" height="43"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
                                                 <state key="normal" title="Customer">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
@@ -231,9 +232,10 @@
                                         <rect key="frame" x="0.0" y="362" width="375" height="362"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d1G-JO-znc">
-                                                <rect key="frame" x="156" y="166.33333333333337" width="62" height="30"/>
+                                                <rect key="frame" x="131.33333333333334" y="159.66666666666663" width="113" height="43"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="26"/>
                                                 <state key="normal" title="Business">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
                                                 <connections>
                                                     <segue destination="yQ1-wX-30r" kind="show" id="qBN-fh-Ha0"/>
@@ -503,13 +505,13 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" id="UkS-gl-WHT">
-                            <rect key="frame" x="0.0" y="0.0" width="375" height="472"/>
+                        <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" scrollEnabled="NO" id="UkS-gl-WHT">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="366"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </mapView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SelectCafeTableViewCell" rowHeight="90" id="Aci-HB-f8J" customClass="SelectCafeTableViewCell" customModule="To_Go" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="500" width="375" height="90"/>
+                                <rect key="frame" x="0.0" y="394" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Aci-HB-f8J" id="xFK-b2-LCw">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="89.666666666666671"/>
@@ -686,10 +688,10 @@
             </objects>
             <point key="canvasLocation" x="3645.5999999999999" y="92.364532019704441"/>
         </scene>
-        <!--View Controller-->
+        <!--Order-->
         <scene sceneID="FVQ-sl-PI8">
             <objects>
-                <viewController id="YwY-Uq-lnA" sceneMemberID="viewController">
+                <viewController title="Order" id="YwY-Uq-lnA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UZN-B2-aMd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -764,7 +766,7 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <color key="highlightedColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </label>
-                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6j7-Aq-dJl">
+                                        <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6j7-Aq-dJl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="511"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
@@ -896,7 +898,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyP-WC-Ypr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4729" y="882"/>
         </scene>
         <!--Extras-->
         <scene sceneID="ahm-dw-PeH">
