@@ -21,6 +21,10 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var selectedItem = ""
     var selectedCafe = ""
     
+    var itemChecked = [[Bool]]()
+    var orderItem = [String]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,6 +39,40 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         // Dispose of any resources that can be recreated.
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as? SelectItemVC
+        destination?.orderItem = orderItem //send item back to order
+    }
+    
+    @IBAction func AddToOrderBtnTapped(_ sender: UIButton) {
+        getSelectedItems()
+        performSegue(withIdentifier: "unwindToSelectItem", sender: self)
+    }
+    
+    private func getSelectedItems(){
+        
+        orderItem.append(selectedItem)
+        var tempIndex = 0
+        
+        for(section, item) in sectionsArray.enumerated() {
+            
+            tempIndex = 0
+            
+            for extra in item {
+                
+                if itemChecked[section][tempIndex] == true {
+                    print("extra: \(extra)")
+                    orderItem.append(extra)
+                }
+                tempIndex += 1
+            }
+        }
+        
+        if orderItem.count == 1{
+            print("no extras added")
+        }
+    }
+    
     //MARK: - load extras for selected item
     private func loadExtras() {
         
@@ -56,11 +94,14 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                             print("Error loading section header documents: \(String(describing: error))")
                         }
                         else {
+                            var boolTempArray = [Bool]()
                             var tempArray = [String]()
                             for document in (snapshot?.documents)! {
                                 tempArray.append(document.documentID)
+                                boolTempArray.append(false)
                             }
                             self.sectionsArray.append(tempArray)
+                            self.itemChecked.append(boolTempArray)
                             self.tableView.reloadData()
                         }
                     })
@@ -128,57 +169,17 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        //set checkmark when clicked
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCellAccessoryType.checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none  //Check if checkmark is present 
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.none
+            itemChecked[indexPath.section][indexPath.row] = false
         }
         else{
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCellAccessoryType.checkmark
+            itemChecked[indexPath.section][indexPath.row] = true
         }
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
-    }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+   
+    
 
 }

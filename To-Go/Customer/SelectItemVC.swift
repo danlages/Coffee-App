@@ -16,11 +16,16 @@ struct item{
 
 class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    var order = [Order]()
+    var orderItem = [String]() //stores item with extras to add to order - recieved from add extras
+    
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
     var selectedCafe = ""
     
     
     @IBOutlet weak var selectItemTableView: UITableView!
+    @IBOutlet weak var viewOrderBtn: UIButton!
+    @IBOutlet weak var viewOrderView: UIView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,15 +33,17 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.selectItemTableView.delegate = self
         self.selectItemTableView.dataSource = self
         
-        loadSampleMenuItems()
+        loadMenuItems()
         
         navbar()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        if order.count == 0 {
+            viewOrderView.isHidden = true
+        }
+    }
+    
+    @IBAction func unwindToSelectItem(segue:UIStoryboardSegue) {
         
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
     
     //MARK: Navigation Bar and Search
@@ -48,9 +55,9 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.navigationItem.searchController = search
     }
     
-    //MARK: Sample Data
+    //MARK: Menu load
     
-    private func loadSampleMenuItems() {
+    private func loadMenuItems() {
         
         let db = Firestore.firestore()
         
@@ -75,14 +82,14 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             }
         }
         
-        /*guard let menuItem1 = MenuItem(name: "Coffee", size: "Small", price: "£2.00") else{
-         
-         fatalError("Unable to create the training ground menu item") //Error message
-         }
-         
-         menuItems += [menuItem1]*/
+    }
+    
+    //MARK: - Add to Order
+    
+    private func addToOrder(){
         
     }
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -96,6 +103,8 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         destination?.selectedItem = menuItems[cellIndex!].name
         destination?.selectedCafe = selectedCafe
     }
+    
+    //MARK: - Table View
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -124,15 +133,5 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         return cell
     }
-    
-    /*
-     // MARK: - Navigation
-     
-     // In a storyboard-based application, you will often want to do a little preparation before navigation
-     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-     // Get the new view controller using segue.destinationViewController.
-     // Pass the selected object to the new view controller.
-     }
-     */
     
 }

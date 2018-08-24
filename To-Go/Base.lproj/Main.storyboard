@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="x2n-7T-ygG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -695,13 +695,39 @@
                     <view key="view" contentMode="scaleToFill" id="UZN-B2-aMd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VH3-Bf-Beb">
+                                <rect key="frame" x="0.0" y="679" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZ5-9i-hbw">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
+                                        <state key="normal" title="Complete Payment">
+                                            <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="XZ5-9i-hbw" firstAttribute="top" secondItem="VH3-Bf-Beb" secondAttribute="top" id="4VN-mH-YVK"/>
+                                    <constraint firstItem="XZ5-9i-hbw" firstAttribute="leading" secondItem="VH3-Bf-Beb" secondAttribute="leading" id="9Bq-u6-tqk"/>
+                                    <constraint firstAttribute="bottom" secondItem="XZ5-9i-hbw" secondAttribute="bottom" id="ZRk-8v-kdb"/>
+                                    <constraint firstAttribute="height" constant="50" id="bi6-1N-8bH"/>
+                                    <constraint firstAttribute="trailing" secondItem="XZ5-9i-hbw" secondAttribute="trailing" id="eb1-Qb-ZGT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VH3-Bf-Beb" firstAttribute="leading" secondItem="aEj-F8-15K" secondAttribute="leading" id="LrS-T7-khQ"/>
+                            <constraint firstItem="VH3-Bf-Beb" firstAttribute="bottom" secondItem="aEj-F8-15K" secondAttribute="bottom" id="SQg-gP-Kyt"/>
+                            <constraint firstItem="VH3-Bf-Beb" firstAttribute="trailing" secondItem="aEj-F8-15K" secondAttribute="trailing" id="cX0-OA-lE8"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="aEj-F8-15K"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXD-zZ-Udk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4729" y="92"/>
+            <point key="canvasLocation" x="4728.8000000000002" y="91.625615763546804"/>
         </scene>
         <!--Active Order-->
         <scene sceneID="15M-GM-KZG">
@@ -872,7 +898,6 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyP-WC-Ypr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4729" y="811"/>
         </scene>
         <!--Extras-->
         <scene sceneID="ahm-dw-PeH">
@@ -940,6 +965,9 @@
                                         <state key="normal" title="Add to Order">
                                             <color key="titleColor" red="0.28627450980392155" green="0.28627450980392155" blue="0.28627450980392155" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="AddToOrderBtnTapped:" destination="faq-Sn-ZeY" eventType="touchUpInside" id="B9T-vm-vNm"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -966,9 +994,11 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="8Qw-el-o29" id="iAW-kp-fZ6"/>
+                        <segue destination="PlM-eV-OWl" kind="unwind" identifier="unwindToSelectItem" unwindAction="unwindToSelectItemWithSegue:" id="r7B-V7-LRy"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DyM-5q-lU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="PlM-eV-OWl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="4728.8000000000002" y="-656.1576354679803"/>
         </scene>
@@ -1018,7 +1048,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GhI-YE-6RM">
-                                <rect key="frame" x="0.0" y="88" width="375" height="591"/>
+                                <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectItemTableViewCell" rowHeight="87" id="FPg-3M-8Ev" customClass="SelectItemTableViewCell" customModule="To_Go" customModuleProvider="target">
@@ -1111,9 +1141,9 @@
                         <constraints>
                             <constraint firstItem="xtg-yI-J46" firstAttribute="leading" secondItem="YfH-7C-kPB" secondAttribute="leading" id="2nL-se-Jxl"/>
                             <constraint firstItem="GhI-YE-6RM" firstAttribute="leading" secondItem="YfH-7C-kPB" secondAttribute="leading" id="GUp-er-7kW"/>
-                            <constraint firstItem="xtg-yI-J46" firstAttribute="top" secondItem="GhI-YE-6RM" secondAttribute="bottom" id="IwP-hG-mVR"/>
                             <constraint firstItem="GhI-YE-6RM" firstAttribute="top" secondItem="YfH-7C-kPB" secondAttribute="top" id="TMT-q1-mJ5"/>
                             <constraint firstItem="xtg-yI-J46" firstAttribute="trailing" secondItem="YfH-7C-kPB" secondAttribute="trailing" id="cXh-25-bxG"/>
+                            <constraint firstItem="GhI-YE-6RM" firstAttribute="bottom" secondItem="YfH-7C-kPB" secondAttribute="bottom" id="m4U-Im-1WB"/>
                             <constraint firstItem="xtg-yI-J46" firstAttribute="bottom" secondItem="YfH-7C-kPB" secondAttribute="bottom" id="n8k-Hn-PTb"/>
                             <constraint firstItem="GhI-YE-6RM" firstAttribute="trailing" secondItem="YfH-7C-kPB" secondAttribute="trailing" id="wFz-Qb-wnr"/>
                         </constraints>
@@ -1121,6 +1151,8 @@
                     </view>
                     <connections>
                         <outlet property="selectItemTableView" destination="GhI-YE-6RM" id="tR5-cs-JT4"/>
+                        <outlet property="viewOrderBtn" destination="2ZJ-gp-Qqt" id="9Wg-m6-BT4"/>
+                        <outlet property="viewOrderView" destination="xtg-yI-J46" id="V1f-fa-JL4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDY-kI-ZIL" userLabel="First Responder" sceneMemberID="firstResponder"/>

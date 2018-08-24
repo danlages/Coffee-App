@@ -37,6 +37,7 @@
 		89BA7E4A2124C1E700009A52 /* BusinessLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA7E492124C1E700009A52 /* BusinessLoginVC.swift */; };
 		89BA7E4C2124C1F600009A52 /* BusinessHomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA7E4B2124C1F600009A52 /* BusinessHomeVC.swift */; };
 		89BA7E4F2124C26800009A52 /* EditMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA7E4E2124C26800009A52 /* EditMenuVC.swift */; };
+		89BA7E51212C32B500009A52 /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA7E50212C32B500009A52 /* Order.swift */; };
 		94FDD5481BCFF9E2B2DD885F /* Pods_To_GoUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7841F19F3DBAB51F9923CDC9 /* Pods_To_GoUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		89BA7E492124C1E700009A52 /* BusinessLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessLoginVC.swift; sourceTree = "<group>"; };
 		89BA7E4B2124C1F600009A52 /* BusinessHomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BusinessHomeVC.swift; sourceTree = "<group>"; };
 		89BA7E4E2124C26800009A52 /* EditMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMenuVC.swift; sourceTree = "<group>"; };
+		89BA7E50212C32B500009A52 /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		9AAEA1B262D4DDFC100E0871 /* Pods-To-Go.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To-Go.debug.xcconfig"; path = "Pods/Target Support Files/Pods-To-Go/Pods-To-Go.debug.xcconfig"; sourceTree = "<group>"; };
 		D597923920A3E3A5AD3B7C91 /* Pods-To-GoUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To-GoUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-To-GoUITests/Pods-To-GoUITests.release.xcconfig"; sourceTree = "<group>"; };
 		DB38815962A90B661FDFF43F /* Pods_To_Go.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_Go.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -244,6 +246,7 @@
 			children = (
 				2F9954D520ECF55F008D4E65 /* Destination.swift */,
 				89BA0601210DEAB200FA0A3E /* MenuItem.swift */,
+				89BA7E50212C32B500009A52 /* Order.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -482,6 +485,7 @@
 			files = (
 				89BA06182123151F00FA0A3E /* AddExtrasVC.swift in Sources */,
 				2FE0E0A3211897A6000D51A8 /* ViewOrderVC.swift in Sources */,
+				89BA7E51212C32B500009A52 /* Order.swift in Sources */,
 				690CA21E20C9A742009C6701 /* PlaceOrderVC.swift in Sources */,
 				6942F0E320D15C4100E5A194 /* ActiveOrderVC.swift in Sources */,
 				690CA22020C9A784009C6701 /* SelectCafeTableViewCell.swift in Sources */,
