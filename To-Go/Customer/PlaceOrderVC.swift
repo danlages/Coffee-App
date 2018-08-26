@@ -10,40 +10,24 @@ import UIKit
 
 //MARK: TableViewCells
 
-class OrderTableViewCell: UITableViewCell {
-    
-    
-}
-
-class AddToOrderTableViewCell: UITableViewCell {
-    
-    
-}
-
 class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     //MARK:Properties
     
     @IBOutlet weak var locationNameLabel: UILabel!
     
-    @IBOutlet weak var selectPickupTimeTextField: UITextField!
-    
     @IBOutlet weak var nameForCollectionTextField: UITextField!
     
-    @IBOutlet weak var orderTableView: UITableView!
-    
-    @IBOutlet weak var summaryCostOfOrderLabel: UILabel!
-    
-    @IBOutlet weak var SummaryCollectionTimeLabel: UILabel!
+    @IBOutlet weak var selectPickupTimeTextField: UITextField!
     
     @IBOutlet weak var errorMessageLabel: UILabel!
     
     @IBAction func placeOrderButton(_ sender: Any) {
-        
         ValidateEntry()  //Button action
     }
     
-
+    @IBOutlet weak var placeOrderButtonOutlet: UIButton!
+    
     //MARK: Variables
     
     var timePicker = UIPickerView()  //Picker for selecting time for collection
@@ -57,16 +41,17 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         timePicker.dataSource = self
         selectPickupTimeTextField.inputView = timePicker
         self.nameForCollectionTextField.delegate = self
-        
         errorMessageLabel.text = "" //Do not display error upon load
         navbar();
     }
     
     func navbar() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        placeOrderButtonOutlet.layer.cornerRadius = 5 //Button Design Implementation
     }
     
-
+    
+    
     //MARK: Delegates
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -95,8 +80,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent: Int) {
         selectPickupTimeTextField.text = timePickerData[row]
         dismissKeyboard()
-        
-        SummaryCollectionTimeLabel.text = String(timesAvaliable[row]) // Look at this - need to ensure arrays are in same order - perhaps another way
     }
     
     //MARK: CollectionNameTextField
