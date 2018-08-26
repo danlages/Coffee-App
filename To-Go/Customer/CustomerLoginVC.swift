@@ -8,7 +8,7 @@
 
 import UIKit
 import FirebaseAuth
-class CustomerLoginVC: UIViewController {
+class CustomerLoginVC: UIViewController, UITextFieldDelegate {
 
     //MARK: - Properties
     @IBOutlet weak var emailTextField: UITextField!
@@ -19,6 +19,19 @@ class CustomerLoginVC: UIViewController {
         super.viewDidLoad()
         
         navbar()
+        
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
+    }
+    
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
     
     //MARK: Navigation Bar
