@@ -505,13 +505,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+
+                     
                         <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" scrollEnabled="NO" id="UkS-gl-WHT">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="297"/>
+
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </mapView>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SelectCafeTableViewCell" rowHeight="90" id="Aci-HB-f8J" customClass="SelectCafeTableViewCell" customModule="To_Go" customModuleProvider="target">
+
                                 <rect key="frame" x="0.0" y="325" width="375" height="90"/>
+
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Aci-HB-f8J" id="xFK-b2-LCw">
                                     <rect key="frame" x="0.0" y="0.0" width="341" height="89.666666666666671"/>
@@ -649,7 +654,9 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xfc-eY-S5c">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="50"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+
                                         <state key="normal" title="View Basket">
+
                                             <color key="titleColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
@@ -691,13 +698,14 @@
         <!--Order-->
         <scene sceneID="FVQ-sl-PI8">
             <objects>
-                <viewController title="Order" id="YwY-Uq-lnA" customClass="PlaceOrderVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Order" id="YwY-Uq-lnA" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UZN-B2-aMd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VH3-Bf-Beb">
                                 <rect key="frame" x="0.0" y="679" width="375" height="50"/>
+
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bi6-1N-8bH"/>
@@ -825,11 +833,11 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="bke-Rb-ND7" firstAttribute="trailing" secondItem="VH3-Bf-Beb" secondAttribute="trailing" id="K6d-bd-BPY"/>
                             <constraint firstItem="VH3-Bf-Beb" firstAttribute="leading" secondItem="aEj-F8-15K" secondAttribute="leading" id="LrS-T7-khQ"/>
                             <constraint firstItem="VH3-Bf-Beb" firstAttribute="bottom" secondItem="aEj-F8-15K" secondAttribute="bottom" id="SQg-gP-Kyt"/>
                             <constraint firstItem="bke-Rb-ND7" firstAttribute="top" secondItem="aEj-F8-15K" secondAttribute="top" constant="-43" id="Sdu-rr-3xw"/>
                             <constraint firstItem="VH3-Bf-Beb" firstAttribute="trailing" secondItem="aEj-F8-15K" secondAttribute="trailing" id="cX0-OA-lE8"/>
+
                             <constraint firstItem="bke-Rb-ND7" firstAttribute="bottom" secondItem="aEj-F8-15K" secondAttribute="bottom" constant="86" id="cl5-qm-lKd"/>
                             <constraint firstItem="bke-Rb-ND7" firstAttribute="leading" secondItem="VH3-Bf-Beb" secondAttribute="leading" id="yUq-i9-sER"/>
                         </constraints>
@@ -842,6 +850,7 @@
                         <outlet property="placeOrderButtonOutlet" destination="cN9-Uj-WOA" id="3N2-WG-zhw"/>
                         <outlet property="selectPickupTimeTextField" destination="isP-sJ-avg" id="Rdn-1z-aST"/>
                     </connections>
+
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXD-zZ-Udk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -1016,7 +1025,9 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyP-WC-Ypr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+
             <point key="canvasLocation" x="4729" y="811"/>
+
         </scene>
         <!--Extras-->
         <scene sceneID="ahm-dw-PeH">

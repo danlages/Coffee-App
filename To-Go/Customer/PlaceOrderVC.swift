@@ -10,15 +10,31 @@ import UIKit
 
 //MARK: TableViewCells
 
+class OrderTableViewCell: UITableViewCell {
+    
+    
+}
+
+class AddToOrderTableViewCell: UITableViewCell {
+    
+    
+}
+
 class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     //MARK:Properties
     
     @IBOutlet weak var locationNameLabel: UILabel!
     
+    @IBOutlet weak var selectPickupTimeTextField: UITextField!
+    
     @IBOutlet weak var nameForCollectionTextField: UITextField!
     
-    @IBOutlet weak var selectPickupTimeTextField: UITextField!
+    @IBOutlet weak var orderTableView: UITableView!
+    
+    @IBOutlet weak var summaryCostOfOrderLabel: UILabel!
+    
+    @IBOutlet weak var SummaryCollectionTimeLabel: UILabel!
     
     @IBOutlet weak var errorMessageLabel: UILabel!
     
@@ -50,7 +66,9 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     
     func navbar() {
         navigationController?.navigationBar.prefersLargeTitles = true
+
         placeOrderButtonOutlet.layer.cornerRadius = 5 // Button Design
+
     }
     
 
@@ -82,6 +100,8 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent: Int) {
         selectPickupTimeTextField.text = timePickerData[row]
         dismissKeyboard()
+        
+        SummaryCollectionTimeLabel.text = String(timesAvaliable[row]) // Look at this - need to ensure arrays are in same order - perhaps another way
     }
     
     //MARK: CollectionNameTextField
