@@ -24,6 +24,9 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var activeOrderTableView: UITableView!
     
+    @IBAction func collectedButtonAction(_ sender: Any) {
+        
+    }
     
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
     var selectedCafe = ""
@@ -36,8 +39,13 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
         self.activeOrderTableView.dataSource = self
         
         loadSampleMenuItems()
+        buttonDesign()
         
         // Do any additional setup after loading the view.
+    }
+    
+    func buttonDesign() {
+        activeOrderCollectedButton.layer.cornerRadius = 5
     }
     
     private func loadSampleMenuItems() {
