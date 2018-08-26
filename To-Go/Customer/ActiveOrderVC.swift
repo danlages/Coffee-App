@@ -40,6 +40,10 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
         // Do any additional setup after loading the view.
     }
     
+    func buttonDesign() {
+        activeOrderCollectedButton.layer.cornerRadius = 5
+    }
+    
     private func loadSampleMenuItems() {
         
         let db = Firestore.firestore()
