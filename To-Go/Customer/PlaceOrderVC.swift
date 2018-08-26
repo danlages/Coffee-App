@@ -10,15 +10,6 @@ import UIKit
 
 //MARK: TableViewCells
 
-class OrderTableViewCell: UITableViewCell {
-    
-    
-}
-
-class AddToOrderTableViewCell: UITableViewCell {
-    
-    
-}
 
 class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
@@ -26,25 +17,17 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     
     @IBOutlet weak var locationNameLabel: UILabel!
     
-    @IBOutlet weak var selectPickupTimeTextField: UITextField!
-    
     @IBOutlet weak var nameForCollectionTextField: UITextField!
     
-    @IBOutlet weak var orderTableView: UITableView!
-    
-    @IBOutlet weak var summaryCostOfOrderLabel: UILabel!
-    
-    @IBOutlet weak var SummaryCollectionTimeLabel: UILabel!
+    @IBOutlet weak var selectPickupTimeTextField: UITextField!
     
     @IBOutlet weak var errorMessageLabel: UILabel!
     
-    @IBAction func placeOrderButton(_ sender: Any) {
-        
-        ValidateEntry()  //Button action
-    }
+    @IBOutlet weak var placeOrderButtonOutlet: UIButton!
     
-
-    //MARK: Variables
+    @IBAction func placeOrderButtonAction(_ sender: Any) {
+        validateEntry()
+    }
     
     var timePicker = UIPickerView()  //Picker for selecting time for collection
     let timePickerData = [String](arrayLiteral: "10 Minutes", "15 Minutes", "20 Minutes", "25 Minutes") //List of Time Options For collection
@@ -64,6 +47,7 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     
     func navbar() {
         navigationController?.navigationBar.prefersLargeTitles = true
+        placeOrderButtonOutlet.layer.cornerRadius = 5 //Button Design
     }
     
 
@@ -95,8 +79,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent: Int) {
         selectPickupTimeTextField.text = timePickerData[row]
         dismissKeyboard()
-        
-        SummaryCollectionTimeLabel.text = String(timesAvaliable[row]) // Look at this - need to ensure arrays are in same order - perhaps another way
     }
     
     //MARK: CollectionNameTextField
@@ -112,7 +94,7 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     
     //MARK: Place Order Code
     
-    func ValidateEntry() {
+    func validateEntry() {
         //Validate Text Fields
         let collectionName = nameForCollectionTextField.text
         let collectionTimeText = selectPickupTimeTextField.text
@@ -131,8 +113,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
             //Next Step
         }
     }
-    
-    
     
     func dismissKeyboard() {
         view.endEditing(true)
