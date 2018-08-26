@@ -38,8 +38,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     
     @IBOutlet weak var errorMessageLabel: UILabel!
     
-    @IBOutlet weak var placeOrderButtonOutlet: UIButton!
-    
     @IBAction func placeOrderButton(_ sender: Any) {
         
         ValidateEntry()  //Button action
@@ -66,9 +64,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     
     func navbar() {
         navigationController?.navigationBar.prefersLargeTitles = true
-
-        placeOrderButtonOutlet.layer.cornerRadius = 5 // Button Design
-
     }
     
 
