@@ -53,7 +53,27 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         navigationController?.navigationBar.prefersLargeTitles = true // Large navigation bar
         let search = UISearchController(searchResultsController: nil) // Search Bar Impelmentation
         self.navigationItem.searchController = search
+        
+        let image = UIImage(named: "coffee-cup.png")
+    
+        //self.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, style: UIBarButtonItemStyle.plain, target: nil, action: nil)
+        
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
+        
+        let imageView = UIImageView(image: image!)
+        imageView.frame = CGRect(x: view.bounds.width-imageView.bounds.width, y: 0, width: 45, height: 45)
+        view.addSubview(imageView)
+        
+        let label = UILabel(frame: CGRect(x: view.bounds.width-imageView.bounds.width + 12, y: 4.5, width: 45, height: 45))
+        label.text = "1"
+        view.addSubview(label)
+        
+        
+        let barButtonItem = UIBarButtonItem(customView: view)
+        self.navigationItem.rightBarButtonItem = barButtonItem
     }
+    
+    
     
     //MARK: Menu load
     

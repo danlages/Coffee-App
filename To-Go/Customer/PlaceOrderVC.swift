@@ -40,7 +40,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         timePicker.dataSource = self
         selectPickupTimeTextField.inputView = timePicker
         self.nameForCollectionTextField.delegate = self
-        
         errorMessageLabel.text = "" //Do not display error upon load
         navbar();
     }
@@ -49,7 +48,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         navigationController?.navigationBar.prefersLargeTitles = true
         placeOrderButtonOutlet.layer.cornerRadius = 5 //Button Design
     }
-    
 
     //MARK: Delegates
     
