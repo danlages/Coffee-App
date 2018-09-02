@@ -69,6 +69,7 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         view.addSubview(imageView)
         
         let label = UILabel(frame: CGRect(x: view.bounds.width-imageView.bounds.width + 12, y: 4.5, width: 45, height: 45))
+
         
         label.text = String(basketCount)
         view.addSubview(label)
@@ -78,15 +79,16 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         view.addGestureRecognizer(basketTapGesture)
         view.isUserInteractionEnabled = true
         
-        
+
         let barButtonItem = UIBarButtonItem(customView: view)
         self.navigationItem.rightBarButtonItem = barButtonItem
     }
     
+
     @objc func basketSelected() { //Upon selection of basket
         self.performSegue(withIdentifier: "basket", sender: self)
     }
-    
+
     
     //MARK: Menu load
     
