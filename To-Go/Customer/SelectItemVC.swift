@@ -20,6 +20,7 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     var orderItem = [String]() //stores item with extras to add to order - recieved from add extras
     
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
+    var basketCount = 0
     var selectedCafe = ""
     
     
@@ -42,6 +43,8 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
+    
+    
     @IBAction func unwindToSelectItem(segue:UIStoryboardSegue) {
         
     }
@@ -61,19 +64,31 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
         
         let imageView = UIImageView(image: image!)
+      
         imageView.frame = CGRect(x: view.bounds.width-imageView.bounds.width, y: 0, width: 45, height: 45)
         view.addSubview(imageView)
         
         let label = UILabel(frame: CGRect(x: view.bounds.width-imageView.bounds.width + 12, y: 4.5, width: 45, height: 45))
-        label.text = "1"
+
+        
+        label.text = String(basketCount)
         view.addSubview(label)
         
+        //Allow user Interaction for tap gesture seuge
+        let basketTapGesture = UITapGestureRecognizer(target: self, action: #selector(SelectItemVC.basketSelected)) //Tap Gesture recogiser for for basket view
+        view.addGestureRecognizer(basketTapGesture)
+        view.isUserInteractionEnabled = true
         
+
         let barButtonItem = UIBarButtonItem(customView: view)
         self.navigationItem.rightBarButtonItem = barButtonItem
     }
     
-    
+
+    @objc func basketSelected() { //Upon selection of basket
+        self.performSegue(withIdentifier: "basket", sender: self)
+    }
+
     
     //MARK: Menu load
     
@@ -119,7 +134,7 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //Seuge identifies the item selected, in preperation for server fetch
         let destination = segue.destination as? AddExtrasVC
         let cellIndex = selectItemTableView.indexPathForSelectedRow?.row
-        
+ 
         destination?.selectedItem = menuItems[cellIndex!].name
         destination?.selectedCafe = selectedCafe
     }

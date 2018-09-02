@@ -9,6 +9,8 @@
 import UIKit
 import FirebaseFirestore
 
+
+
 class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK: - Properties
@@ -21,10 +23,11 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var selectedItem = ""
     var selectedCafe = ""
     
+    var itemNumberToIncrement = 1
+    
     var itemChecked = [[Bool]]()
     var orderItem = [String]()
-    
-    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,8 +43,10 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as? SelectItemVC
-        destination?.orderItem = orderItem //send item back to order
+        let destination = segue.destination as! SelectItemVC
+        destination.orderItem = orderItem //send item back to order
+        destination.basketCount = destination.basketCount + self.itemNumberToIncrement
+        destination.navbar()
     }
     
     @IBAction func AddToOrderBtnTapped(_ sender: UIButton) {
