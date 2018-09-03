@@ -21,6 +21,7 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
     var basketCount = 0
+    var maxOrderCount = 4
     var selectedCafe = ""
     
     
@@ -42,8 +43,6 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             viewOrderView.isHidden = true
         }
     }
-    
-    
     
     @IBAction func unwindToSelectItem(segue:UIStoryboardSegue) {
         
@@ -79,7 +78,6 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         view.addGestureRecognizer(basketTapGesture)
         view.isUserInteractionEnabled = true
         
-
         let barButtonItem = UIBarButtonItem(customView: view)
         self.navigationItem.rightBarButtonItem = barButtonItem
     }
@@ -89,7 +87,6 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.performSegue(withIdentifier: "basket", sender: self)
     }
 
-    
     //MARK: Menu load
     
     private func loadMenuItems() {
@@ -116,7 +113,6 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 self.selectItemTableView.reloadData()
             }
         }
-        
     }
     
     //MARK: - Add to Order
@@ -124,7 +120,6 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     private func addToOrder(){
         
     }
-    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -167,6 +162,19 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         cell.menuItemPrice.text = String(menuItem.price)
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if basketCount < maxOrderCount {  //Ensure order is limited to given number of items
+            performSegue(withIdentifier: "addExtras", sender: Any?.self) //Segue to add Extras VC if validated
+        }
+        else {
+            let maxOrderAlert = UIAlertController(title: "Maximum Number of Items Reached", message: "A maximum of 4 items are permitted for an order. Please select the basket to manage your order", preferredStyle: UIAlertControllerStyle.alert) //Display message if number of items in order is breached
+            maxOrderAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil)) //Define responses to alert
+            self.present(maxOrderAlert, animated: true, completion: nil)
+        }
+        
+        
     }
     
 }

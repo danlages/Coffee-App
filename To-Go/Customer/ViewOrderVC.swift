@@ -112,7 +112,6 @@ class ViewOrder: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
         displayActionSheet() //Display delete option to user via action sheet when cell selected
     }
 }

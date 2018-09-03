@@ -45,8 +45,8 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! SelectItemVC
         destination.orderItem = orderItem //send item back to order
-        destination.basketCount = destination.basketCount + self.itemNumberToIncrement
-        destination.navbar()
+        destination.basketCount = destination.basketCount + self.itemNumberToIncrement //Increment basket to reflect updated number of items added to order
+        destination.navbar() //Update Basket UI View
     }
     
     @IBAction func AddToOrderBtnTapped(_ sender: UIButton) {
@@ -114,7 +114,6 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             }
         }
     }
-    
     
     // MARK: - Table view data source
 
