@@ -195,7 +195,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10N-Ts-LSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="1274"/>
+            <point key="canvasLocation" x="614" y="1263"/>
         </scene>
         <!--Select Account Type-->
         <scene sceneID="AJl-zb-hcd">
@@ -495,7 +495,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="252" y="313"/>
+            <point key="canvasLocation" x="614" y="266"/>
         </scene>
         <!--Select Cafe -->
         <scene sceneID="AGx-Sz-lsM">
@@ -1026,7 +1026,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AyP-WC-Ypr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4729" y="814"/>
+            <point key="canvasLocation" x="4729" y="846"/>
         </scene>
         <!--Extras-->
         <scene sceneID="ahm-dw-PeH">
@@ -1129,7 +1129,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DyM-5q-lU1" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="PlM-eV-OWl" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4728.8000000000002" y="-656.1576354679803"/>
+            <point key="canvasLocation" x="4729" y="-656"/>
         </scene>
         <!--Order-->
         <scene sceneID="vpm-tA-EWM">
@@ -1148,7 +1148,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dtX-r1-fMd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="-656"/>
+            <point key="canvasLocation" x="1406" y="-656"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EnT-lm-5GL">
@@ -1237,7 +1237,6 @@
                                             <outlet property="menuItemName" destination="6db-2P-r1H" id="fuz-ps-fJT"/>
                                             <outlet property="menuItemPrice" destination="Fg1-OI-wy8" id="Tur-xg-R3H"/>
                                             <outlet property="menuItemSize" destination="eZk-vi-KbZ" id="ktw-yk-Kzf"/>
-                                            <segue destination="faq-Sn-ZeY" kind="show" identifier="addExtras" id="BWY-rC-I8M"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1280,11 +1279,12 @@
                         <outlet property="viewOrderBtn" destination="2ZJ-gp-Qqt" id="9Wg-m6-BT4"/>
                         <outlet property="viewOrderView" destination="xtg-yI-J46" id="V1f-fa-JL4"/>
                         <segue destination="HBd-66-iA8" kind="show" identifier="basket" id="MCJ-Af-rSz"/>
+                        <segue destination="faq-Sn-ZeY" kind="show" identifier="addExtras" id="g4d-6y-Ceu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDY-kI-ZIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3646" y="-680"/>
+            <point key="canvasLocation" x="3646" y="-656"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
