@@ -573,7 +573,7 @@
         <!--View Order-->
         <scene sceneID="TL5-AK-0Hd">
             <objects>
-                <viewController title="View Order" id="HBd-66-iA8" customClass="ViewOrder" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="View Order" id="HBd-66-iA8" customClass="ViewOrderVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sYl-VD-wWD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

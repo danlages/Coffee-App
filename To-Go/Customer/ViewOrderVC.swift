@@ -9,7 +9,7 @@
 
 import UIKit
 
-class ViewOrder: UIViewController, UITableViewDelegate, UITableViewDataSource  {
+class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     //MARK: Properties
     
@@ -17,6 +17,8 @@ class ViewOrder: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     @IBOutlet weak var viewOrderTableView: UITableView!
     
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
+    
+    var order = [Order]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,11 +30,8 @@ class ViewOrder: UIViewController, UITableViewDelegate, UITableViewDataSource  {
         
         navbar()
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-        
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        print("ORDER IN VIEW ORDER VC")
+        dump(order)
     }
     //MARK: Navigation Bar and Search
     

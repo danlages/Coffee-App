@@ -45,7 +45,15 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     @IBAction func unwindToSelectItem(segue:UIStoryboardSegue) {
+        guard let currentOrderItem = Order(order: [orderItem]) else{
+            
+            fatalError("Unable to create the training ground order") //Error message
+        }
         
+        order.append(currentOrderItem)
+        
+        print("ORDER IN SELECT ITEM VC")
+        dump(order)
     }
     
     //MARK: Navigation Bar and Search
@@ -115,23 +123,35 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
     }
     
-    //MARK: - Add to Order
-    
-    private func addToOrder(){
-        
-    }
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //Seuge identifies the item selected, in preperation for server fetch
-        let destination = segue.destination as? AddExtrasVC
+        
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "addExtras":
+                let destination = segue.destination as? AddExtrasVC
+                let cellIndex = selectItemTableView.indexPathForSelectedRow?.row
+                
+                destination?.selectedItem = menuItems[cellIndex!].name
+                destination?.selectedCafe = selectedCafe
+            case "basket":
+                let destination = segue.destination as? ViewOrderVC
+                destination?.order = order
+            default:
+                print("segue identifier not found")
+            }
+        }
+
+        
+        /*let destination = segue.destination as? AddExtrasVC
         let cellIndex = selectItemTableView.indexPathForSelectedRow?.row
  
         destination?.selectedItem = menuItems[cellIndex!].name
-        destination?.selectedCafe = selectedCafe
+        destination?.selectedCafe = selectedCafe*/
     }
     
     //MARK: - Table View
