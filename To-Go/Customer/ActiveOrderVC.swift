@@ -20,6 +20,10 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     @IBOutlet weak var activeOrderTimerLabel: UILabel!
     
+    @IBOutlet weak var activeOrderCollectionNameLabel: UILabel!
+    
+    @IBOutlet weak var activeOrderTimeToCollectLabel: UILabel!
+    
     @IBOutlet weak var activeOrderCollectedButton: UIButton!
 
     @IBOutlet weak var activeOrderTableView: UITableView!

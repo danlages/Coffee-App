@@ -13,7 +13,6 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     //MARK: Properties
     
-    
     @IBOutlet weak var viewOrderTableView: UITableView!
     
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
