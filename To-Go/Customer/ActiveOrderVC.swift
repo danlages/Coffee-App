@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 import MapKit
 import FirebaseFirestore
 
@@ -33,6 +34,8 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
     var selectedCafe = ""
     
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,13 +43,14 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
         self.activeOrderTableView.dataSource = self
         
         loadSampleMenuItems()
-        
+        buttonDesign()
         // Do any additional setup after loading the view.
     }
     
    func buttonDesign() {
         activeOrderCollectedButton.layer.cornerRadius = 5 //Rounded Button
     }
+    
     
     private func loadSampleMenuItems() {
         
@@ -108,6 +112,7 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
         return cell
     }
+    
     
 
     /*

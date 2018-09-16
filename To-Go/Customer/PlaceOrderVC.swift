@@ -28,6 +28,7 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     @IBAction func placeOrderButtonAction(_ sender: Any) {
         validateEntry()
     }
+    @IBOutlet weak var placeOrderScrollView: UIScrollView!
     
     var timePicker = UIPickerView()  //Picker for selecting time for collection
     let timePickerData = [String](arrayLiteral: "10 Minutes", "15 Minutes", "20 Minutes", "25 Minutes") //List of Time Options For collection
@@ -38,15 +39,25 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         
         timePicker.delegate = self
         timePicker.dataSource = self
-        selectPickupTimeTextField.inputView = timePicker
+        timePicker.backgroundColor = accentColor //Set Colour of Pikcer View
         self.nameForCollectionTextField.delegate = self
+        self.selectPickupTimeTextField.delegate = self
+        selectPickupTimeTextField.inputView = timePicker
         errorMessageLabel.text = "" //Do not display error upon load
+       
+        //Notify when keyboard/picker is present
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(self.userInputPresent), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.userInputEnded), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
         navbar();
     }
     
     func navbar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         placeOrderButtonOutlet.layer.cornerRadius = 5 //Button Design
+        
+       
     }
 
     //MARK: Delegates
@@ -62,7 +73,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     //Picker Delegate
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        
         return 1
     }
     
@@ -112,9 +122,26 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         }
     }
     
+    //MARK: Scroll View Positioning
+    
+    @objc func userInputPresent(notification: NSNotification) {
+        var currentStatus = notification.userInfo
+        let insetSize = currentStatus![UIKeyboardFrameEndUserInfoKey] as! CGRect //set inset size to size of keyboard/picker
+        placeOrderScrollView.contentInset = UIEdgeInsetsMake(0.0, 00, insetSize.height, 0.0) //Move Scroll view up to desired inset size
+        placeOrderScrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 00, insetSize.height, 0.0) 
+    }
+    
+    @objc func userInputEnded(notification: NSNotification) {
+        placeOrderScrollView.contentInset = UIEdgeInsets.zero //Revert Scroll View to previous position
+        placeOrderScrollView.scrollIndicatorInsets = UIEdgeInsets.zero
+    }
+    
+
     func dismissKeyboard() {
         view.endEditing(true)
     }
+    
+    
 
     /*
     // MARK: - Navigation
