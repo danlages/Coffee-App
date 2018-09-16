@@ -90,9 +90,16 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         self.navigationItem.rightBarButtonItem = barButtonItem
     }
     
-
-    @objc func basketSelected() { //Upon selection of basket
-        self.performSegue(withIdentifier: "basket", sender: self)
+    @objc func basketSelected() { //Upon selection of basket ensure item/s has been selected
+        if basketCount == 0 {
+            let maxOrderAlert = UIAlertController(title: "No Items Selected", message: "There are currently no items in your basket", preferredStyle: UIAlertControllerStyle.alert) //Display message if number of items is 0
+            maxOrderAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil)) //Define responses to alert
+            self.present(maxOrderAlert, animated: true, completion: nil)
+        }
+            
+        else {
+            self.performSegue(withIdentifier: "basket", sender: self) //Item/s has been selected
+        }
     }
 
     //MARK: Menu load
