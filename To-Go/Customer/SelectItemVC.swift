@@ -92,8 +92,8 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     
     @objc func basketSelected() { //Upon selection of basket ensure item/s has been selected
         if basketCount == 0 {
-            let maxOrderAlert = UIAlertController(title: "No Items Selected", message: "There are currently no items in your basket", preferredStyle: UIAlertControllerStyle.alert) //Display message if number of items is 0
-            maxOrderAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil)) //Define responses to alert
+            let maxOrderAlert = UIAlertController(title: "No Items Selected", message: "There are currently no items in your basket", preferredStyle: UIAlertController.Style.alert) //Display message if number of items is 0
+            maxOrderAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil)) //Define responses to alert
             self.present(maxOrderAlert, animated: true, completion: nil)
         }
             
@@ -196,8 +196,8 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             performSegue(withIdentifier: "addExtras", sender: Any?.self) //Segue to add Extras VC if validated
         }
         else {
-            let maxOrderAlert = UIAlertController(title: "Maximum Number of Items Reached", message: "A maximum of 4 items are permitted for an order. Please select the basket to manage your order", preferredStyle: UIAlertControllerStyle.alert) //Display message if number of items in order is breached
-            maxOrderAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertActionStyle.default, handler: nil)) //Define responses to alert
+            let maxOrderAlert = UIAlertController(title: "Maximum Number of Items Reached", message: "A maximum of 4 items are permitted for an order. Please select the basket to manage your order", preferredStyle: UIAlertController.Style.alert) //Display message if number of items in order is breached
+            maxOrderAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil)) //Define responses to alert
             self.present(maxOrderAlert, animated: true, completion: nil)
         }
         

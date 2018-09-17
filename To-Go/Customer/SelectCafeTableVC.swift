@@ -126,9 +126,9 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         let userLocation = CLLocation(latitude: userLat, longitude: userLong)
         
         //Convert data to readable 2D coordinate region
-        let span = MKCoordinateSpanMake(0.01, 0.01)
+        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
         let currentLocal = userLocation.coordinate
-        let region = MKCoordinateRegionMake(currentLocal, span)
+        let region = MKCoordinateRegion(center: currentLocal, span: span)
         
         destinationMapView.setRegion(region, animated: true) // Represent User Location on map
         self.destinationMapView.showsUserLocation = true
@@ -208,7 +208,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         
-        let favouriteAction = UITableViewRowAction(style: UITableViewRowActionStyle.default, title: "Favourite", handler: {(action:UITableViewRowAction, indexPath: IndexPath) -> Void in
+        let favouriteAction = UITableViewRowAction(style: UITableViewRowAction.Style.default, title: "Favourite", handler: {(action:UITableViewRowAction, indexPath: IndexPath) -> Void in
         
             //Enter Favourite code here
         })

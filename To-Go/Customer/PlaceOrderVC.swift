@@ -47,8 +47,8 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
        
         //Notify when keyboard/picker is present
         
-        NotificationCenter.default.addObserver(self, selector: #selector(self.userInputPresent), name: NSNotification.Name.UIKeyboardDidShow, object: nil)
-        NotificationCenter.default.addObserver(self, selector: #selector(self.userInputEnded), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.userInputPresent), name: UIApplication.keyboardDidShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.userInputEnded), name: UIApplication.keyboardDidHideNotification, object: nil)
         
         navbar();
     }
@@ -126,9 +126,9 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     
     @objc func userInputPresent(notification: NSNotification) {
         var currentStatus = notification.userInfo
-        let insetSize = currentStatus![UIKeyboardFrameEndUserInfoKey] as! CGRect //set inset size to size of keyboard/picker
-        placeOrderScrollView.contentInset = UIEdgeInsetsMake(0.0, 00, insetSize.height, 0.0) //Move Scroll view up to desired inset size
-        placeOrderScrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0.0, 00, insetSize.height, 0.0) 
+        let insetSize = currentStatus![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect //set inset size to size of keyboard/picker
+        placeOrderScrollView.contentInset = UIEdgeInsets(top: 0.0, left: 00, bottom: insetSize.height, right: 0.0) //Move Scroll view up to desired inset size
+        placeOrderScrollView.scrollIndicatorInsets = UIEdgeInsets(top: 0.0, left: 00, bottom: insetSize.height, right: 0.0)
     }
     
     @objc func userInputEnded(notification: NSNotification) {
