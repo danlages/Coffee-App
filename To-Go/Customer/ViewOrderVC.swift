@@ -85,11 +85,24 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         menuItems += [menuItem1]*/
         
-        tableItemCells = [itemCell(open: false, item: "TestItem1", extras: ["extra1", "extra2"]),
-                          itemCell(open: false, item: "TestItem2", extras: ["extra1"]),
-                          itemCell(open: false, item: "TestItem3", extras: ["extra1", "extra2", "extra3"])]
+        let count = order.count - 1
+        var currentExtras = [String]()
+        
+        for i in 0...count{
+            let itemName = order[i].order[0][0]
+            let extrasCount = order[i].order[0].count - 1
+            currentExtras = []
+            
+            for x in 1...extrasCount {
+                currentExtras.append(order[i].order[0][x])
+                print(currentExtras[x-1])
+            }
+            
+            tableItemCells.append(itemCell(open: false, item: itemName, extras: currentExtras))
+        }
         
     }
+    
     // MARK: Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
