@@ -46,7 +46,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         errorMessageLabel.text = "" //Do not display error upon load
        
         //Notify when keyboard/picker is present
-        
         NotificationCenter.default.addObserver(self, selector: #selector(self.userInputPresent), name: UIApplication.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.userInputEnded), name: UIApplication.keyboardDidHideNotification, object: nil)
         
@@ -140,7 +139,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     func dismissKeyboard() {
         view.endEditing(true)
     }
-    
     
 
     /*

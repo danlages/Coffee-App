@@ -13,7 +13,7 @@ import FirebaseFirestore
 
 class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
-    //MARK: - Properties
+    //MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -184,6 +184,4 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
    
-    
-
 }
