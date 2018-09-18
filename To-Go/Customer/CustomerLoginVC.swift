@@ -11,12 +11,32 @@ import FirebaseAuth
 class CustomerLoginVC: UIViewController, UITextFieldDelegate {
 
     //MARK: - Properties
+    
+    @IBOutlet weak var emailAddressLabel: UILabel!
+    
+    @IBOutlet weak var passwordLabel: UILabel!
+    
+    
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+
+    @IBOutlet weak var loginButton: UIButton!
     
+    let textColor = UIColor.white
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = UIColor(red: 117.0/255.0, green: 117.0/255.0, blue: 117.0/255.0, alpha: 1.0)
+        
+        emailAddressLabel.textColor = textColor
+        passwordLabel.textColor = textColor
+       
+        loginButton.backgroundColor = accentColor //Define Button Asthetics
+        loginButton.layer.cornerRadius = 5
+        
+        
         
         navbar()
         
