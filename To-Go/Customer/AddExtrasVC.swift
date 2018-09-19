@@ -9,8 +9,6 @@
 import UIKit
 import FirebaseFirestore
 
-
-
 class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     //MARK: Properties
@@ -156,13 +154,11 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             
             fatalError("The Dequeued cell is not an instance of SelectItemTableViewCell.")
         }
-        
         if sectionsArray.count == 0 {
             cell.extra.text = ""
             cell.price.text = ""
         }
-        else
-        {
+        else {
             let extra = sectionsArray[indexPath.section][indexPath.row]
             cell.extra.text = extra
             cell.price.text = "£0.00"

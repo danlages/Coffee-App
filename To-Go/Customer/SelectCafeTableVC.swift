@@ -52,7 +52,6 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

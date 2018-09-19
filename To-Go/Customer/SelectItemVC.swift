@@ -38,7 +38,6 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         loadMenuItems()
         
         navbar()
-        
         if order.count == 0 {
             viewOrderView.isHidden = true
         }
@@ -85,11 +84,9 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let basketTapGesture = UITapGestureRecognizer(target: self, action: #selector(SelectItemVC.basketSelected)) //Tap Gesture recogiser for for basket view
         view.addGestureRecognizer(basketTapGesture)
         view.isUserInteractionEnabled = true
-        
         let barButtonItem = UIBarButtonItem(customView: view)
         self.navigationItem.rightBarButtonItem = barButtonItem
     }
-    
     @objc func basketSelected() { //Upon selection of basket ensure item/s has been selected
         if basketCount == 0 {
             let maxOrderAlert = UIAlertController(title: "No Items Selected", message: "There are currently no items in your basket", preferredStyle: UIAlertController.Style.alert) //Display message if number of items is 0
@@ -194,9 +191,8 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if basketCount < maxOrderCount {  //Ensure order is limited to given number of items
             performSegue(withIdentifier: "addExtras", sender: Any?.self) //Segue to add Extras VC if validated
-        }
-        else {
-            let maxOrderAlert = UIAlertController(title: "Maximum Number of Items Reached", message: "A maximum of 4 items are permitted for an order. Please select the basket to manage your order", preferredStyle: UIAlertController.Style.alert) //Display message if number of items in order is breached
+        } else {
+            let maxOrderAlert = UIAlertController(title: "Maximum Number of Items Reached", message: "A maximum of 4 items is permitted for an order. Please select the basket to manage your order.", preferredStyle: UIAlertController.Style.alert) //Display message if number of items in order is breached
             maxOrderAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil)) //Define responses to alert
             self.present(maxOrderAlert, animated: true, completion: nil)
         }
