@@ -27,6 +27,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     var tableItemCells = [itemCell]()
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -143,6 +144,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 
                 fatalError("The Dequeued cell is not an instance of SelectItemTableViewCell.")
             }
+            
             cell.menuItemName.text = tableItemCells[indexPath.section].item
             return cell
             
@@ -156,6 +158,17 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             cell.textLabel?.text = tableItemCells[indexPath.section].extras[dataIndex]
             return cell
         }
+    }
+    
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let options = UITableViewRowAction(style: UITableViewRowAction.Style.default, title: "Options") { (UITableViewRowAction, IndexPath) in
+            self.displayActionSheet()
+            print ("Options Selected")
+        }
+        
+        options.backgroundColor = accentColor
+        
+        return [options]
     }
     
     
