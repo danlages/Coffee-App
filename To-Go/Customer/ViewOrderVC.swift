@@ -14,7 +14,6 @@ struct itemCell{
     var item = String()
     var extras = [String]()
 }
-
 class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     //MARK: Properties
@@ -33,57 +32,56 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         viewOrderTableView.delegate = self
         viewOrderTableView.dataSource = self
-        
         loadSampleMenuItems()
-        
         navbar()
         
         print("ORDER IN VIEW ORDER VC")
         dump(order)
     }
-    //MARK: Navigation Bar and Search
     
+    //MARK: Navigation Bar and Search
     func navbar() {
         navigationController?.navigationBar.prefersLargeTitles = true // Laege navigation bar
-        let search = UISearchController(searchResultsController: nil) // Search Bar Impelmentation
-        self.navigationItem.searchController = search
     }
     
     func displayActionSheet() {
         let actionSheet = UIAlertController(title: "Item Selected", message: "Would you like to edit or delete this item?", preferredStyle: .actionSheet)
         
-        let deleteAction = UIAlertAction(title: "Delete", style: .default) {
-            (alert:UIAlertAction!) in
-            print("Delete Selected")
+        let editAction = UIAlertAction(title: "Edit Extras", style: .default) {
+            (alert: UIAlertAction) in
+            print("Edit Selected")
+            //Display UpdateExtras VC
+        }
+        let duplicateAction = UIAlertAction(title: "Duplicate Item", style: .default) {
+            (alert: UIAlertAction) in  //Duplicate Action
+            print("Duplicate Item Action Selected")
+            if self.order.count > 3 {
+                print("Over")
+                let deleteSelectionAlert = UIAlertController(title: "Cannot Duplicate", message: "A maximum of 4 items is permitted for each order", preferredStyle: UIAlertController.Style.alert) //Display message if number of items is 0
+                deleteSelectionAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
+                self.present(deleteSelectionAlert, animated: true, completion: nil)
+            } else {
+                //Create duplicate
+            }
         }
         
-        let editAction = UIAlertAction(title: "Edit Extras", style: .default) { (alert: UIAlertAction) in
-            print("Edit Selected")
-            
-            //Display Extras VC
-        }
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { //Exit Action Sheet
             (alert:UIAlertAction) in
             print("Cancel Selected")
         }
-        
-        actionSheet.addAction(deleteAction)
         actionSheet.addAction(editAction)
+        actionSheet.addAction(duplicateAction)
         actionSheet.addAction(cancelAction)
-        
         
         self.present(actionSheet, animated: true, completion: nil)
     }
     
     //MARK: Sample Data
-    
     private func loadSampleMenuItems() {
-        
         /*guard let menuItem1 = MenuItem(name: "Coffee", size: "Small", price: 2) else{
             
             fatalError("Unable to create the training ground menu item") //Error message
         }
-        
         menuItems += [menuItem1]*/
         
         let count = order.count - 1
@@ -98,12 +96,9 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 currentExtras.append(order[i].order[0][x])
                 print(currentExtras[x-1])
             }
-            
             tableItemCells.append(itemCell(open: false, item: itemName, extras: currentExtras))
         }
-        
     }
-    
     // MARK: Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -141,36 +136,42 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SelectItemTableViewCell else {
-                
                 fatalError("The Dequeued cell is not an instance of SelectItemTableViewCell.")
             }
             
             cell.menuItemName.text = tableItemCells[indexPath.section].item
             return cell
-            
-        } else {
+        }
+        else {
             /*guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SelectItemTableViewCell else {
                 
                 fatalError("The Dequeued cell is not an instance of SelectItemTableViewCell.")
             }
             cell.menuItemName.text = tableItemCells[indexPath.section].extras[dataIndex]*/
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellExtras") else {return UITableViewCell()}
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "cellExtras") else {
+                return UITableViewCell() }
             cell.textLabel?.text = tableItemCells[indexPath.section].extras[dataIndex]
             return cell
         }
     }
     
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let options = UITableViewRowAction(style: UITableViewRowAction.Style.default, title: "Options") { (UITableViewRowAction, IndexPath) in
+        let edit = UITableViewRowAction(style: UITableViewRowAction.Style.default, title: "Edit") {
+            (UITableViewRowAction, IndexPath) in
             self.displayActionSheet()
             print ("Options Selected")
         }
+        let remove = UITableViewRowAction(style: UITableViewRowAction.Style.destructive, title: "Remove") {
+            (UITableViewRowAction, indexPath) in
+            //MUST delete at DataSource to delte frome table view
+//            self.order.remove(at: indexPath.row)
+//            self.viewOrderTableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
+        }
+        edit.backgroundColor = accentColor
+        remove.backgroundColor = UIColor.red
         
-        options.backgroundColor = accentColor
-        
-        return [options]
+        return [remove,edit]
     }
-    
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //displayActionSheet() //Display delete option to user via action sheet when cell selected
@@ -188,6 +189,5 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             //something to happen when an extra is clicked?
             //remove if indexPath.row == 0 if want to close extras when clicked
         }
-        
     }
 }

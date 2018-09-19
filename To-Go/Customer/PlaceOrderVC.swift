@@ -39,7 +39,7 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         
         timePicker.delegate = self
         timePicker.dataSource = self
-        timePicker.backgroundColor = accentColor //Set Colour of Pikcer View
+        timePicker.backgroundColor = accentColor //Set Colour of Picker View
         self.nameForCollectionTextField.delegate = self
         self.selectPickupTimeTextField.delegate = self
         selectPickupTimeTextField.inputView = timePicker
@@ -55,8 +55,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     func navbar() {
         navigationController?.navigationBar.prefersLargeTitles = true
         placeOrderButtonOutlet.layer.cornerRadius = 5 //Button Design
-        
-       
     }
 
     //MARK: Delegates

@@ -87,7 +87,7 @@ struct ManageThemes {
         
         //Mark: TableView Cell
         UITableViewCell.appearance().backgroundColor = theme.mainColorQuery
-        
+
         //MARK Tab Bar
         UITabBar.appearance().barStyle = theme.barStyleQuery
         UITabBar.appearance().backgroundImage = theme.tabBarBackground
