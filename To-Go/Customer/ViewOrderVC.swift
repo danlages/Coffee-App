@@ -21,6 +21,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     //MARK: Properties
     
     @IBOutlet weak var viewOrderTableView: UITableView!
+    @IBOutlet weak var orderTotalLbl: UILabel!
     
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
     
@@ -39,8 +40,8 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         loadSampleMenuItems()
         navbar()
         
-        print("ORDER IN VIEW ORDER VC")
-        dump(order)
+        orderTotalLbl.text = "£" + String(format:"%.02f", orderRunningTotal)
+        
     }
     
     //MARK: Navigation Bar and Search
@@ -144,7 +145,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         if indexPath.row == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ViewOrderTableViewCell else {
-                fatalError("The Dequeued cell is not an instance of SelectItemTableViewCell.")
+                fatalError("The Dequeued cell is not an instance of ViewOrderTableViewCell.")
             }
             
             cell.itemName.text = tableItemCells[indexPath.section].item
