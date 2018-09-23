@@ -14,12 +14,11 @@ class MenuItem
     //MARK: Declaration
     
     var name: String
-    var size: String
     var price: Float
     
     //MARK: Initialization
     
-    init?(name: String, size: String, price: Float)
+    init?(name: String, price: Float)
     {
         guard !name.isEmpty else //guard statement: Must be true for code after statement to be executed
         {
@@ -27,7 +26,6 @@ class MenuItem
         }
         
         self.name = name
-        self.size = size
         self.price = price
     }
     

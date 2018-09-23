@@ -64,9 +64,8 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
                 for document in (snapshot?.documents)! {
                     item.name = document.data()["Name"] as? String ?? ""
                     item.price = document.data()["Price"] as? Float ?? 999.99
-                    item.size = document.data()["Size"] as? String ?? ""
                     
-                    guard let menuItem = MenuItem(name: item.name, size: item.size, price: item.price) else{
+                    guard let menuItem = MenuItem(name: item.name, price: item.price) else{
                         
                         fatalError("Unable to create the training ground menu item") //Error message
                     }
@@ -107,7 +106,6 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
         //Determine and set cell information
         
         cell.menuItemName.text = menuItem.name
-        cell.menuItemSize.text = menuItem.size
         cell.menuItemPrice.text = String(menuItem.price)
         
         return cell

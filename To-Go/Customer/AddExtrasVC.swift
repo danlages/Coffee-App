@@ -14,12 +14,16 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     //MARK: Properties
     
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var selectedItemLbl: UILabel!
+    @IBOutlet weak var itemCostLbl: UILabel!
     
-    var sectionHeaders = [String]()
+    var sectionHeaders = ["Sizes", "Extras"]
     var sectionsArray = [[String]]()
+    var sectionPrices = [[Float]]()
     
     var selectedItem = ""
     var selectedCafe = ""
+    var itemPrice: Float = 0.00
     
     var itemNumberToIncrement = 1
     
@@ -33,6 +37,9 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         self.tableView.dataSource = self
         loadExtras()
         
+        selectedItemLbl.text = selectedItem
+        itemCostLbl.text = "£" + String(format:"%.02f", itemPrice)
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,6 +50,8 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! SelectItemVC
         destination.orderItem = orderItem //send item back to order
+        destination.orderItemPrice = itemPrice
+        destination.orderRunningTotal = destination.orderRunningTotal + itemPrice
         destination.basketCount = destination.basketCount + self.itemNumberToIncrement //Increment basket to reflect updated number of items added to order
         destination.navbar() //Update Basket UI View
     }
@@ -76,56 +85,69 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
     }
     
-    //MARK: - load extras for selected item
+    private func reloadItemCost(){
+        itemCostLbl.text = "£" + String(format:"%.02f", itemPrice)
+    }
+    
+    //MARK: - Load Extras from Firebase
     private func loadExtras() {
         
         let db = Firestore.firestore()
-        
-        db.collection("Cafe").document(selectedCafe).collection("Menu").document(selectedItem).collection("Collection Names").getDocuments { (snapshot, error) in
+       
+        //Load Sizes
+        db.collection("Cafe").document(selectedCafe).collection("Menu").document(selectedItem).collection("Sizes").getDocuments { (snapshot, error) in
             if error != nil {
-                print("Error loading Extras: \(String(describing: error))")
+                print("Error loading Sizes: \(String(describing: error))")
             }
             else {
+                var tempArray = [String]()
+                var boolTempArray = [Bool]()
+                var pricesTempArray = [Float]()
+                
                 for document in (snapshot?.documents)! {
-                    
-                    self.sectionHeaders.append(document.documentID)
+                    tempArray.append(document.documentID)
+                    boolTempArray.append(false)
+                    pricesTempArray.append(Float(document.data()["Additional Cost"] as! NSNumber.FloatLiteralType))
                 }
                 
-                for i in 0...(self.sectionHeaders.count - 1) {
-                    db.collection("Cafe").document(self.selectedCafe).collection("Menu").document(self.selectedItem).collection(self.sectionHeaders[i]).getDocuments(completion: { (snapshot, error) in
-                        if error != nil {
-                            print("Error loading section header documents: \(String(describing: error))")
-                        }
-                        else {
-                            var boolTempArray = [Bool]()
-                            var tempArray = [String]()
-                            for document in (snapshot?.documents)! {
-                                tempArray.append(document.documentID)
-                                boolTempArray.append(false)
-                            }
-                            self.sectionsArray.append(tempArray)
-                            self.itemChecked.append(boolTempArray)
-                            self.tableView.reloadData()
-                        }
-                    })
-                }
+                self.sectionsArray.append(tempArray)
+                self.itemChecked.append(boolTempArray)
+                self.sectionPrices.append(pricesTempArray)
+                self.tableView.reloadData()
             }
         }
+        
+        //Load Extras
+        db.collection("Cafe").document(selectedCafe).collection("Menu").document(selectedItem).collection("Extras").getDocuments { (snapshot, error) in
+                if error != nil {
+                    print("Error loading Extras: \(String(describing: error))")
+                } else {
+                    var tempArray = [String]()
+                    var boolTempArray = [Bool]()
+                    var pricesTempArray = [Float]()
+                    
+                    for document in (snapshot?.documents)! {
+                        tempArray.append(document.documentID)
+                        boolTempArray.append(false)
+                        pricesTempArray.append(Float(document.data()["Additional Cost"] as! NSNumber.FloatLiteralType))
+                    }
+                    self.sectionsArray.append(tempArray)
+                    self.itemChecked.append(boolTempArray)
+                    self.sectionPrices.append(pricesTempArray)
+                    self.tableView.reloadData()
+                }
+            }
     }
     
     // MARK: - Table view data source
 
     func numberOfSections(in tableView: UITableView) -> Int {
-        if sectionsArray.count == 0 {
-            return 1
-        }
-        else{
-            return sectionsArray.count
-        }
+
+        return sectionHeaders.count
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if sectionsArray.count == 0 {
+        if sectionsArray.count < sectionHeaders.count {
             return 1
         }
         else {
@@ -154,14 +176,15 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             
             fatalError("The Dequeued cell is not an instance of SelectItemTableViewCell.")
         }
-        if sectionsArray.count == 0 {
+        if sectionsArray.count < sectionHeaders.count {
             cell.extra.text = ""
             cell.price.text = ""
         }
         else {
             let extra = sectionsArray[indexPath.section][indexPath.row]
+            let price = sectionPrices[indexPath.section][indexPath.row]
             cell.extra.text = extra
-            cell.price.text = "£0.00"
+            cell.price.text = "+ £" + String(format:"%.02f", price)
         }
 
         return cell
@@ -169,15 +192,26 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        //......NEED TO ADD CODE SO ONLY 1 SIZE CAN BE CLICKED AT A TIME
+        
+        let extraPrice = sectionPrices[indexPath.section][indexPath.row]
+        
         //set checkmark when clicked
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
+            
             itemChecked[indexPath.section][indexPath.row] = false
+            itemPrice = itemPrice - extraPrice
         }
         else{
             tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
+            
             itemChecked[indexPath.section][indexPath.row] = true
+            itemPrice = itemPrice + extraPrice
         }
+        
+        reloadItemCost()
     }
    
 }

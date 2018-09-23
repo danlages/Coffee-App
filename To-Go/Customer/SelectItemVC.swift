@@ -11,13 +11,17 @@ import FirebaseFirestore
 struct item{
     static var name: String = ""
     static var price: Float = 999.99
-    static var size: String = ""
 }
 
 class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var order = [Order]()
+    var orderPrices = [Float]()
+    var orderRunningTotal = Float()
+    
     var orderItem = [String]() //stores item with extras to add to order - recieved from add extras
+    var orderItemPrice = Float()
+    
     
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
     var basketCount = 0
@@ -50,6 +54,7 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         
         order.append(currentOrderItem)
+        orderPrices.append(orderItemPrice)
         
         print("ORDER IN SELECT ITEM VC")
         dump(order)
@@ -112,10 +117,9 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             else {
                 for document in (snapshot?.documents)! {
                     item.name = document.data()["Name"] as? String ?? ""
-                    item.price = document.data()["Price"] as? Float ?? 999.99
-                    item.size = document.data()["Size"] as? String ?? ""
+                    item.price = Float(document.data()["Lowest Size Price"] as? NSNumber.FloatLiteralType ?? 999.99)
                     
-                    guard let menuItem = MenuItem(name: item.name, size: item.size, price: item.price) else{
+                    guard let menuItem = MenuItem(name: item.name, price: item.price) else{
                         
                         fatalError("Unable to create the training ground menu item") //Error message
                     }
@@ -142,9 +146,13 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 
                 destination?.selectedItem = menuItems[cellIndex!].name
                 destination?.selectedCafe = selectedCafe
+                destination?.itemPrice = menuItems[cellIndex!].price
             case "basket":
                 let destination = segue.destination as? ViewOrderVC
                 destination?.order = order
+                destination?.orderPrices = orderPrices
+                destination?.orderRunningTotal = orderRunningTotal
+                
             default:
                 print("segue identifier not found")
             }
@@ -182,8 +190,7 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         //Determine and set cell information
         
         cell.menuItemName.text = menuItem.name
-        cell.menuItemSize.text = menuItem.size
-        cell.menuItemPrice.text = String(menuItem.price)
+        cell.menuItemPrice.text = "£" + String(format:"%.02f", menuItem.price)
         
         return cell
     }
