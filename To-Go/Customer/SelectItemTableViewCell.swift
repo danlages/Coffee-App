@@ -14,7 +14,6 @@ class SelectItemTableViewCell: UITableViewCell {
     
     @IBOutlet weak var menuItemName: UILabel!
     @IBOutlet weak var menuItemPrice: UILabel!
-    @IBOutlet weak var menuItemSize: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -22,7 +21,6 @@ class SelectItemTableViewCell: UITableViewCell {
         // Initialization code
         menuItemName.textColor = UIColor.white
         menuItemPrice.textColor = UIColor.white
-        menuItemSize.textColor = UIColor.white
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

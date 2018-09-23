@@ -12,17 +12,22 @@ import UIKit
 struct itemCell{
     var open = Bool()
     var item = String()
+    var size = String()
     var extras = [String]()
+    var cost = Float()
 }
 class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource  {
     
     //MARK: Properties
     
     @IBOutlet weak var viewOrderTableView: UITableView!
+    @IBOutlet weak var orderTotalLbl: UILabel!
     
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
     
     var order = [Order]()
+    var orderPrices = [Float]()
+    var orderRunningTotal = Float()
     
     var tableItemCells = [itemCell]()
     
@@ -35,8 +40,8 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         loadSampleMenuItems()
         navbar()
         
-        print("ORDER IN VIEW ORDER VC")
-        dump(order)
+        orderTotalLbl.text = "£" + String(format:"%.02f", orderRunningTotal)
+        
     }
     
     //MARK: Navigation Bar and Search
@@ -86,17 +91,21 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         let count = order.count - 1
         var currentExtras = [String]()
+        var currentSize = ""
         
         for i in 0...count{
             let itemName = order[i].order[0][0]
+            let itemCost = orderPrices[i]
             let extrasCount = order[i].order[0].count - 1
             currentExtras = []
             
-            for x in 1...extrasCount {
+            for x in 2...extrasCount {
                 currentExtras.append(order[i].order[0][x])
-                print(currentExtras[x-1])
+                print(currentExtras[x-2])
             }
-            tableItemCells.append(itemCell(open: false, item: itemName, extras: currentExtras))
+            currentSize = order[i].order[0][1]
+            
+            tableItemCells.append(itemCell(open: false, item: itemName, size: currentSize, extras: currentExtras, cost: itemCost))
         }
     }
     // MARK: Table view data source
@@ -115,7 +124,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellIdentifier = "SelectItemTableViewCell" //Name used to recognise cell prototype - set in attributes inspector
+        let cellIdentifier = "ViewOrderTableViewCell" //Name used to recognise cell prototype - set in attributes inspector
         
         /*guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SelectItemTableViewCell else {
             
@@ -135,11 +144,13 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let dataIndex = indexPath.row - 1
         
         if indexPath.row == 0 {
-            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? SelectItemTableViewCell else {
-                fatalError("The Dequeued cell is not an instance of SelectItemTableViewCell.")
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ViewOrderTableViewCell else {
+                fatalError("The Dequeued cell is not an instance of ViewOrderTableViewCell.")
             }
             
-            cell.menuItemName.text = tableItemCells[indexPath.section].item
+            cell.itemName.text = tableItemCells[indexPath.section].item
+            cell.itemSize.text = tableItemCells[indexPath.section].size
+            cell.itemCost.text = "£" + String(format:"%.02f", tableItemCells[indexPath.section].cost)
             return cell
         }
         else {
@@ -187,7 +198,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             }
         } else {
             //something to happen when an extra is clicked?
-            //remove if indexPath.row == 0 if want to close extras when clicked
+            //remove if indexPath.row == 0 if only want to close extras when clicked and nothing else
         }
     }
 }
