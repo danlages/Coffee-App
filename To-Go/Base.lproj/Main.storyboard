@@ -1320,21 +1320,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="86.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="oMi-Ri-kbT" userLabel="Cell Content Right">
-                                                    <rect key="frame" x="293.66666666666669" y="32" width="52.333333333333314" height="19.666666666666671"/>
-                                                    <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="00.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fg1-OI-wy8">
-                                                            <rect key="frame" x="0.0" y="0.0" width="52.333333333333336" height="19.666666666666668"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                    </subviews>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="52.5" id="LUN-T3-mW9"/>
-                                                        <constraint firstAttribute="height" constant="19.5" id="YkX-Fo-v2l"/>
-                                                    </constraints>
-                                                </stackView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="£00.00" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fg1-OI-wy8">
+                                                    <rect key="frame" x="307.66666666666669" y="33.666666666666664" width="52.333333333333314" height="19.333333333333336"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yog-FF-oe9" userLabel="Cell Content Left">
                                                     <rect key="frame" x="15" y="14.999999999999996" width="200" height="52.666666666666657"/>
                                                     <subviews>
@@ -1354,12 +1345,11 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="oMi-Ri-kbT" firstAttribute="top" secondItem="3kg-SJ-ooa" secondAttribute="topMargin" constant="21" id="3Au-ZO-KdX"/>
                                                 <constraint firstAttribute="bottomMargin" secondItem="yog-FF-oe9" secondAttribute="bottom" constant="8.5" id="NcK-5m-acX"/>
                                                 <constraint firstItem="yog-FF-oe9" firstAttribute="top" secondItem="3kg-SJ-ooa" secondAttribute="topMargin" constant="4" id="Ncd-u7-yOL"/>
                                                 <constraint firstItem="yog-FF-oe9" firstAttribute="leading" secondItem="3kg-SJ-ooa" secondAttribute="leadingMargin" id="Ws1-Vd-7fR"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="oMi-Ri-kbT" secondAttribute="trailing" constant="14" id="d4U-tu-gKn"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="oMi-Ri-kbT" secondAttribute="bottom" constant="24.5" id="dWT-G4-hKA"/>
+                                                <constraint firstItem="Fg1-OI-wy8" firstAttribute="trailing" secondItem="3kg-SJ-ooa" secondAttribute="trailingMargin" id="baw-bw-3bN"/>
+                                                <constraint firstItem="Fg1-OI-wy8" firstAttribute="centerY" secondItem="3kg-SJ-ooa" secondAttribute="centerY" id="qUZ-Tv-ojQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -1412,7 +1402,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WDY-kI-ZIL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3646" y="-656"/>
+            <point key="canvasLocation" x="3645.5999999999999" y="-656.1576354679803"/>
         </scene>
         <!--Update Extras-->
         <scene sceneID="hyq-xR-d0x">

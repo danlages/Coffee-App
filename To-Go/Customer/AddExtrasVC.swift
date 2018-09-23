@@ -73,7 +73,6 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             for extra in item {
                 
                 if itemChecked[section][tempIndex] == true {
-                    print("extra: \(extra)")
                     orderItem.append(extra)
                 }
                 tempIndex += 1
@@ -115,10 +114,9 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 self.sectionPrices.append(pricesTempArray)
                 self.tableView.reloadData()
             }
-        }
-        
-        //Load Extras
-        db.collection("Cafe").document(selectedCafe).collection("Menu").document(selectedItem).collection("Extras").getDocuments { (snapshot, error) in
+            
+            //Load Extras
+            db.collection("Cafe").document(self.selectedCafe).collection("Menu").document(self.selectedItem).collection("Extras").getDocuments { (snapshot, error) in
                 if error != nil {
                     print("Error loading Extras: \(String(describing: error))")
                 } else {
@@ -136,7 +134,9 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                     self.sectionPrices.append(pricesTempArray)
                     self.tableView.reloadData()
                 }
+                self.tableView.reloadData()
             }
+        }
     }
     
     // MARK: - Table view data source

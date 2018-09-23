@@ -56,8 +56,6 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         order.append(currentOrderItem)
         orderPrices.append(orderItemPrice)
         
-        print("ORDER IN SELECT ITEM VC")
-        dump(order)
     }
     
     //MARK: Navigation Bar and Search
@@ -190,7 +188,7 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         //Determine and set cell information
         
         cell.menuItemName.text = menuItem.name
-        cell.menuItemPrice.text = "£" + String(format:"%.02f", menuItem.price)
+        cell.menuItemPrice.text = "£" + String(format:"%.02f", menuItem.price) + "+"
         
         return cell
     }
