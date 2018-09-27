@@ -51,6 +51,7 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
         let destination = segue.destination as! SelectItemVC
         destination.orderItem = orderItem //send item back to order
         destination.orderItemPrice = itemPrice
@@ -60,6 +61,7 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
     
     @IBAction func AddToOrderBtnTapped(_ sender: UIButton) {
+        
         getSelectedItems()
         performSegue(withIdentifier: "unwindToSelectItem", sender: self)
     }
@@ -133,6 +135,7 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                     var pricesTempArray = [Float]()
                     
                     for document in (snapshot?.documents)! {
+                        
                         tempArray.append(document.documentID)
                         boolTempArray.append(false)
                         pricesTempArray.append(Float(document.data()["Additional Cost"] as! NSNumber.FloatLiteralType))
@@ -157,6 +160,7 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
         if sectionsArray.count < sectionHeaders.count {
             return 1
         }
@@ -222,19 +226,29 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         //set checkmark when clicked
         if tableView.cellForRow(at: indexPath)?.accessoryType == UITableViewCell.AccessoryType.checkmark {
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none
             
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.none  //If checkmark is present - remove from item checked
             itemChecked[indexPath.section][indexPath.row] = false
             itemPrice = itemPrice - extraPrice
         }
-        else{
-            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark
             
+        else{
+            
+            //loop through section to uncheck all items in size section.
+            let rowCount = tableView.numberOfRows(inSection: 0) //Define number of rows in section
+            for row in 0..<rowCount { //For all rows in section
+                tableView.cellForRow(at: IndexPath(row: row, section: 0))?.accessoryType = UITableViewCell.AccessoryType.none //clear checkmarks for rows in size section
+            }
+
+            tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark //Apply Checkmark
             itemChecked[indexPath.section][indexPath.row] = true
             itemPrice = itemPrice + extraPrice
         }
         
         reloadItemCost()
     }
+    
+    
    
 }
+
