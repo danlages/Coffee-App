@@ -29,6 +29,9 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     var itemChecked = [[Bool]]()
     var orderItem = [String]()
+    
+    var sizesLoaded = false
+    var extrasLoaded = false
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,6 +105,7 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 var tempArray = [String]()
                 var boolTempArray = [Bool]()
                 var pricesTempArray = [Float]()
+                let defaultCheckmarkIndex = 0
                 
                 for document in (snapshot?.documents)! {
                     tempArray.append(document.documentID)
@@ -109,10 +113,14 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                     pricesTempArray.append(Float(document.data()["Additional Cost"] as! NSNumber.FloatLiteralType))
                 }
                 
+                boolTempArray[defaultCheckmarkIndex] = true
+                self.sizesLoaded = true
+                
                 self.sectionsArray.append(tempArray)
                 self.itemChecked.append(boolTempArray)
                 self.sectionPrices.append(pricesTempArray)
                 self.tableView.reloadData()
+                
             }
             
             //Load Extras
@@ -129,12 +137,14 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                         boolTempArray.append(false)
                         pricesTempArray.append(Float(document.data()["Additional Cost"] as! NSNumber.FloatLiteralType))
                     }
+                    
+                    self.extrasLoaded = true
+                    
                     self.sectionsArray.append(tempArray)
                     self.itemChecked.append(boolTempArray)
                     self.sectionPrices.append(pricesTempArray)
                     self.tableView.reloadData()
                 }
-                self.tableView.reloadData()
             }
         }
     }
@@ -186,7 +196,20 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             cell.extra.text = extra
             cell.price.text = "+ £" + String(format:"%.02f", price)
         }
-
+        
+        if sizesLoaded == true && extrasLoaded == true && indexPath.section == 0 {
+            if itemChecked[indexPath.section][indexPath.row] == true{
+                cell.accessoryType = UITableViewCell.AccessoryType.checkmark
+                let extraPrice = sectionPrices[indexPath.section][indexPath.row]
+                itemPrice = itemPrice + extraPrice
+                reloadItemCost()
+                
+            }
+            else {
+                cell.accessoryType = UITableViewCell.AccessoryType.none
+            }
+        }
+        
         return cell
     }
     
