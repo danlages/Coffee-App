@@ -36,8 +36,10 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     var sizesLoaded = false
     var extrasLoaded = false
+
     
     var sizesSelected = false
+
         
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -212,6 +214,7 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
         
         if sizesLoaded == true && extrasLoaded == true && indexPath.section == 0 {
+
             if itemChecked[indexPath.section][indexPath.row] == true {
                 cell.accessoryType = UITableViewCell.AccessoryType.checkmark
                 let extraPrice = sectionPrices[indexPath.section][indexPath.row]
@@ -219,11 +222,13 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 itemPrice = itemPrice + extraPrice
                 sizesSelected = true //Size has been Selected
                 reloadItemCost() //Update Label
+
             }
             else {
                 cell.accessoryType = UITableViewCell.AccessoryType.none
             }
         }
+
         return cell
     }
     
