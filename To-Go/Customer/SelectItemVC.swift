@@ -55,7 +55,6 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         order.append(currentOrderItem)
         orderPrices.append(orderItemPrice)
-        
     }
     
     //MARK: Navigation Bar and Search
@@ -90,9 +89,10 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let barButtonItem = UIBarButtonItem(customView: view)
         self.navigationItem.rightBarButtonItem = barButtonItem
     }
+    
     @objc func basketSelected() { //Upon selection of basket ensure item/s has been selected
         if basketCount == 0 {
-            let maxOrderAlert = UIAlertController(title: "No Items Selected", message: "There are currently no items in your basket", preferredStyle: UIAlertController.Style.alert) //Display message if number of items is 0
+            let maxOrderAlert = UIAlertController(title: "No Items Selected", message: "There are currently no items in your basket.", preferredStyle: UIAlertController.Style.alert) //Display message if number of items is 0
             maxOrderAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil)) //Define responses to alert
             self.present(maxOrderAlert, animated: true, completion: nil)
         }
@@ -101,13 +101,10 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             self.performSegue(withIdentifier: "basket", sender: self) //Item/s has been selected
         }
     }
-
     //MARK: Menu load
     
     private func loadMenuItems() {
-        
         let db = Firestore.firestore()
-        
         db.collection("Cafe").document(selectedCafe).collection("Menu").getDocuments { (snapshot, error) in
             if error != nil {
                 print("Error loading Cafes: \(String(describing: error))")
@@ -118,12 +115,10 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                     item.price = Float(document.data()["Lowest Size Price"] as? NSNumber.FloatLiteralType ?? 999.99)
                     
                     guard let menuItem = MenuItem(name: item.name, price: item.price) else{
-                        
                         fatalError("Unable to create the training ground menu item") //Error message
                     }
                     self.menuItems += [menuItem]
                 }
-                
                 self.selectItemTableView.reloadData()
             }
         }
@@ -155,8 +150,6 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
                 print("segue identifier not found")
             }
         }
-
-        
         /*let destination = segue.destination as? AddExtrasVC
         let cellIndex = selectItemTableView.indexPathForSelectedRow?.row
  
@@ -197,12 +190,10 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         if basketCount < maxOrderCount {  //Ensure order is limited to given number of items
             performSegue(withIdentifier: "addExtras", sender: Any?.self) //Segue to add Extras VC if validated
         } else {
-            let maxOrderAlert = UIAlertController(title: "Maximum Number of Items Reached", message: "A maximum of 4 items is permitted for an order. Please select the basket to manage your order.", preferredStyle: UIAlertController.Style.alert) //Display message if number of items in order is breached
+            let maxOrderAlert = UIAlertController(title: "Maximum Number of Items Reached", message: "4 items are permitted for each order. Please select the basket to manage your order.", preferredStyle: UIAlertController.Style.alert) //Display message if number of items in order is breached
             maxOrderAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil)) //Define responses to alert
             self.present(maxOrderAlert, animated: true, completion: nil)
         }
-        
-        
     }
     
 }

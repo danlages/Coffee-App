@@ -37,10 +37,8 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     var sizesLoaded = false
     var extrasLoaded = false
 
-    
     var sizesSelected = false
 
-        
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -63,7 +61,6 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let destination = segue.destination as! SelectItemVC
         destination.orderItem = orderItem //send item back to order
         destination.orderItemPrice = itemPrice
-        destination.orderItemPrice = itemPriceReset
         destination.orderRunningTotal = destination.orderRunningTotal + itemPrice
         destination.basketCount = destination.basketCount + self.itemNumberToIncrement //Increment basket to reflect updated number of items added to order
         destination.navbar() //Update Basket UI View
@@ -71,7 +68,10 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     @IBAction func AddToOrderBtnTapped(_ sender: UIButton) {
         if sizesSelected == false {
-                addToOrderButtonOutlet.setTitle("Select Size", for: .normal) //Update Add Button with instructions
+            let selectSizeAlert = UIAlertController(title: "No Sizes Selected", message: "Select a size to continue.", preferredStyle: UIAlertController.Style.alert) //Display message if number of items is 0
+            selectSizeAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil)) //Define responses to alert
+            self.present(selectSizeAlert, animated: true, completion: nil)
+
             }
         else {
                 getSelectedItems()
@@ -85,7 +85,6 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         var tempIndex = 0
         
         for(section, item) in sectionsArray.enumerated() {
-            
             tempIndex = 0
             
             for extra in item {
@@ -134,7 +133,6 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 self.itemChecked.append(boolTempArray)
                 self.sectionPrices.append(pricesTempArray)
                 self.tableView.reloadData()
-                
             }
             
             //Load Extras
@@ -180,9 +178,10 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             return sectionsArray[section].count
         }
     }
-
+    
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let label = UILabel()
+        
         if sectionHeaders.count == 0 {
             label.text = ""
         }
@@ -190,18 +189,17 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             label.text = sectionHeaders[section]
             label.backgroundColor = UIColor.lightGray
         }
-    
         return label
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
         let cellIdentifier = "AddExtrasTableViewCell" //Name used to recognise cell prototype - set in attributes inspector
         
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? AddExtrasTableViewCell else {
             
             fatalError("The Dequeued cell is not an instance of SelectItemTableViewCell.")
         }
+        
         if sectionsArray.count < sectionHeaders.count {
             cell.extra.text = ""
             cell.price.text = ""
@@ -222,17 +220,14 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 itemPrice = itemPrice + extraPrice
                 sizesSelected = true //Size has been Selected
                 reloadItemCost() //Update Label
-
             }
             else {
                 cell.accessoryType = UITableViewCell.AccessoryType.none
             }
         }
-
         return cell
     }
     
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let extraPrice = sectionPrices[indexPath.section][indexPath.row]
         
@@ -243,7 +238,7 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             itemChecked[indexPath.section][indexPath.row] = false //Remove Item From item checked array
             
             if indexPath.section != 0 { //If item deselected is size otion
-                itemPriceReset = itemPriceReset - extraPrice //Update Base price to remove size pricde
+                itemPriceReset = itemPriceReset - extraPrice //Update base price to remove size price
             }
             else {
                 sizesSelected = false //Size is not selected
@@ -251,29 +246,31 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             itemPrice = itemPrice - extraPrice //Remove price from running total
         }
 
-        else {
-            //loop through section to uncheck all items in size section
-             let rowCount = tableView.numberOfRows(inSection: 0) //Define number of rows in section
+        else { //loop through section to uncheck all items in size section
              if indexPath.section == 0 { //If a size is selected
-                for row in 0..<rowCount {
-                    tableView.cellForRow(at: IndexPath(row: row, section: 0))?.accessoryType = UITableViewCell.AccessoryType.none //Clear checkmarks for rows in size section
-                    itemChecked[indexPath.section][indexPath.row] = false
+                let rowCount = tableView.numberOfRows(inSection: 0)
+                for rowPresent in 0...(rowCount) - 1 { //Define number of rows in section within range
+                    if itemChecked[0][rowPresent] == true { //If item is selected - clear selection
+                        itemChecked[0][rowPresent] = false
+                        tableView.cellForRow(at: IndexPath(row: rowPresent, section: 0))?.accessoryType = UITableViewCell.AccessoryType.none
+                        }
                     itemPrice = itemPriceReset //Set to base price of item as no size is selected
+                    reloadItemCost()
                     }
                 }
+            
              tableView.cellForRow(at: indexPath)?.accessoryType = UITableViewCell.AccessoryType.checkmark //Apply Checkmark
              itemChecked[indexPath.section][indexPath.row] = true
+            
              if indexPath.section != 0 {
                 itemPriceReset = itemPriceReset + extraPrice //Update price if extra selected
              }
              else {
                 sizesSelected = true //Size has been selected
-                addToOrderButtonOutlet.setTitle("Add to Order", for: .normal) //Update Instructions
             }
-            
             itemPrice = itemPrice + extraPrice //Update Price with order
-         }
-            reloadItemCost()
         }
+        reloadItemCost()
+    }
 }
 
