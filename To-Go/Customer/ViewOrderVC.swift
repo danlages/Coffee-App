@@ -178,6 +178,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
 //            self.order.remove(at: indexPath.row)
 //            self.viewOrderTableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
         }
+        
         edit.backgroundColor = accentColor
         remove.backgroundColor = UIColor.red
         
