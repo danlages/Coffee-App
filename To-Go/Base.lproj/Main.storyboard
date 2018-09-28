@@ -1253,6 +1253,7 @@
                         <viewLayoutGuide key="safeArea" id="TcJ-7m-1wC"/>
                     </view>
                     <connections>
+                        <outlet property="addToOrderButtonOutlet" destination="EQz-GB-VJU" id="3xo-2j-vX8"/>
                         <outlet property="itemCostLbl" destination="uov-8t-3sc" id="f3y-tb-jJt"/>
                         <outlet property="selectedItemLbl" destination="lvw-IE-nLr" id="8nR-As-xUC"/>
                         <outlet property="tableView" destination="8Qw-el-o29" id="iAW-kp-fZ6"/>
