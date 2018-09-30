@@ -42,6 +42,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         orderTotalLbl.text = "£" + String(format:"%.02f", orderRunningTotal)
         
+        
     }
     
     //MARK: Navigation Bar and Search
@@ -170,6 +171,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let edit = UITableViewRowAction(style: UITableViewRowAction.Style.default, title: "Edit") {
             (UITableViewRowAction, IndexPath) in
             self.displayActionSheet()
+            
             print ("Options Selected")
         }
         let remove = UITableViewRowAction(style: UITableViewRowAction.Style.destructive, title: "Remove") {

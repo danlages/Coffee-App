@@ -941,6 +941,7 @@
                         <outlet property="placeOrderButtonOutlet" destination="uih-T1-xAJ" id="SFH-Uk-Vpi"/>
                         <outlet property="placeOrderScrollView" destination="Lil-68-s6g" id="eWw-rx-gDP"/>
                         <outlet property="selectPickupTimeTextField" destination="gPX-jK-ttL" id="z6x-Gv-PZt"/>
+                        <segue destination="8S1-Bc-a7n" kind="showDetail" identifier="makeOrderActive" id="TIj-RL-wh3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KXD-zZ-Udk" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -999,19 +1000,6 @@
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="24"/>
                                             <color key="highlightedColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAZ-k1-fQx">
-                                            <rect key="frame" x="31" y="712" width="313" height="42"/>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="313" id="CVu-3N-yas"/>
-                                                <constraint firstAttribute="height" constant="42" id="zaF-uT-MgE"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                            <state key="normal" title="Collected">
-                                                <color key="titleColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </state>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YUZ-BV-Nju">
                                             <rect key="frame" x="16" y="560" width="343" height="26.333333333333371"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="22"/>
@@ -1027,6 +1015,19 @@
                                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bAZ-k1-fQx">
+                                            <rect key="frame" x="31" y="712" width="313" height="42"/>
+                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="313" id="CVu-3N-yas"/>
+                                                <constraint firstAttribute="height" constant="42" id="zaF-uT-MgE"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                            <state key="normal" title="Collected">
+                                                <color key="titleColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
                                     </subviews>
                                     <color key="backgroundColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
@@ -1040,6 +1041,7 @@
                                         <constraint firstAttribute="trailing" secondItem="1Hm-sb-8iV" secondAttribute="trailing" constant="190" id="KBk-fl-bbS"/>
                                         <constraint firstItem="ULy-Bh-iVc" firstAttribute="top" secondItem="1Hm-sb-8iV" secondAttribute="bottom" constant="-455" id="NaC-I2-PrJ"/>
                                         <constraint firstAttribute="trailing" secondItem="6j7-Aq-dJl" secondAttribute="trailing" id="NaQ-eS-6jT"/>
+                                        <constraint firstItem="bAZ-k1-fQx" firstAttribute="leading" secondItem="gbi-su-YLK" secondAttribute="leading" constant="31" id="QXC-JV-cRs"/>
                                         <constraint firstItem="54h-1G-KqR" firstAttribute="leading" secondItem="gbi-su-YLK" secondAttribute="leading" constant="16" id="WYq-as-WXE"/>
                                         <constraint firstItem="bAZ-k1-fQx" firstAttribute="top" secondItem="ULy-Bh-iVc" secondAttribute="bottom" constant="595" id="XB9-Li-mXH"/>
                                         <constraint firstItem="YUZ-BV-Nju" firstAttribute="leading" secondItem="gbi-su-YLK" secondAttribute="leading" constant="16" id="YxZ-Xo-OeY"/>
@@ -1050,6 +1052,7 @@
                                         <constraint firstItem="1Hm-sb-8iV" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="gbi-su-YLK" secondAttribute="leading" id="cuj-8I-sIS"/>
                                         <constraint firstAttribute="bottom" secondItem="bAZ-k1-fQx" secondAttribute="bottom" constant="8" id="gZR-Vo-d5R"/>
                                         <constraint firstAttribute="trailing" secondItem="54h-1G-KqR" secondAttribute="trailing" constant="16" id="iJT-sF-Uya"/>
+                                        <constraint firstAttribute="trailing" secondItem="bAZ-k1-fQx" secondAttribute="trailing" constant="31" id="kBX-zd-Yie"/>
                                         <constraint firstItem="MwF-ue-h34" firstAttribute="top" secondItem="gbi-su-YLK" secondAttribute="top" constant="60" id="mj7-Ws-u3l"/>
                                         <constraint firstItem="1Hm-sb-8iV" firstAttribute="top" secondItem="6j7-Aq-dJl" secondAttribute="bottom" constant="8" id="nX0-8B-afY"/>
                                         <constraint firstItem="6j7-Aq-dJl" firstAttribute="top" secondItem="gbi-su-YLK" secondAttribute="top" id="y0o-Wd-jW0"/>
@@ -1133,7 +1136,7 @@
                         <outlet property="activeOrderDestinationLabel" destination="MwF-ue-h34" id="4EM-Ml-0YY"/>
                         <outlet property="activeOrderMapView" destination="6j7-Aq-dJl" id="IO5-jG-wPJ"/>
                         <outlet property="activeOrderTableView" destination="4Tb-W2-b6X" id="Rb5-J0-ATE"/>
-                        <outlet property="activeOrderTimeToCollectLabel" destination="54h-1G-KqR" id="hYz-FZ-pdm"/>
+                        <outlet property="activeOrderTimeToCollectLabel" destination="54h-1G-KqR" id="rsg-vD-jeP"/>
                         <outlet property="activeOrderTimerLabel" destination="ULy-Bh-iVc" id="KBf-4S-lFf"/>
                     </connections>
                 </viewController>
