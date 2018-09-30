@@ -29,11 +29,13 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
     @IBOutlet weak var activeOrderTableView: UITableView!
     
-    
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
     var selectedCafe = ""
     
+    var timer = Timer()
     
+    var selectedMinutes = 0
+    var setTimeForCollection = ""
     
     
     override func viewDidLoad() {
@@ -41,9 +43,10 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
 
         self.activeOrderTableView.delegate = self
         self.activeOrderTableView.dataSource = self
-        
+        self.activeOrderTimeToCollectLabel.text = setTimeForCollection
         loadSampleMenuItems()
         buttonDesign()
+        operateTimer()
         // Do any additional setup after loading the view.
     }
     
@@ -54,27 +57,8 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     private func loadSampleMenuItems() {
         
-        let db = Firestore.firestore()
-        
-        db.collection("Cafe").document(selectedCafe).collection("Menu").getDocuments { (snapshot, error) in
-            if error != nil {
-                print("Error loading Cafes: \(String(describing: error))")
-            }
-            else {
-                for document in (snapshot?.documents)! {
-                    item.name = document.data()["Name"] as? String ?? ""
-                    item.price = document.data()["Price"] as? Float ?? 999.99
-                    
-                    guard let menuItem = MenuItem(name: item.name, price: item.price) else{
-                        
-                        fatalError("Unable to create the training ground menu item") //Error message
-                    }
-                    self.menuItems += [menuItem]
-                }
-                
-                self.activeOrderTableView.reloadData()
-            }
-        }
+        //let db = Firestore.firestore()
+    
         
         /*guard let menuItem1 = MenuItem(name: "Coffee", size: "Small", price: "£2.00") else{
          
@@ -101,18 +85,11 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
             fatalError("The Dequeued cell is not an instance of SelectItemTableViewCell.")
         }
         
-        let menuItem = menuItems[indexPath.row]
-        
         //Determine and set cell information
-        
-        cell.menuItemName.text = menuItem.name
-        cell.menuItemPrice.text = String(menuItem.price)
-        
+
         return cell
     }
     
-    
-
     /*
     // MARK: - Navigation
 
@@ -122,5 +99,37 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @objc func update() { //Function called to update labels in real time
+       
+        selectedMinutes -= 1
+        
+        let minutes = Int(selectedMinutes) / 60 % 60
+        let seconds = Int(selectedMinutes) % 60
+        
+        if seconds < 10 {
+            activeOrderTimerLabel.text = "\(minutes):0\(seconds)"
+        }
+        else if seconds >= 10 {
+            activeOrderTimerLabel.text = "\(minutes):\(seconds)"
+        }
+        
+        
+        if selectedMinutes == 0 {
+        timer.invalidate()
+        activeOrderTimeToCollectLabel.text = "To be Collected"
+        activeOrderTimerLabel.text = "00:00"
+            
+        }
+   
+        
+    }
+    
+    func operateTimer() {
+        timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(ActiveOrder.update), userInfo: nil, repeats: true)
+        
+    }
+    
+   
 
 }

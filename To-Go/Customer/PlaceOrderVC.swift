@@ -14,6 +14,7 @@ import UIKit
 class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
 
     //MARK:Properties
+   
     
     @IBOutlet weak var locationNameLabel: UILabel!
     
@@ -27,13 +28,17 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     
     @IBAction func placeOrderButtonAction(_ sender: Any) {
         validateEntry()
+        
     }
     @IBOutlet weak var placeOrderScrollView: UIScrollView!
     
-    var timePicker = UIPickerView()  //Picker for selecting time for collection
-    let timePickerData = [String](arrayLiteral: "10 Minutes", "15 Minutes", "20 Minutes", "25 Minutes") //List of Time Options For collection
-    let timesAvaliable = [10, 15, 20, 25]
     
+    var timePicker = UIPickerView()  //Picker for selecting time for collection
+    // let timePickerData = [String](arrayLiteral: "varrinutes", "15 Minutes", "20 Minutes", "25 Minutes") //List of Time Options For collection
+    let timesAvaliable = [10, 15, 20, 25]
+    var mins = 0
+  
+  
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -49,7 +54,17 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         NotificationCenter.default.addObserver(self, selector: #selector(self.userInputPresent), name: UIApplication.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.userInputEnded), name: UIApplication.keyboardDidHideNotification, object: nil)
         
+        
         navbar();
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination as! ActiveOrder
+        let formatter = DateFormatter()
+        formatter.timeStyle = .short
+        let dataData = formatter.string(from: Date() + TimeInterval(mins))
+        destination.setTimeForCollection = "Collect at: " + dataData
+        destination.selectedMinutes = mins
     }
     
     func navbar() {
@@ -74,15 +89,18 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return timePickerData.count //Set to number of time options
+        return timesAvaliable.count //Set to number of time options
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return timePickerData[row]
+        mins = timesAvaliable[row] * 60
+        return String(timesAvaliable[row]) + " Minutes"
+        
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent: Int) {
-        selectPickupTimeTextField.text = timePickerData[row]
+        selectPickupTimeTextField.text = String(timesAvaliable[row]) + " Minutes "
+        
         dismissKeyboard()
     }
     
@@ -117,6 +135,9 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
             errorMessageLabel.text = "Please enter a collection name"
             //Next Step
         }
+        else {
+            performSegue(withIdentifier: "makeOrderActive", sender: self)
+        }
     }
     
     //MARK: Scroll View Positioning
@@ -138,7 +159,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         view.endEditing(true)
     }
     
-
     /*
     // MARK: - Navigation
 
