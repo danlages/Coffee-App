@@ -40,9 +40,7 @@ class Destination
         self.openingTime = openingTime
         self.closingTime = closingTime
         self.takingOrders = takingOrders
-        
     }
-
 }
 
 //
