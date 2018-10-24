@@ -25,26 +25,29 @@ struct cafe{
 
 class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     
+    
     //MARK: Properties
         
     @IBOutlet weak var destinationMapView: MKMapView! //Used at TableView Header - consider changing to simply View controller if required.
     
     
-    var destinations  = [Destination]()  //Creates a mutable array of destination objects - allowing for the addition of items after initilsation
-    
+    var destinations = [Destination]()  //Creates a mutable array of destination objects - allowing for the addition of items after initilsation
+    var distanceFromUser: [String] = []
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        locationManager.delegate = self //CLLocationManager Delegate
+
         loadDestinations()
         navbar()
         
-        locationManager.delegate = self //CLLocationManager Delegate
+        
         locationManager.requestLocation()
         locationManager.requestWhenInUseAuthorization() //Only require information when app is in the forground
         locationManager.startUpdatingLocation()
         locationManager.distanceFilter = 100 //Only update distance information when user has moved given number of meters from previous update to improve efficiency
-        
         
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
@@ -62,8 +65,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         destination?.selectedCafe = destinations[cellIndex!].name
     }
     
-    func navbar()
-    {
+    func navbar() {
         navigationController?.navigationBar.prefersLargeTitles = true // Large navigation bar
         let search = UISearchController(searchResultsController: nil)
         self.navigationItem.searchController = search
@@ -82,8 +84,8 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     
     //MARK: Sample Data
     
-    func loadDestinations() {
-        //Load cafe information from firebase
+    func loadDestinations() {  //Load cafe information from firebase
+       
         let db = Firestore.firestore()
         db.collection("Cafe").getDocuments { (snapshot, error) in
             if error != nil {
@@ -96,15 +98,14 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
                     cafe.email = document.data()["Email"] as? String ?? ""
                     cafe.addressNo = document.data()["Address No."] as? String ?? ""
                     cafe.addressStreet = document.data()["Address Street"] as? String ?? ""
-                    cafe.addressPostcode = document.data()["Address Postcode"] as? String ?? ""
+                    cafe.addressPostcode = document.data()["Postcode"] as? String ?? ""
                     cafe.openingTime = document.data()["Opening Time"] as? String ?? ""
                     cafe.closingTime = document.data()["Closing Time"] as? String ?? ""
                     cafe.takingOrders = document.data()["Taking Orders"] as? Bool ?? true
                     
-                    
                     guard let destination = Destination(name: cafe.name, email: cafe.email, addressNo: cafe.addressNo, addressStreet: cafe.addressStreet, addressPostcode: cafe.addressPostcode, openingTime: cafe.openingTime, closingTime: cafe.closingTime, takingOrders: cafe.takingOrders) else{
                         
-                        fatalError("Unable to create the training ground destination") //Error message
+                        fatalError("Unable to find the destination") //Error message
                     }
                     self.destinations += [destination]
                 }
@@ -136,6 +137,10 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         for dest in destinations {
             // Determine location of each destination displayed in table view
             let destinationAddress = (dest.addressNo + ", " + dest.addressStreet + ", " + dest.addressPostcode) //Group address variables to analyse the geo-location
+            
+            let locationMarker = MKPointAnnotation() //Set Marker for Coffee Locations
+            locationMarker.title = dest.name
+            
             geoCoder.geocodeAddressString(destinationAddress) {
                 placemarks, error in
                 let placemark = placemarks?.first
@@ -143,27 +148,33 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
                 let destLat = placemark?.location?.coordinate.latitude
                 let destLong = placemark?.location?.coordinate.longitude
                 let destCoordinates = CLLocation(latitude: destLat!, longitude: destLong!) //Determine at set lat and long coordinates
-                let distance = String(format: "%2f km", destCoordinates.distance(from: userLocation) / 1000)
+                let distance = String(format: "%2f km", destCoordinates.distance(from: userLocation) / 1000) //Determine distance from user Locations
                 
-                print ("Distance in KM is: \(distance)")
+                self.distanceFromUser.append(distance)
+                
+                locationMarker.coordinate = CLLocationCoordinate2D(latitude: destLat!, longitude: destLong!) //Set Marker for location
+                self.destinationMapView.addAnnotation(locationMarker)
+                
+                print ("Distance in KM is: \(distance)") //Print Distance to console
             }
             //Filter table based on closest location
         }
     }
     
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
-        
+        print ("Locations not gathered ") // If locations not gathered
     }
     
     //MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
+        
         return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 
-        return destinations.count
+        return destinations.count //Number of rows set to destinations present
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -174,25 +185,27 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
             
             fatalError("The Dequeued cell is not an instance of SelectCafeTableViewCell.")
         }
-
+       
+        
         let destination = destinations[indexPath.row]
         
         //Determine and set cell information
-        
         cell.destinatioNameLabel.text = destination.name
-        cell.distanceLabel.text = "10 KM"
+        //cell.distanceLabel.text = destination.openingTime
+        
         
         //MARK: Cell Asthetics
         cell.layer.borderWidth = 0.5
         cell.layer.borderColor = accentColor.cgColor
         
         let cellTextColor = UIColor.white
+        
         cell.destinatioNameLabel.textColor = cellTextColor
         cell.distanceLabel.textColor = cellTextColor
         cell.orderStatusLabel.textColor = cellTextColor
+        
 
-        //CHECK IF CURRENT TIME IS BETWEEN OPENING AND CLOSING TO DETERMINE
-        //IF CAFE IS TAKING ORDERS
+        //CHECK IF CURRENT TIME IS BETWEEN OPENING AND CLOSING TO DETERMINE IF CAFE IS TAKING ORDERS
         if destination.takingOrders == true {
             cell.orderStatusLabel.text = "Avaliable for Orders"
         }
@@ -200,6 +213,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         else {
             cell.orderStatusLabel.text = "Not Taking Orders"
         }
+        
         return cell
     }
     
