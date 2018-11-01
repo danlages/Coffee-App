@@ -74,6 +74,20 @@
 			<key>orderHint</key>
 			<integer>16</integer>
 		</dict>
+		<key>Stripe-Stripe.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>18</integer>
+		</dict>
+		<key>Stripe.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+			<key>orderHint</key>
+			<integer>17</integer>
+		</dict>
 		<key>gRPC-Core.xcscheme</key>
 		<dict>
 			<key>isShown</key>

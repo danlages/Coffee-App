@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Stripe
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -19,6 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let theme = ManageThemes.currentTheme() //Apply Theme
         ManageThemes.applyTheme(theme: theme)
+        
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_I4wfhkNYDjcvwx8x8aBKSxP9"
+        
+        //STPPaymentConfiguration.shared().appleMerchantIdentifier = "your apple merchant identifier"
         
         FirebaseApp.configure()
         
