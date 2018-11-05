@@ -26,6 +26,7 @@
 		690CA22020C9A784009C6701 /* SelectCafeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690CA21F20C9A784009C6701 /* SelectCafeTableViewCell.swift */; };
 		6942F0E320D15C4100E5A194 /* ActiveOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6942F0E220D15C4100E5A194 /* ActiveOrderVC.swift */; };
 		694334AD20CC3DAB00B70252 /* SelectItemTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 694334AC20CC3DAB00B70252 /* SelectItemTableViewCell.swift */; };
+		895C44CB21905A69008BDE1D /* MyAPIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 895C44CA21905A69008BDE1D /* MyAPIClient.swift */; };
 		899A77222157F30A008BF5D5 /* ViewOrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 899A77212157F30A008BF5D5 /* ViewOrderTableViewCell.swift */; };
 		89BA0602210DEAB200FA0A3E /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA0601210DEAB200FA0A3E /* MenuItem.swift */; };
 		89BA0606210FA5B200FA0A3E /* CustomerLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 89BA0605210FA5B200FA0A3E /* CustomerLoginVC.swift */; };
@@ -89,6 +90,7 @@
 		694334AC20CC3DAB00B70252 /* SelectItemTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectItemTableViewCell.swift; sourceTree = "<group>"; };
 		6FFCC7A25032F1B5A93452D6 /* Pods-To-GoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To-GoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-To-GoTests/Pods-To-GoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7841F19F3DBAB51F9923CDC9 /* Pods_To_GoUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_GoUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		895C44CA21905A69008BDE1D /* MyAPIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAPIClient.swift; sourceTree = "<group>"; };
 		899A77212157F30A008BF5D5 /* ViewOrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderTableViewCell.swift; sourceTree = "<group>"; };
 		89BA0601210DEAB200FA0A3E /* MenuItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
 		89BA0605210FA5B200FA0A3E /* CustomerLoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomerLoginVC.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 				690CA1F020C99969009C6701 /* Assets.xcassets */,
 				690CA1F220C99969009C6701 /* LaunchScreen.storyboard */,
 				690CA1E720C99968009C6701 /* AppDelegate.swift */,
+				895C44CA21905A69008BDE1D /* MyAPIClient.swift */,
 				690CA1F520C99969009C6701 /* Info.plist */,
 				89BA06072110C35300FA0A3E /* GoogleService-Info.plist */,
 			);
@@ -399,6 +402,7 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-To-Go/Pods-To-Go-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/BoringSSL/openssl.framework",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
@@ -413,6 +417,7 @@
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -508,6 +513,7 @@
 				694334AD20CC3DAB00B70252 /* SelectItemTableViewCell.swift in Sources */,
 				690CA1E820C99968009C6701 /* AppDelegate.swift in Sources */,
 				89BA7E4F2124C26800009A52 /* EditMenuVC.swift in Sources */,
+				895C44CB21905A69008BDE1D /* MyAPIClient.swift in Sources */,
 				690CA21C20C9A6EF009C6701 /* SelectCafeTableVC.swift in Sources */,
 				89BA7E4A2124C1E700009A52 /* BusinessLoginVC.swift in Sources */,
 				2F99D0C921505A89008BAFC4 /* UpdateExtrasVC.swift in Sources */,

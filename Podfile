@@ -10,6 +10,7 @@ target 'To-Go' do
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
   pod 'Stripe'
+  pod 'Alamofire'
 
   target 'To-GoTests' do
     inherit! :search_paths
