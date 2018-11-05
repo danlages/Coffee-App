@@ -7,11 +7,13 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
 
 //MARK: TableViewCells
 
 
-class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate {
+class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate  {
 
     //MARK:Properties
    
@@ -32,28 +34,37 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     }
     @IBOutlet weak var placeOrderScrollView: UIScrollView!
     
+    @IBOutlet weak var placeOrderMapView: MKMapView!
     
     var timePicker = UIPickerView()  //Picker for selecting time for collection
     // let timePickerData = [String](arrayLiteral: "varrinutes", "15 Minutes", "20 Minutes", "25 Minutes") //List of Time Options For collection
     let timesAvaliable = [10, 15, 20, 25]
     var mins = 0
   
-  
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        locationManager.delegate = self //CLLocationManager Delegate
+        locationManager.requestLocation()
+        locationManager.requestWhenInUseAuthorization() //Only require information when app is in the forground
+        locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = 100
         
         timePicker.delegate = self
         timePicker.dataSource = self
         timePicker.backgroundColor = accentColor //Set Colour of Picker View
         self.nameForCollectionTextField.delegate = self
+        locationNameLabel.text = orderDetailsData.cafeName
         self.selectPickupTimeTextField.delegate = self
         selectPickupTimeTextField.inputView = timePicker
         errorMessageLabel.text = "" //Do not display error upon load
+        
+       
+       //Only update distance information when user has moved given number of meters from previous update to improve efficiency
        
         //Notify when keyboard/picker is present
         NotificationCenter.default.addObserver(self, selector: #selector(self.userInputPresent), name: UIApplication.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.userInputEnded), name: UIApplication.keyboardDidHideNotification, object: nil)
-        
         
         navbar();
     }
@@ -65,6 +76,7 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         let dataData = formatter.string(from: Date() + TimeInterval(mins))
         destination.setTimeForCollection = "Collect at: " + dataData
         destination.selectedMinutes = mins
+        orderDetailsData.collectionName = nameForCollectionTextField.text!
     }
     
     func navbar() {
@@ -137,7 +149,47 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         }
         else {
             performSegue(withIdentifier: "makeOrderActive", sender: self)
+            
         }
+    }
+    
+    let locationManager = CLLocationManager() //Define Location manager object.
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    
+            //Delegate function allows us to handle loaction information
+        let location:CLLocationCoordinate2D = manager.location!.coordinate //Determine user location
+        let userLat = location.latitude
+        let userLong = location.longitude
+        let userLocation = CLLocation(latitude: userLat, longitude: userLong)
+            
+            //Convert data to readable 2D coordinate region
+        let span = MKCoordinateSpan(latitudeDelta: 0.20, longitudeDelta: 0.20)
+        let currentLocal = userLocation.coordinate
+        let region = MKCoordinateRegion(center: currentLocal, span: span)
+            
+        placeOrderMapView.setRegion(region, animated: true) // Represent User Location on map
+        let destinationAddress = orderDetailsData.cafeDestination
+        
+        let locationMarker = MKPointAnnotation() //Set Marker for Coffee Locations
+        locationMarker.title = orderDetailsData.cafeName
+        
+        let geoCoder = CLGeocoder()
+        
+        geoCoder.geocodeAddressString(destinationAddress) {
+            placemarks, error in
+            let placemark = placemarks?.first
+            
+            let destLat = placemark?.location?.coordinate.latitude
+            let destLong = placemark?.location?.coordinate.longitude
+
+            locationMarker.coordinate = CLLocationCoordinate2D(latitude: destLat!, longitude: destLong!) //Set Marker for location
+            
+            self.placeOrderMapView.addAnnotation(locationMarker)
+        }
+    }
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+        print ("Locations not gathered ") // If locations not gathered
     }
     
     //MARK: Scroll View Positioning

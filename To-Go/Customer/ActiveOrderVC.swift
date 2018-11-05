@@ -30,17 +30,18 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
     @IBOutlet weak var activeOrderTableView: UITableView!
     
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
-    var selectedCafe = ""
+    var selectedCafe = orderDetailsData.cafeName
+    var nameForCollection = orderDetailsData.collectionName
     
     var timer = Timer()
     
     var selectedMinutes = 0
     var setTimeForCollection = ""
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.activeOrderDestinationLabel.text = selectedCafe
+        self.activeOrderCollectionNameLabel.text = orderDetailsData.collectionName
         self.activeOrderTableView.delegate = self
         self.activeOrderTableView.dataSource = self
         self.activeOrderTimeToCollectLabel.text = setTimeForCollection
@@ -54,11 +55,9 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
         activeOrderCollectedButton.layer.cornerRadius = 5 //Rounded Button
     }
     
-    
     private func loadSampleMenuItems() {
         
         //let db = Firestore.firestore()
-    
         
         /*guard let menuItem1 = MenuItem(name: "Coffee", size: "Small", price: "£2.00") else{
          
@@ -114,7 +113,6 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
             activeOrderTimerLabel.text = "\(minutes):\(seconds)"
         }
         
-        
         if selectedMinutes == 0 {
         timer.invalidate()
         activeOrderTimeToCollectLabel.text = "To be Collected"
@@ -130,6 +128,4 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
         
     }
     
-   
-
 }

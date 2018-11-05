@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="49e-Tb-3d3">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -138,7 +138,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="HeI-UI-Pkc"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Coffee." id="DEg-OX-myO"/>
+                    <navigationItem key="navigationItem" title="Select Account" id="DEg-OX-myO"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mbN-Ch-XUa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -818,6 +818,7 @@
                         <outlet property="locationNameLabel" destination="aUL-Zd-BCB" id="43M-Cd-PnH"/>
                         <outlet property="nameForCollectionTextField" destination="Dg8-ex-Ty9" id="lSk-Hq-pUn"/>
                         <outlet property="placeOrderButtonOutlet" destination="uih-T1-xAJ" id="SFH-Uk-Vpi"/>
+                        <outlet property="placeOrderMapView" destination="XsJ-4s-4wF" id="3tg-Es-cEb"/>
                         <outlet property="placeOrderScrollView" destination="Lil-68-s6g" id="eWw-rx-gDP"/>
                         <outlet property="selectPickupTimeTextField" destination="gPX-jK-ttL" id="z6x-Gv-PZt"/>
                         <segue destination="8S1-Bc-a7n" kind="showDetail" identifier="makeOrderActive" id="TIj-RL-wh3"/>

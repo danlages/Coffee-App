@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-class Order {
+class OrderItems {
     
     //MARK: Declaration
     
@@ -25,7 +25,6 @@ class Order {
         }
         
         self.order = order
-        
     }
     
 }

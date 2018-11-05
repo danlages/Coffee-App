@@ -25,7 +25,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
     
-    var order = [Order]()
+    var orderItems = [OrderItems]()
     var orderPrices = [Float]()
     var orderRunningTotal = Float()
     
@@ -42,12 +42,15 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         orderTotalLbl.text = "£" + String(format:"%.02f", orderRunningTotal)
         
-        
     }
     
     //MARK: Navigation Bar and Search
     func navbar() {
         navigationController?.navigationBar.prefersLargeTitles = true // Laege navigation bar
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        orderDetailsData.cost = orderRunningTotal //Update cost data model with final cost of order
     }
     
     func displayActionSheet() {
@@ -61,7 +64,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         let duplicateAction = UIAlertAction(title: "Duplicate Item", style: .default) {
             (alert: UIAlertAction) in  //Duplicate Action
             print("Duplicate Item Action Selected")
-            if self.order.count > 3 {
+            if self.orderItems.count > 3 {
                 print("Over")
                 let deleteSelectionAlert = UIAlertController(title: "Cannot Duplicate", message: "A maximum of 4 items is permitted for each order", preferredStyle: UIAlertController.Style.alert) //Display message if number of items is 0
                 deleteSelectionAlert.addAction(UIAlertAction(title: "Okay", style: UIAlertAction.Style.default, handler: nil))
@@ -90,21 +93,21 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
         menuItems += [menuItem1]*/
         
-        let count = order.count - 1
+        let count = orderItems.count - 1
         var currentExtras = [String]()
         var currentSize = ""
         
         for i in 0...count{
-            let itemName = order[i].order[0][0]
+            let itemName = orderItems[i].order[0][0]
             let itemCost = orderPrices[i]
-            let extrasCount = order[i].order[0].count - 1
+            let extrasCount = orderItems[i].order[0].count - 1
             currentExtras = []
             
             for x in 2...extrasCount {
-                currentExtras.append(order[i].order[0][x])
+                currentExtras.append(orderItems[i].order[0][x])
                 print(currentExtras[x-2])
             }
-            currentSize = order[i].order[0][1]
+            currentSize = orderItems[i].order[0][1]
             
             tableItemCells.append(itemCell(open: false, item: itemName, size: currentSize, extras: currentExtras, cost: itemCost))
         }
@@ -118,7 +121,8 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableItemCells[section].open == true {
             return tableItemCells[section].extras.count + 1
-        } else {
+        }
+        else {
             return 1
         }
     }
@@ -199,7 +203,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 let sections = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(sections, with: .none)
             }
-        } else {
+        }else {
             //something to happen when an extra is clicked?
             //remove if indexPath.row == 0 if only want to close extras when clicked and nothing else
         }

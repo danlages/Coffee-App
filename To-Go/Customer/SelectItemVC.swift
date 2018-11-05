@@ -15,7 +15,7 @@ struct item{
 
 class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
     
-    var order = [Order]()
+    var orderItems = [OrderItems]()
     var orderPrices = [Float]()
     var orderRunningTotal = Float()
     
@@ -42,18 +42,18 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         loadMenuItems()
         
         navbar()
-        if order.count == 0 {
+        if orderItems.count == 0 {
             viewOrderView.isHidden = true
         }
     }
     
     @IBAction func unwindToSelectItem(segue:UIStoryboardSegue) {
-        guard let currentOrderItem = Order(order: [orderItem]) else{
+        guard let currentOrderItem = OrderItems(order: [orderItem]) else{
             
             fatalError("Unable to create the training ground order") //Error message
         }
         
-        order.append(currentOrderItem)
+        orderItems.append(currentOrderItem)
         orderPrices.append(orderItemPrice)
     }
     
@@ -136,13 +136,13 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
             case "addExtras":
                 let destination = segue.destination as? AddExtrasVC
                 let cellIndex = selectItemTableView.indexPathForSelectedRow?.row
-                
                 destination?.selectedItem = menuItems[cellIndex!].name
                 destination?.selectedCafe = selectedCafe
                 destination?.itemPrice = menuItems[cellIndex!].price
+                
             case "basket":
                 let destination = segue.destination as? ViewOrderVC
-                destination?.order = order
+                destination?.orderItems = orderItems
                 destination?.orderPrices = orderPrices
                 destination?.orderRunningTotal = orderRunningTotal
                 
