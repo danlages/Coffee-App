@@ -13,8 +13,6 @@ import FirebaseFirestore
 
 class UpdateExtrasVC: UIViewController {
 
-    
- 
     //MARK: Properties
     
     @IBOutlet weak var updateExtrasTableView: UITableView!

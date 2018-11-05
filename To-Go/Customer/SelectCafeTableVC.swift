@@ -12,7 +12,7 @@ import FirebaseFirestore
 import MapKit
 
 
-struct cafe{
+struct cafe {
     static var name: String = ""
     static var email: String = ""
     static var addressNo: String = ""
@@ -23,18 +23,27 @@ struct cafe{
     static var takingOrders: Bool = true
 }
 
+struct orderDetailsData {
+    static var OrderID: Int = 0
+    static var cafeID: Int = 0
+    static var cafeName: String = ""
+    static var cafeDestination: String = ""
+    static var cost: Float = 999.999
+    static var collectionName  = ""
+    static var collected: Bool = false
+    static var dateBooked: String = ""
+    static var dateCollected: String = ""
+}
+
 class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
-    
     
     //MARK: Properties
         
-    @IBOutlet weak var destinationMapView: MKMapView! //Used at TableView Header - consider changing to simply View controller if required.
-    
+    @IBOutlet weak var destinationMapView: MKMapView! //Used as TableView Header - consider changing to simply View controller if required.
     
     var destinations = [Destination]()  //Creates a mutable array of destination objects - allowing for the addition of items after initilsation
     var distanceFromUser: [String] = []
 
-    
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -42,7 +51,6 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
 
         loadDestinations()
         navbar()
-        
         
         locationManager.requestLocation()
         locationManager.requestWhenInUseAuthorization() //Only require information when app is in the forground
@@ -56,13 +64,14 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
     }
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         //Set selected cafe so correct menu items show
         let destination = segue.destination as? SelectItemVC
         let cellIndex = tableView.indexPathForSelectedRow?.row
         
         destination?.selectedCafe = destinations[cellIndex!].name
+        orderDetailsData.cafeName = destinations[cellIndex!].name
+        orderDetailsData.cafeDestination = (destinations[cellIndex!].addressNo + ", " + destinations[cellIndex!].addressStreet + ", " + destinations[cellIndex!].addressPostcode) //Add destination address of cafe selected to order details struct
     }
     
     func navbar() {
@@ -83,7 +92,6 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     }
     
     //MARK: Sample Data
-    
     func loadDestinations() {  //Load cafe information from firebase
        
         let db = Firestore.firestore()
@@ -185,7 +193,6 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
             
             fatalError("The Dequeued cell is not an instance of SelectCafeTableViewCell.")
         }
-       
         
         let destination = destinations[indexPath.row]
         
