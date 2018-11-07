@@ -13,6 +13,8 @@ let selectedThemeKey = "ThemeKey"
 
 let accentColor = UIColor(red: 160.0/255.0, green: 135.0/255.0, blue: 126.0/255.0, alpha: 1.0) // Define accent color
 
+let mapviewColor = UIColor(red: 0.12/255.0, green: 158.0/255.0, blue: 225.0/255.0, alpha: 1.0)
+
 enum Theme: Int {
     case Default, secondaryColor
     

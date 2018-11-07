@@ -134,7 +134,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         let userLocation = CLLocation(latitude: userLat, longitude: userLong)
         
         //Convert data to readable 2D coordinate region
-        let span = MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+        let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
         let currentLocal = userLocation.coordinate
         let region = MKCoordinateRegion(center: currentLocal, span: span)
         
@@ -156,15 +156,17 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
                 let destLat = placemark?.location?.coordinate.latitude
                 let destLong = placemark?.location?.coordinate.longitude
                 let destCoordinates = CLLocation(latitude: destLat!, longitude: destLong!) //Determine at set lat and long coordinates
-                let distance = String(format: "%2f km", destCoordinates.distance(from: userLocation) / 1000) //Determine distance from user Locations
-                
-                self.distanceFromUser.append(distance)
-                
                 locationMarker.coordinate = CLLocationCoordinate2D(latitude: destLat!, longitude: destLong!) //Set Marker for location
                 self.destinationMapView.addAnnotation(locationMarker)
                 
+                let distance = String(format: "%2f km", destCoordinates.distance(from: userLocation) / 1000) //Determine distance from user Locations
+                
+                self.distanceFromUser.append(distance)
+              
+                
                 print ("Distance in KM is: \(distance)") //Print Distance to console
             }
+            
             //Filter table based on closest location
         }
     }

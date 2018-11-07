@@ -11,7 +11,7 @@ import CoreLocation
 import MapKit
 import FirebaseFirestore
 
-class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
+class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource, CLLocationManagerDelegate, MKMapViewDelegate {
 
     //MARK:Properties
     
@@ -37,9 +37,11 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
     
     var selectedMinutes = 0
     var setTimeForCollection = ""
+    let mapViewInsets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        activeOrderMapView.delegate = self
         self.activeOrderDestinationLabel.text = selectedCafe
         self.activeOrderCollectionNameLabel.text = orderDetailsData.collectionName
         self.activeOrderTableView.delegate = self
@@ -48,6 +50,13 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
         loadSampleMenuItems()
         buttonDesign()
         operateTimer()
+       
+        locationManager.delegate = self //CLLocationManager Delegate
+        
+        locationManager.requestLocation()
+        locationManager.requestWhenInUseAuthorization() //Only require information when app is in the forground
+        locationManager.startUpdatingLocation()
+        locationManager.distanceFilter = 100 
         // Do any additional setup after loading the view.
     }
     
@@ -98,6 +107,74 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource{
         // Pass the selected object to the new view controller.
     }
     */
+    
+    let locationManager = CLLocationManager() //Define Location manager object.
+    let directionRequest = MKDirections.Request()
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location:CLLocationCoordinate2D = manager.location!.coordinate //Determine user location
+        let userLat = location.latitude
+        let userLong = location.longitude
+        let userLocation = CLLocation(latitude: userLat, longitude: userLong)
+    
+        //Convert data to readable 2D coordinate region
+        let currentLocal = userLocation.coordinate
+        let span = MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08)
+        let region = MKCoordinateRegion(center: currentLocal, span: span)
+    
+        activeOrderMapView.setRegion(region, animated: true) // Represent User Location on map
+        self.activeOrderMapView.showsUserLocation = true
+        let destinationAddress = orderDetailsData.cafeDestination
+        
+        let locationMarker = MKPointAnnotation() //Set Marker for Coffee Locations
+        locationMarker.title = orderDetailsData.cafeName
+    
+        let geoCoder = CLGeocoder()
+    
+        geoCoder.geocodeAddressString(destinationAddress) {
+            placemarks, error in
+            let placemark = placemarks?.first
+            let destLat = placemark?.location?.coordinate.latitude
+            let destLong = placemark?.location?.coordinate.longitude
+    
+            locationMarker.coordinate = CLLocationCoordinate2D(latitude: destLat!, longitude: destLong!) //Set Marker for location
+    
+            self.activeOrderMapView.addAnnotation(locationMarker)
+            
+            self.directionRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: userLat, longitude: userLong), addressDictionary: nil))
+            
+            self.directionRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: destLat!, longitude: destLong!), addressDictionary: nil))
+            self.directionRequest.requestsAlternateRoutes = false
+            self.directionRequest.transportType = .walking
+            
+            let directions = MKDirections(request: self.directionRequest)
+            
+            directions.calculate { [unowned self] outcome, error in //
+                guard let gatheredPath = outcome, error == nil else {
+                    return print ("Path not Found") }
+                
+                for route in gatheredPath.routes {
+                    self.activeOrderMapView.addOverlay(route.polyline)
+                    //self.placeOrderMapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                    self.activeOrderMapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: self.mapViewInsets, animated: true)
+                
+                }
+            }
+        }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    print ("Locations not gathered ") // If locations not gathered
+    }
+
+
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let directionalLineRenderer = MKPolylineRenderer(overlay: overlay)
+        directionalLineRenderer.strokeColor = mapviewColor
+        directionalLineRenderer.fillColor = UIColor.blue
+        directionalLineRenderer.lineWidth = 5
+        return directionalLineRenderer
+    }
     
     @objc func update() { //Function called to update labels in real time
        

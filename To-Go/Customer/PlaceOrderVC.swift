@@ -13,10 +13,11 @@ import MapKit
 //MARK: TableViewCells
 
 
-class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate  {
+class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate, CLLocationManagerDelegate, MKMapViewDelegate  {
 
     //MARK:Properties
    
+    
     
     @IBOutlet weak var locationNameLabel: UILabel!
     
@@ -35,15 +36,18 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     @IBOutlet weak var placeOrderScrollView: UIScrollView!
     
     @IBOutlet weak var placeOrderMapView: MKMapView!
+   
+    
     
     var timePicker = UIPickerView()  //Picker for selecting time for collection
     // let timePickerData = [String](arrayLiteral: "varrinutes", "15 Minutes", "20 Minutes", "25 Minutes") //List of Time Options For collection
     let timesAvaliable = [10, 15, 20, 25]
     var mins = 0
-  
+    let mapViewInsets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        placeOrderMapView.delegate = self
         locationManager.delegate = self //CLLocationManager Delegate
         locationManager.requestLocation()
         locationManager.requestWhenInUseAuthorization() //Only require information when app is in the forground
@@ -74,6 +78,7 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         let formatter = DateFormatter()
         formatter.timeStyle = .short
         let dataData = formatter.string(from: Date() + TimeInterval(mins))
+    
         destination.setTimeForCollection = "Collect at: " + dataData
         destination.selectedMinutes = mins
         orderDetailsData.collectionName = nameForCollectionTextField.text!
@@ -154,21 +159,25 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     }
     
     let locationManager = CLLocationManager() //Define Location manager object.
-    
+    let directionRequest = MKDirections.Request()
+
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    
-            //Delegate function allows us to handle loaction information
+        //Delegate function allows us to handle loaction information
+        
         let location:CLLocationCoordinate2D = manager.location!.coordinate //Determine user location
         let userLat = location.latitude
         let userLong = location.longitude
         let userLocation = CLLocation(latitude: userLat, longitude: userLong)
             
             //Convert data to readable 2D coordinate region
-        let span = MKCoordinateSpan(latitudeDelta: 0.20, longitudeDelta: 0.20)
+      
         let currentLocal = userLocation.coordinate
+        let span = MKCoordinateSpan(latitudeDelta: 0.09, longitudeDelta: 0.09)
         let region = MKCoordinateRegion(center: currentLocal, span: span)
             
         placeOrderMapView.setRegion(region, animated: true) // Represent User Location on map
+        self.placeOrderMapView.showsUserLocation = true
+        
         let destinationAddress = orderDetailsData.cafeDestination
         
         let locationMarker = MKPointAnnotation() //Set Marker for Coffee Locations
@@ -183,13 +192,42 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
             let destLat = placemark?.location?.coordinate.latitude
             let destLong = placemark?.location?.coordinate.longitude
 
-            locationMarker.coordinate = CLLocationCoordinate2D(latitude: destLat!, longitude: destLong!) //Set Marker for location
+            locationMarker.coordinate = CLLocationCoordinate2D(latitude: destLat!, longitude: destLong!) //Set Marker for Cafe location
             
             self.placeOrderMapView.addAnnotation(locationMarker)
+            
+            self.directionRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: userLat, longitude: userLong), addressDictionary: nil))
+
+            self.directionRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: destLat!, longitude: destLong!), addressDictionary: nil))
+            
+            self.directionRequest.requestsAlternateRoutes = false
+            self.directionRequest.transportType = .walking
+            
+            let directions = MKDirections(request: self.directionRequest)
+            
+            directions.calculate { [unowned self] outcome, error in //
+            guard let gatheredPath = outcome, error == nil else {
+               return print ("Path not Found") }
+            
+            for route in gatheredPath.routes {
+                    self.placeOrderMapView.addOverlay(route.polyline)
+                    //self.placeOrderMapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
+                    self.placeOrderMapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: self.mapViewInsets, animated: true)
+                }
+            }
         }
     }
+    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         print ("Locations not gathered ") // If locations not gathered
+    }
+   
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        let directionalLineRenderer = MKPolylineRenderer(overlay: overlay)
+        directionalLineRenderer.strokeColor = mapviewColor
+        directionalLineRenderer.fillColor = UIColor.blue
+        directionalLineRenderer.lineWidth = 5
+        return directionalLineRenderer
     }
     
     //MARK: Scroll View Positioning

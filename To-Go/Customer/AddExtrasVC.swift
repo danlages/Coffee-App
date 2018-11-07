@@ -48,7 +48,6 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         
         selectedItemLbl.text = selectedItem
         itemCostLbl.text = "£" + String(format:"%.02f", itemPrice)
-        
     }
 
     override func didReceiveMemoryWarning() {
