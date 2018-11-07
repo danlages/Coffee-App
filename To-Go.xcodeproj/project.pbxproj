@@ -72,7 +72,7 @@
 		2FE0E0A2211897A6000D51A8 /* ViewOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderVC.swift; sourceTree = "<group>"; };
 		4FDD60D7A1D67DCEB4B95FB8 /* Pods-To-GoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To-GoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-To-GoTests/Pods-To-GoTests.release.xcconfig"; sourceTree = "<group>"; };
 		56CC0DCAE92C9AE278757C1C /* Pods_To_GoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_GoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		690CA1E420C99968009C6701 /* To-Go.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "To-Go.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		690CA1E420C99968009C6701 /* My Coffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Coffee.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		690CA1E720C99968009C6701 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		690CA1EE20C99968009C6701 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		690CA1F020C99969009C6701 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -165,7 +165,7 @@
 		690CA1E520C99968009C6701 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				690CA1E420C99968009C6701 /* To-Go.app */,
+				690CA1E420C99968009C6701 /* My Coffee.app */,
 				690CA1FA20C99969009C6701 /* To-GoTests.xctest */,
 				690CA20520C9996A009C6701 /* To-GoUITests.xctest */,
 			);
@@ -279,7 +279,7 @@
 			);
 			name = "To-Go";
 			productName = "To-Go";
-			productReference = 690CA1E420C99968009C6701 /* To-Go.app */;
+			productReference = 690CA1E420C99968009C6701 /* My Coffee.app */;
 			productType = "com.apple.product-type.application";
 		};
 		690CA1F920C99969009C6701 /* To-GoTests */ = {
@@ -699,7 +699,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.To-Go-Bundle";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "My Coffee";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -721,7 +721,7 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.To-Go-Bundle";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "My Coffee";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
