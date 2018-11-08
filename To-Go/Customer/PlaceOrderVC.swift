@@ -48,6 +48,8 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         super.viewDidLoad()
         
         placeOrderMapView.delegate = self
+        placeOrderMapView.showsCompass = false
+        placeOrderMapView.isRotateEnabled = false
         locationManager.delegate = self //CLLocationManager Delegate
         locationManager.requestLocation()
         locationManager.requestWhenInUseAuthorization() //Only require information when app is in the forground
@@ -167,15 +169,15 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         let location:CLLocationCoordinate2D = manager.location!.coordinate //Determine user location
         let userLat = location.latitude
         let userLong = location.longitude
-        let userLocation = CLLocation(latitude: userLat, longitude: userLong)
+        //let userLocation = CLLocation(latitude: userLat, longitude: userLong)
             
             //Convert data to readable 2D coordinate region
       
-        let currentLocal = userLocation.coordinate
-        let span = MKCoordinateSpan(latitudeDelta: 0.09, longitudeDelta: 0.09)
-        let region = MKCoordinateRegion(center: currentLocal, span: span)
-            
-        placeOrderMapView.setRegion(region, animated: true) // Represent User Location on map
+//        let currentLocal = userLocation.coordinate
+//        let span = MKCoordinateSpan(latitudeDelta: 0.09, longitudeDelta: 0.09)
+//        let region = MKCoordinateRegion(center: currentLocal, span: span)
+        
+       // placeOrderMapView.setRegion(region, animated: true) // Represent User Location on map
         self.placeOrderMapView.showsUserLocation = true
         
         let destinationAddress = orderDetailsData.cafeDestination
@@ -212,8 +214,7 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
             for route in gatheredPath.routes {
                     self.placeOrderMapView.addOverlay(route.polyline)
                     //self.placeOrderMapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-                    self.placeOrderMapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: self.mapViewInsets, animated: true)
-                }
+                    self.placeOrderMapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: self.mapViewInsets, animated: true) }
             }
         }
     }
@@ -244,7 +245,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         placeOrderScrollView.scrollIndicatorInsets = UIEdgeInsets.zero
     }
     
-
     func dismissKeyboard() {
         view.endEditing(true)
     }

@@ -76,8 +76,8 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     
     func navbar() {
         navigationController?.navigationBar.prefersLargeTitles = true // Large navigation bar
-        let search = UISearchController(searchResultsController: nil)
-        self.navigationItem.searchController = search
+        //let search = UISearchController(searchResultsController: nil)
+        //self.navigationItem.searchController = search
     }
     
     //Check current time to auto display if cafe is taking orders
