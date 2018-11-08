@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SelectCafeTableViewCell" rowHeight="94" id="e9j-5i-ata" customClass="SelectCafeTableViewCell" customModule="To_Go" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SelectCafeTableViewCell" rowHeight="94" id="e9j-5i-ata" customClass="SelectCafeTableViewCell" customModule="My_Coffee" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="94"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="e9j-5i-ata" id="N0O-YP-egV">
@@ -68,17 +68,19 @@
                             <outlet property="delegate" destination="l8x-Tf-6sp" id="3Ge-TK-D8c"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Favorites" id="8G7-BM-bbz"/>
+                    <tabBarItem key="tabBarItem" title="Favorites" id="8G7-BM-bbz">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10N-Ts-LSX" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="614" y="1263"/>
+            <point key="canvasLocation" x="-1655" y="1003"/>
         </scene>
         <!--Select Account Type-->
         <scene sceneID="AJl-zb-hcd">
             <objects>
-                <viewController id="Nw9-Ox-Wry" userLabel="Select Account Type" customClass="SelectAccount" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="Nw9-Ox-Wry" userLabel="Select Account Type" customClass="SelectAccount" customModule="My_Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="SV9-nQ-5oT">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -155,7 +157,7 @@
         <!--Customer Register-->
         <scene sceneID="mJ3-tF-e5s">
             <objects>
-                <viewController title="Register" id="jEX-yZ-06a" userLabel="Customer Register" customClass="CustomerRegisterVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Register" id="jEX-yZ-06a" userLabel="Customer Register" customClass="CustomerRegisterVC" customModule="My_Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="EA8-Ts-Tct">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,7 +303,7 @@
         <!--Customer Login-->
         <scene sceneID="wSm-js-fXa">
             <objects>
-                <viewController title="Sign In" id="8NJ-Qu-0rA" userLabel="Customer Login" customClass="CustomerLoginVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Sign In" id="8NJ-Qu-0rA" userLabel="Customer Login" customClass="CustomerLoginVC" customModule="My_Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4Q1-sv-S3c">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -406,22 +408,58 @@
                     <tabBar key="tabBar" contentMode="scaleToFill" id="W28-zg-YXA">
                         <rect key="frame" x="0.0" y="975" width="768" height="49"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                         <color key="barTintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="selectedImageTintColor" cocoaTouchSystemColor="darkTextColor"/>
                     </tabBar>
                     <connections>
                         <segue destination="DCZ-7l-Q1a" kind="relationship" relationship="viewControllers" id="4hN-4S-Fri"/>
                         <segue destination="l8x-Tf-6sp" kind="relationship" relationship="viewControllers" id="4nd-8s-RSV"/>
+                        <segue destination="L4M-Xa-ZgK" kind="relationship" relationship="viewControllers" id="kAW-fT-Fe1"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HuB-VB-40B" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="614" y="266"/>
         </scene>
+        <!--Settings-->
+        <scene sceneID="JhJ-Lt-Ddk">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2VB-Cf-H8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tableViewController title="Settings" id="L4M-Xa-ZgK" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OeM-ba-X6e">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="uS7-yC-3cd">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uS7-yC-3cd" id="Lx0-0c-4gk">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="L4M-Xa-ZgK" id="fcG-Lw-28m"/>
+                            <outlet property="delegate" destination="L4M-Xa-ZgK" id="wpF-mG-UXU"/>
+                        </connections>
+                    </tableView>
+                    <tabBarItem key="tabBarItem" title="Settings" id="IXW-Qn-WgS">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="tZU-b0-OOb"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                </tableViewController>
+            </objects>
+            <point key="canvasLocation" x="614" y="1609"/>
+        </scene>
         <!--Select Cafe -->
         <scene sceneID="AGx-Sz-lsM">
             <objects>
-                <tableViewController id="AMh-eF-trx" customClass="SelectCafeTableVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="AMh-eF-trx" customClass="SelectCafeTableVC" customModule="My_Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="90" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pcl-8B-XR8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -431,7 +469,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         </mapView>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SelectCafeTableViewCell" rowHeight="90" id="Aci-HB-f8J" customClass="SelectCafeTableViewCell" customModule="To_Go" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="SelectCafeTableViewCell" rowHeight="90" id="Aci-HB-f8J" customClass="SelectCafeTableViewCell" customModule="My_Coffee" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="394" width="375" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Aci-HB-f8J" id="xFK-b2-LCw">
@@ -494,7 +532,7 @@
         <!--View Order-->
         <scene sceneID="TL5-AK-0Hd">
             <objects>
-                <viewController title="View Order" id="HBd-66-iA8" customClass="ViewOrderVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="View Order" id="HBd-66-iA8" customClass="ViewOrderVC" customModule="My_Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sYl-VD-wWD">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -503,7 +541,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="613"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ViewOrderTableViewCell" rowHeight="87" id="zLD-jb-n3x" userLabel="ViewOrderTableViewCell" customClass="ViewOrderTableViewCell" customModule="To_Go" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="ViewOrderTableViewCell" rowHeight="87" id="zLD-jb-n3x" userLabel="ViewOrderTableViewCell" customClass="ViewOrderTableViewCell" customModule="My_Coffee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zLD-jb-n3x" id="cyp-vS-BKF">
@@ -659,7 +697,7 @@
         <!--Order-->
         <scene sceneID="FVQ-sl-PI8">
             <objects>
-                <viewController title="Order" id="YwY-Uq-lnA" customClass="PlaceOrderVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Order" id="YwY-Uq-lnA" customClass="PlaceOrderVC" customModule="My_Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="UZN-B2-aMd">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -831,7 +869,7 @@
         <!--Active Order-->
         <scene sceneID="15M-GM-KZG">
             <objects>
-                <viewController title="Active Order" id="8S1-Bc-a7n" customClass="ActiveOrder" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Active Order" id="8S1-Bc-a7n" customClass="ActiveOrder" customModule="My_Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="nMW-sP-8Ic">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -940,7 +978,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectItemTableViewCell" rowHeight="160" id="aWd-YE-3XL" customClass="SelectItemTableViewCell" customModule="To_Go" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectItemTableViewCell" rowHeight="160" id="aWd-YE-3XL" customClass="SelectItemTableViewCell" customModule="My_Coffee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="790" width="375" height="160"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="aWd-YE-3XL" id="4vI-Cv-R42">
@@ -1027,7 +1065,7 @@
         <!--Extras-->
         <scene sceneID="ahm-dw-PeH">
             <objects>
-                <viewController title="Extras" id="faq-Sn-ZeY" customClass="AddExtrasVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Extras" id="faq-Sn-ZeY" customClass="AddExtrasVC" customModule="My_Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Bh5-0O-xdu">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1036,7 +1074,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="563"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddExtrasTableViewCell" rowHeight="80" id="u2b-hg-VZk" customClass="AddExtrasTableViewCell" customModule="To_Go" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddExtrasTableViewCell" rowHeight="80" id="u2b-hg-VZk" customClass="AddExtrasTableViewCell" customModule="My_Coffee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u2b-hg-VZk" id="62W-BO-Mkc">
@@ -1188,7 +1226,7 @@
         <!--Select Item-->
         <scene sceneID="rKy-3v-cXj">
             <objects>
-                <viewController title="Select Item" id="iwt-nV-R4d" customClass="SelectItemVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Select Item" id="iwt-nV-R4d" customClass="SelectItemVC" customModule="My_Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="iFu-df-xE5">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1197,7 +1235,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="641"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectItemTableViewCell" rowHeight="87" id="FPg-3M-8Ev" customClass="SelectItemTableViewCell" customModule="To_Go" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="SelectItemTableViewCell" rowHeight="87" id="FPg-3M-8Ev" customClass="SelectItemTableViewCell" customModule="My_Coffee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FPg-3M-8Ev" id="3kg-SJ-ooa">
@@ -1291,7 +1329,7 @@
         <!--Update Extras-->
         <scene sceneID="hyq-xR-d0x">
             <objects>
-                <viewController title="Update Extras" id="oMZ-mx-SAe" customClass="UpdateExtrasVC" customModule="To_Go" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Update Extras" id="oMZ-mx-SAe" customClass="UpdateExtrasVC" customModule="My_Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Axr-yJ-VZt">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1300,7 +1338,7 @@
                                 <rect key="frame" x="0.0" y="88" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddExtrasTableViewCell" rowHeight="80" id="hSx-DO-pmV" customClass="AddExtrasTableViewCell" customModule="To_Go" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddExtrasTableViewCell" rowHeight="80" id="hSx-DO-pmV" customClass="AddExtrasTableViewCell" customModule="My_Coffee" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hSx-DO-pmV" id="qx5-JZ-6Y6">

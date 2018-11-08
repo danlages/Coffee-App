@@ -37,11 +37,13 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource,
     
     var selectedMinutes = 0
     var setTimeForCollection = ""
-    let mapViewInsets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
+    let mapViewInsets = UIEdgeInsets(top: 70, left: 70, bottom: 70, right: 70)
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         activeOrderMapView.delegate = self
+        activeOrderMapView.showsCompass = false //Hide compas animation
         self.activeOrderDestinationLabel.text = selectedCafe
         self.activeOrderCollectionNameLabel.text = orderDetailsData.collectionName
         self.activeOrderTableView.delegate = self
@@ -94,7 +96,6 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource,
         }
         
         //Determine and set cell information
-
         return cell
     }
     
@@ -118,11 +119,11 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource,
         let userLocation = CLLocation(latitude: userLat, longitude: userLong)
     
         //Convert data to readable 2D coordinate region
-        let currentLocal = userLocation.coordinate
-        let span = MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08)
-        let region = MKCoordinateRegion(center: currentLocal, span: span)
+//        let currentLocal = userLocation.coordinate
+//        let span = MKCoordinateSpan(latitudeDelta: 0.08, longitudeDelta: 0.08)
+//        let region = MKCoordinateRegion(center: currentLocal, span: span)
     
-        activeOrderMapView.setRegion(region, animated: true) // Represent User Location on map
+       // activeOrderMapView.setRegion(region, animated: true) // Represent User Location on map
         self.activeOrderMapView.showsUserLocation = true
         let destinationAddress = orderDetailsData.cafeDestination
         
@@ -156,18 +157,14 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource,
                 for route in gatheredPath.routes {
                     self.activeOrderMapView.addOverlay(route.polyline)
                     //self.placeOrderMapView.setVisibleMapRect(route.polyline.boundingMapRect, animated: true)
-                    self.activeOrderMapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: self.mapViewInsets, animated: true)
-                
-                }
+                    self.activeOrderMapView.setVisibleMapRect(route.polyline.boundingMapRect, edgePadding: self.mapViewInsets, animated: true) }
             }
         }
     }
-    
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
     print ("Locations not gathered ") // If locations not gathered
     }
-
-
+    
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         let directionalLineRenderer = MKPolylineRenderer(overlay: overlay)
         directionalLineRenderer.strokeColor = mapviewColor
@@ -177,7 +174,6 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource,
     }
     
     @objc func update() { //Function called to update labels in real time
-       
         selectedMinutes -= 1
         
         let minutes = Int(selectedMinutes) / 60 % 60
@@ -196,8 +192,6 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource,
         activeOrderTimerLabel.text = "00:00"
             
         }
-   
-        
     }
     
     func operateTimer() {

@@ -203,7 +203,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
                 let sections = IndexSet.init(integer: indexPath.section)
                 tableView.reloadSections(sections, with: .none)
             }
-        }else {
+        } else {
             //something to happen when an extra is clicked?
             //remove if indexPath.row == 0 if only want to close extras when clicked and nothing else
         }
