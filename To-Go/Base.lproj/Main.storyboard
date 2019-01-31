@@ -102,7 +102,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.54396939280000001" green="0.41967898609999998" blue="0.38081705570000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="Vt2-lh-Pag" firstAttribute="centerX" secondItem="9eN-cD-mDt" secondAttribute="centerX" id="1oc-Lk-rMJ"/>
                                             <constraint firstItem="Vt2-lh-Pag" firstAttribute="centerY" secondItem="9eN-cD-mDt" secondAttribute="centerY" id="OPU-jR-bwj"/>
@@ -122,7 +122,7 @@
                                                 </connections>
                                             </button>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.61176470589999998" green="0.53333333329999999" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.41393071409999999" green="0.31770586969999998" blue="0.28748863940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="d1G-JO-znc" firstAttribute="centerX" secondItem="f4y-ra-uxT" secondAttribute="centerX" id="1eT-s6-3EW"/>
                                             <constraint firstItem="d1G-JO-znc" firstAttribute="centerY" secondItem="f4y-ra-uxT" secondAttribute="centerY" id="Kfo-U2-Hia"/>
@@ -261,7 +261,7 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CSI-lt-kfP">
                                 <rect key="frame" x="98" y="631" width="179" height="42"/>
-                                <color key="backgroundColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.41393071409999999" green="0.31770586969999998" blue="0.28748863940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="179" id="HzX-aA-9hm"/>
                                     <constraint firstAttribute="height" constant="42" id="Ubg-Xm-VR4"/>
@@ -276,7 +276,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.45882352941176469" green="0.45882352941176469" blue="0.45882352941176469" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.54396939280000001" green="0.41967898609999998" blue="0.38081705570000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="CSI-lt-kfP" secondAttribute="trailing" constant="98" id="CNh-6b-vTP"/>
                             <constraint firstItem="CSI-lt-kfP" firstAttribute="top" secondItem="sy9-dJ-oVU" secondAttribute="bottom" constant="45" id="E1K-1U-FL6"/>
@@ -359,7 +359,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhG-DK-vMc">
                                 <rect key="frame" x="98" y="535" width="179" height="42"/>
-                                <color key="backgroundColor" red="0.28627450980000002" green="0.28627450980000002" blue="0.28627450980000002" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.41393071409999999" green="0.31770586969999998" blue="0.28748863940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="42" id="DqC-VX-atl"/>
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="179" id="fTY-qy-JQn"/>
@@ -374,7 +374,7 @@
                                 </connections>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.54396939280000001" green="0.41967898609999998" blue="0.38081705570000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="vhG-DK-vMc" firstAttribute="leading" secondItem="zJq-Wb-0Vr" secondAttribute="leading" constant="98" id="3rc-WG-Iej"/>
                             <constraint firstItem="tHF-5C-fAO" firstAttribute="centerX" secondItem="4Q1-sv-S3c" secondAttribute="centerX" id="AEE-tP-v8j"/>
@@ -426,7 +426,6 @@
         <!--Settings-->
         <scene sceneID="JhJ-Lt-Ddk">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="2VB-Cf-H8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController title="Settings" id="L4M-Xa-ZgK" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="OeM-ba-X6e">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -453,6 +452,7 @@
                     <navigationItem key="navigationItem" id="tZU-b0-OOb"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2VB-Cf-H8L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="614" y="1609"/>
         </scene>
@@ -795,7 +795,7 @@
                                                 <color key="highlightedColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             </label>
                                         </subviews>
-                                        <color key="backgroundColor" red="0.61176470589999998" green="0.53333333329999999" blue="0.49803921569999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.54396939280000001" green="0.41967898609999998" blue="0.38081705570000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstItem="uih-T1-xAJ" firstAttribute="leading" secondItem="DWv-kl-Sm7" secondAttribute="leading" id="0Mx-XD-t0n"/>
                                             <constraint firstItem="XsJ-4s-4wF" firstAttribute="top" secondItem="1a7-KC-GAG" secondAttribute="top" id="11k-9F-uks"/>
@@ -947,7 +947,7 @@
                                             </state>
                                         </button>
                                     </subviews>
-                                    <color key="backgroundColor" red="0.45882352939999999" green="0.45882352939999999" blue="0.45882352939999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="backgroundColor" red="0.54396939280000001" green="0.41967898609999998" blue="0.38081705570000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="ULy-Bh-iVc" secondAttribute="trailing" constant="20" symbolic="YES" id="5Ml-ym-IgA"/>
                                         <constraint firstItem="ULy-Bh-iVc" firstAttribute="leading" secondItem="gbi-su-YLK" secondAttribute="leading" constant="16" id="A1l-2w-sDg"/>
@@ -1433,6 +1433,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="pMn-ri-Iqg"/>
+        <segue reference="WuQ-ef-cXg"/>
     </inferredMetricsTieBreakers>
 </document>

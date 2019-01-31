@@ -21,7 +21,7 @@ class CustomerRegisterVC: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = UIColor(red: 117.0/255.0, green: 117.0/255.0, blue: 117.0/255.0, alpha: 1.0)
+        //view.backgroundColor = UIColor(red: 117.0/255.0, green: 117.0/255.0, blue: 117.0/255.0, alpha: 1.0)
         
         registerButton.layer.cornerRadius = 5 //Button Asthetics
         registerButton.backgroundColor = accentColor

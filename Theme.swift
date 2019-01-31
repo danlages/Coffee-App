@@ -11,7 +11,9 @@ import Foundation
 
 let selectedThemeKey = "ThemeKey"
 
-let accentColor = UIColor(red: 160.0/255.0, green: 135.0/255.0, blue: 126.0/255.0, alpha: 1.0) // Define accent color
+let accentColor = UIColor(red: 93.0/255.0, green: 64.0/255.0, blue: 55.0/255.0, alpha: 1.0) // Define accent color
+
+let mainColor = UIColor(red: 139.0/255.0, green: 107.0/255.0, blue: 97.0/255.0, alpha: 1.0)// Define main color
 
 let mapviewColor = UIColor(red: 0.12/255.0, green: 158.0/255.0, blue: 225.0/255.0, alpha: 1.0)
 
@@ -21,9 +23,9 @@ enum Theme: Int {
     var mainColorQuery: UIColor {
         switch self {
         case .Default:
-            return UIColor(red: 117.0/255.0, green: 117.0/255.0, blue: 117.0/255.0, alpha: 1.0)
+            return mainColor
         case .secondaryColor:
-            return UIColor(red: 113.0/255.0, green: 90.0/255.0, blue: 82.0/255.0, alpha: 1.0)
+            return mainColor
         }
     }
     
@@ -48,9 +50,9 @@ enum Theme: Int {
     var accentColorQuery: UIColor {
         switch self {
         case .Default:
-            return UIColor(red: 160.0/255.0, green: 135.0/255.0, blue: 126.0/255.0, alpha: 1.0)
+            return accentColor
         case .secondaryColor:
-            return UIColor(red: 160.0/255.0, green: 135.0/255.0, blue: 126.0/255.0, alpha: 1.0)
+            return accentColor
         }
     }
 }
