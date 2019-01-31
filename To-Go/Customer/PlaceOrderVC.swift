@@ -44,6 +44,8 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     let timesAvaliable = [10, 15, 20, 25]
     var mins = 0
     let mapViewInsets = UIEdgeInsets(top: 40, left: 40, bottom: 40, right: 40)
+    let numberChars = NSCharacterSet.decimalDigits // Decimal digits range for validation
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -141,16 +143,16 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         let collectionName = nameForCollectionTextField.text
         let collectionTimeText = selectPickupTimeTextField.text
         
-        if collectionName == "" && collectionTimeText == ""
-        {
+        if ((collectionName?.rangeOfCharacter(from: numberChars)) != nil) {
+            errorMessageLabel.text = " The collection name must not contain nummbers"
+        }
+        else if collectionName == "" && collectionTimeText == "" {
             errorMessageLabel.text = "Please enter collection name and time"
         }
-        else if collectionTimeText == ""
-        {
+        else if collectionTimeText == "" {
             errorMessageLabel.text = "Please enter a collection time"
         }
-        else if collectionName == ""
-        {
+        else if collectionName == "" {
             errorMessageLabel.text = "Please enter a collection name"
             //Next Step
         }
