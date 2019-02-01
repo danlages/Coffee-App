@@ -33,7 +33,7 @@ class CustomerLoginVC: UIViewController, UITextFieldDelegate {
         emailAddressLabel.textColor = textColor
         passwordLabel.textColor = textColor
        
-        loginButton.backgroundColor = accentColor //Define Button Asthetics
+        //loginButton.backgroundColor = accentColor //Define Button Asthetics
         loginButton.layer.cornerRadius = 5
         
         

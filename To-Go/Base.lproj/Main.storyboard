@@ -301,23 +301,26 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.29999999999999999" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coffee-beans" translatesAutoresizingMaskIntoConstraints="NO" id="VzE-Ir-c3n">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="79B-PD-J7m">
-                                <rect key="frame" x="16" y="247" width="343" height="318"/>
+                                <rect key="frame" x="16" y="229.66666666666666" width="343" height="352.66666666666674"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MyCoffee." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WO8-vA-D24">
                                         <rect key="frame" x="23.666666666666657" y="0.0" width="295.66666666666674" height="76"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <fontDescription key="fontDescription" name="CaviarDreams-Bold" family="Caviar Dreams" pointSize="60"/>
-                                        <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rEa-gk-SwE">
-                                        <rect key="frame" x="110" y="96" width="123.33333333333331" height="24"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <rect key="frame" x="107.33333333333333" y="96.000000000000028" width="128.33333333333337" height="23.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tMr-HA-dwW">
-                                        <rect key="frame" x="64" y="140" width="215" height="30"/>
+                                        <rect key="frame" x="64" y="139.33333333333334" width="215" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="QVL-cY-udF"/>
                                         </constraints>
@@ -326,13 +329,13 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5w-sg-Zzx">
-                                        <rect key="frame" x="129.66666666666666" y="190" width="84" height="24"/>
-                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                        <rect key="frame" x="127.33333333333334" y="189.33333333333334" width="88.666666666666657" height="23.333333333333343"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="boU-HE-SPu">
-                                        <rect key="frame" x="64" y="234" width="215" height="30"/>
+                                        <rect key="frame" x="64" y="232.66666666666666" width="215" height="29.999999999999972"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="bxV-J6-f2R"/>
                                         </constraints>
@@ -341,17 +344,23 @@
                                         <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" reversesTitleShadowWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vhG-DK-vMc">
-                                        <rect key="frame" x="85" y="284" width="173" height="34"/>
-                                        <color key="backgroundColor" red="0.41393071409999999" green="0.31770586969999998" blue="0.28748863940000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
+                                        <rect key="frame" x="85" y="282.66666666666674" width="173" height="33"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
                                         <state key="normal" title="Login">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="titleShadowColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
                                         <connections>
                                             <action selector="LoginTapped:" destination="8NJ-Qu-0rA" eventType="touchUpInside" id="k3u-4B-eY3"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Forgotten Password?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MfM-eV-diD">
+                                        <rect key="frame" x="103.66666666666669" y="335.66666666666674" width="136" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="tMr-HA-dwW" secondAttribute="trailing" constant="64" id="0dw-Ei-egt"/>
@@ -365,7 +374,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tHF-5C-fAO">
                                 <rect key="frame" x="151" y="724" width="73" height="34"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="18"/>
-                                <state key="normal" title="Register"/>
+                                <state key="normal" title="Register">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <segue destination="jEX-yZ-06a" kind="show" id="V2b-L2-Wg8"/>
                                 </connections>
@@ -375,10 +386,14 @@
                         <constraints>
                             <constraint firstItem="tHF-5C-fAO" firstAttribute="centerX" secondItem="4Q1-sv-S3c" secondAttribute="centerX" id="AEE-tP-v8j"/>
                             <constraint firstItem="zJq-Wb-0Vr" firstAttribute="bottom" secondItem="tHF-5C-fAO" secondAttribute="bottom" constant="20" id="DZs-mG-6XY"/>
+                            <constraint firstItem="VzE-Ir-c3n" firstAttribute="leading" secondItem="zJq-Wb-0Vr" secondAttribute="leading" id="E6h-Zy-CAu"/>
                             <constraint firstItem="79B-PD-J7m" firstAttribute="centerX" secondItem="4Q1-sv-S3c" secondAttribute="centerX" id="UHW-sY-y7A"/>
                             <constraint firstItem="79B-PD-J7m" firstAttribute="leading" secondItem="zJq-Wb-0Vr" secondAttribute="leading" constant="16" id="aXt-Bj-OL6"/>
+                            <constraint firstItem="VzE-Ir-c3n" firstAttribute="trailing" secondItem="zJq-Wb-0Vr" secondAttribute="trailing" id="g10-uJ-5Nz"/>
                             <constraint firstItem="79B-PD-J7m" firstAttribute="centerY" secondItem="4Q1-sv-S3c" secondAttribute="centerY" id="i55-IZ-YbE"/>
+                            <constraint firstItem="VzE-Ir-c3n" firstAttribute="top" secondItem="4Q1-sv-S3c" secondAttribute="top" id="ih9-pP-EZo"/>
                             <constraint firstItem="zJq-Wb-0Vr" firstAttribute="trailing" secondItem="79B-PD-J7m" secondAttribute="trailing" constant="16" id="rgk-Jt-3g0"/>
+                            <constraint firstAttribute="bottom" secondItem="VzE-Ir-c3n" secondAttribute="bottom" id="wl7-4o-peG"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zJq-Wb-0Vr"/>
                     </view>
@@ -1423,7 +1438,10 @@
             <point key="canvasLocation" x="4729" y="92"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="coffee-beans" width="5472" height="3648"/>
+    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="WuQ-ef-cXg"/>
+        <segue reference="pMn-ri-Iqg"/>
     </inferredMetricsTieBreakers>
 </document>
