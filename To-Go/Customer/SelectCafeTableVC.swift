@@ -46,7 +46,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
         locationManager.delegate = self //CLLocationManager Delegate
 
         loadDestinations()

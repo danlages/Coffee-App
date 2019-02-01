@@ -12,6 +12,7 @@ class CustomerLoginVC: UIViewController, UITextFieldDelegate {
 
     //MARK: - Properties
     
+    @IBOutlet weak var myCoffeeLabel: UILabel!
     @IBOutlet weak var emailAddressLabel: UILabel!
     
     @IBOutlet weak var passwordLabel: UILabel!
@@ -32,7 +33,7 @@ class CustomerLoginVC: UIViewController, UITextFieldDelegate {
         
         emailAddressLabel.textColor = textColor
         passwordLabel.textColor = textColor
-       
+        myCoffeeLabel.layer.cornerRadius = 5
         //loginButton.backgroundColor = accentColor //Define Button Asthetics
         loginButton.layer.cornerRadius = 5
         
