@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/danlages/Documents/Projects/Coffee-App/Assets.xcassets">
+   </FileRef>
+   <FileRef
       location = "group:To-Go.xcodeproj">
    </FileRef>
    <FileRef

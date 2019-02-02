@@ -44,6 +44,9 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     var destinations = [Destination]()  //Creates a mutable array of destination objects - allowing for the addition of items after initilsation
     var distanceFromUser: [String] = []
 
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -223,8 +226,19 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
             cell.orderStatusLabel.text = "Not Taking Orders"
         }
         
+    
         return cell
     }
+    
+    //Cell Style
+ 
+
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+
+
+    }
+
+    
     
     //MARK: Cell Actions
     
