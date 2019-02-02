@@ -185,10 +185,10 @@
 		690CA1E620C99968009C6701 /* To-Go */ = {
 			isa = PBXGroup;
 			children = (
+				2F41CA6F2205C06F0072C24F /* Assets.xcassets */,
 				89BA7E482124C18100009A52 /* Customer */,
 				89BA7E472124C16D00009A52 /* Business */,
 				89BA7E4D2124C23500009A52 /* Models */,
-				2F41CA6F2205C06F0072C24F /* Assets.xcassets */,
 				2F0FCD4221233D8800432810 /* Theme.swift */,
 				690CA1ED20C99968009C6701 /* Main.storyboard */,
 				89BA7E452124BEA300009A52 /* Business.storyboard */,
