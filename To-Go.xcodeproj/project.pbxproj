@@ -70,7 +70,6 @@
 		2F0FCD4221233D8800432810 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = SOURCE_ROOT; };
 		2F2544882203071500AB45C3 /* StoreOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreOptionsTableViewController.swift; sourceTree = "<group>"; };
 		2F25448A2203086300AB45C3 /* StoreOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreOptionsTableViewCell.swift; sourceTree = "<group>"; };
-		2F41CA6E2205C0550072C24F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "/Users/danlages/Documents/Projects/Coffee-App/Assets.xcassets"; sourceTree = "<absolute>"; };
 		2F41CA6F2205C06F0072C24F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = SOURCE_ROOT; };
 		2F53EDB4218DBE6C001659DB /* OrderDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetails.swift; sourceTree = "<group>"; };
 		2F8796A721238B6C00EA2E23 /* SelectItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemVC.swift; sourceTree = "<group>"; };
@@ -162,7 +161,7 @@
 		690CA1DB20C99968009C6701 = {
 			isa = PBXGroup;
 			children = (
-				2F41CA6E2205C0550072C24F /* Assets.xcassets */,
+				2F41CA6F2205C06F0072C24F /* Assets.xcassets */,
 				2F2544882203071500AB45C3 /* StoreOptionsTableViewController.swift */,
 				2F25448A2203086300AB45C3 /* StoreOptionsTableViewCell.swift */,
 				690CA1E620C99968009C6701 /* To-Go */,
@@ -199,7 +198,6 @@
 				895C44CA21905A69008BDE1D /* MyAPIClient.swift */,
 				690CA1F520C99969009C6701 /* Info.plist */,
 				89BA06072110C35300FA0A3E /* GoogleService-Info.plist */,
-				2F41CA6F2205C06F0072C24F /* Assets.xcassets */,
 			);
 			path = "To-Go";
 			sourceTree = "<group>";
@@ -714,14 +712,14 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZC337WJBMX;
+				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				INFOPLIST_FILE = "To-Go/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.To-Go-Bundle123";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.To-Go-Bundle";
 				PRODUCT_NAME = "My Coffee";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -738,14 +736,14 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZC337WJBMX;
+				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				INFOPLIST_FILE = "To-Go/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.To-Go-Bundle123";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.To-Go-Bundle";
 				PRODUCT_NAME = "My Coffee";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
