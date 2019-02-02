@@ -70,7 +70,7 @@
 		2F0FCD4221233D8800432810 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = SOURCE_ROOT; };
 		2F2544882203071500AB45C3 /* StoreOptionsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreOptionsTableViewController.swift; sourceTree = "<group>"; };
 		2F25448A2203086300AB45C3 /* StoreOptionsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreOptionsTableViewCell.swift; sourceTree = "<group>"; };
-		2F41CA6F2205C06F0072C24F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = SOURCE_ROOT; };
+		2F41CA6F2205C06F0072C24F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "To-Go/Assets.xcassets"; sourceTree = SOURCE_ROOT; };
 		2F53EDB4218DBE6C001659DB /* OrderDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetails.swift; sourceTree = "<group>"; };
 		2F8796A721238B6C00EA2E23 /* SelectItemVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectItemVC.swift; sourceTree = "<group>"; };
 		2F8C4F04211B1BD300328514 /* SelectAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountVC.swift; sourceTree = "<group>"; };
@@ -161,7 +161,6 @@
 		690CA1DB20C99968009C6701 = {
 			isa = PBXGroup;
 			children = (
-				2F41CA6F2205C06F0072C24F /* Assets.xcassets */,
 				2F2544882203071500AB45C3 /* StoreOptionsTableViewController.swift */,
 				2F25448A2203086300AB45C3 /* StoreOptionsTableViewCell.swift */,
 				690CA1E620C99968009C6701 /* To-Go */,
@@ -189,6 +188,7 @@
 				89BA7E482124C18100009A52 /* Customer */,
 				89BA7E472124C16D00009A52 /* Business */,
 				89BA7E4D2124C23500009A52 /* Models */,
+				2F41CA6F2205C06F0072C24F /* Assets.xcassets */,
 				2F0FCD4221233D8800432810 /* Theme.swift */,
 				690CA1ED20C99968009C6701 /* Main.storyboard */,
 				89BA7E452124BEA300009A52 /* Business.storyboard */,
