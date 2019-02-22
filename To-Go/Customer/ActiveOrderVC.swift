@@ -190,7 +190,7 @@ class ActiveOrder: UIViewController, UITableViewDelegate, UITableViewDataSource,
         timer.invalidate()
         activeOrderTimeToCollectLabel.text = "To be Collected"
         activeOrderTimerLabel.text = "00:00"
-            
+        
         }
     }
     
