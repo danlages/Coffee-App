@@ -142,6 +142,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.64999997615814209" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="coffee-beans" translatesAutoresizingMaskIntoConstraints="NO" id="3NF-Yu-gxP">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                            </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4f0-mS-dgS">
                                 <rect key="frame" x="113.66666666666669" y="746" width="148" height="30"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="15"/>
@@ -224,11 +227,15 @@
                         <constraints>
                             <constraint firstItem="LpB-hh-udA" firstAttribute="trailing" secondItem="dT1-Fr-C1f" secondAttribute="trailing" constant="16" id="HoL-Z8-Gh1"/>
                             <constraint firstItem="4f0-mS-dgS" firstAttribute="centerX" secondItem="2ZX-du-0Ue" secondAttribute="centerX" id="KsL-No-eVx"/>
+                            <constraint firstItem="LpB-hh-udA" firstAttribute="trailing" secondItem="3NF-Yu-gxP" secondAttribute="trailing" id="NfZ-iu-PuE"/>
                             <constraint firstItem="6Qy-T6-gb8" firstAttribute="leading" secondItem="LpB-hh-udA" secondAttribute="leading" constant="37" id="Rjb-ro-hKG"/>
                             <constraint firstItem="dT1-Fr-C1f" firstAttribute="top" secondItem="6Qy-T6-gb8" secondAttribute="bottom" constant="8" id="RzJ-c7-Qa1"/>
+                            <constraint firstAttribute="bottom" secondItem="3NF-Yu-gxP" secondAttribute="bottom" id="UpR-8x-u2o"/>
                             <constraint firstItem="6Qy-T6-gb8" firstAttribute="top" secondItem="LpB-hh-udA" secondAttribute="top" constant="125" id="VAg-pS-teO"/>
                             <constraint firstItem="LpB-hh-udA" firstAttribute="trailing" secondItem="6Qy-T6-gb8" secondAttribute="trailing" constant="37" id="WUa-7V-dgA"/>
+                            <constraint firstItem="3NF-Yu-gxP" firstAttribute="leading" secondItem="2ZX-du-0Ue" secondAttribute="leading" id="g2J-nv-wmc"/>
                             <constraint firstItem="LpB-hh-udA" firstAttribute="bottom" secondItem="4f0-mS-dgS" secondAttribute="bottom" constant="2" id="joE-9m-DBO"/>
+                            <constraint firstItem="3NF-Yu-gxP" firstAttribute="top" secondItem="2ZX-du-0Ue" secondAttribute="top" id="kNn-ia-VIo"/>
                             <constraint firstItem="dT1-Fr-C1f" firstAttribute="leading" secondItem="LpB-hh-udA" secondAttribute="leading" constant="16" id="mWN-oo-TIN"/>
                             <constraint firstItem="dT1-Fr-C1f" firstAttribute="centerY" secondItem="2ZX-du-0Ue" secondAttribute="centerY" constant="46.829999999999998" id="z5V-pZ-xLe"/>
                         </constraints>
@@ -1025,5 +1032,6 @@
     </scenes>
     <resources>
         <image name="Logo" width="4096" height="1927"/>
+        <image name="coffee-beans" width="5472" height="3648"/>
     </resources>
 </document>

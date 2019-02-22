@@ -19,8 +19,8 @@ class SelectItemTableViewCell: UITableViewCell {
         super.awakeFromNib()
         
         // Initialization code
-        menuItemName.textColor = UIColor.white
-        menuItemPrice.textColor = UIColor.white
+        menuItemName.textColor = UIColor.black
+        menuItemPrice.textColor = UIColor.black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

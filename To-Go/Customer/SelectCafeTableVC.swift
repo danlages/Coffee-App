@@ -210,7 +210,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
         cell.layer.borderWidth = 0.5
         cell.layer.borderColor = accentColor.cgColor
         
-        let cellTextColor = UIColor.white
+        let cellTextColor = UIColor.black
         
         cell.destinatioNameLabel.textColor = cellTextColor
         cell.distanceLabel.textColor = cellTextColor

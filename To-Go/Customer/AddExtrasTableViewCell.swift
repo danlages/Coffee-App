@@ -19,8 +19,8 @@ class AddExtrasTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        extra.textColor = UIColor.white
-        price.textColor = UIColor.white
+        extra.textColor = UIColor.black
+        price.textColor = UIColor.black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

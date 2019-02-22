@@ -19,9 +19,9 @@ class ViewOrderTableViewCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         
-        itemName.textColor = UIColor.white
-        itemSize.textColor = UIColor.white
-        itemCost.textColor = UIColor.white
+        itemName.textColor = UIColor.black
+        itemSize.textColor = UIColor.black
+        itemCost.textColor = UIColor.black
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

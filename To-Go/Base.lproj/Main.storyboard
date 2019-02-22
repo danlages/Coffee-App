@@ -400,7 +400,7 @@
             <objects>
                 <tableViewController id="AMh-eF-trx" customClass="SelectCafeTableVC" customModule="My_Coffee" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" id="Pcl-8B-XR8">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="729"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <mapView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" mapType="standard" scrollEnabled="NO" id="UkS-gl-WHT">
@@ -1163,6 +1163,7 @@
                     <tabBarItem key="tabBarItem" title="Order" id="zkd-8B-uKg"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kHc-L1-YFF">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -1387,6 +1388,6 @@
         <image name="coffee-beans" width="5472" height="3648"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pMn-ri-Iqg"/>
+        <segue reference="WuQ-ef-cXg"/>
     </inferredMetricsTieBreakers>
 </document>
