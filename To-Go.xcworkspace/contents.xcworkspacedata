@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:To-Go/Customer/SelectPaymentMethodUIView.swift">
+   </FileRef>
+   <FileRef
       location = "group:To-Go.xcodeproj">
    </FileRef>
    <FileRef
