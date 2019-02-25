@@ -78,7 +78,7 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         
         let label = UILabel(frame: CGRect(x: view.bounds.width-imageView.bounds.width + 12, y: 4.5, width: 45, height: 45))
 
-        
+        label.textColor = UIColor.white
         label.text = String(basketCount)
         view.addSubview(label)
         

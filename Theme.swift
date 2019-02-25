@@ -85,6 +85,7 @@ struct ManageThemes {
         UINavigationBar.appearance().barStyle = theme.barStyleQuery
         UINavigationBar.appearance().setBackgroundImage(theme.navigationColour, for: .default)
         UINavigationBar.appearance().barTintColor = theme.accentColorQuery
+        UINavigationBar.appearance().tintColor = UIColor.white
         
         //MARK: TableView
         UITableView.appearance().backgroundColor = theme.mainColorQuery

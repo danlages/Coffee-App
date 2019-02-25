@@ -186,6 +186,7 @@ class AddExtrasVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         }
         else {
             label.text = sectionHeaders[section]
+            label.textAlignment = NSTextAlignment.center
             label.backgroundColor = .white
         }
         return label

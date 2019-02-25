@@ -60,7 +60,7 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         
         timePicker.delegate = self
         timePicker.dataSource = self
-        timePicker.backgroundColor = accentColor //Set Colour of Picker View
+        timePicker.backgroundColor = mainColor //Set Colour of Picker View
         self.nameForCollectionTextField.delegate = self
         locationNameLabel.text = orderDetailsData.cafeName
         self.selectPickupTimeTextField.delegate = self

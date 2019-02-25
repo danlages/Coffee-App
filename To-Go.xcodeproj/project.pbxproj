@@ -720,14 +720,14 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZC337WJBMX;
+				DEVELOPMENT_TEAM = 2QH6YF6CMQ;
 				INFOPLIST_FILE = "To-Go/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.To-Go-Bundle1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle";
 				PRODUCT_NAME = "My Coffee";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -744,14 +744,14 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZC337WJBMX;
+				DEVELOPMENT_TEAM = 2QH6YF6CMQ;
 				INFOPLIST_FILE = "To-Go/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.To-Go-Bundle1";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle";
 				PRODUCT_NAME = "My Coffee";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
