@@ -20,6 +20,7 @@
 		2F8C4F05211B1BD300328514 /* SelectAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C4F04211B1BD300328514 /* SelectAccountVC.swift */; };
 		2F9954D620ECF55F008D4E65 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9954D520ECF55F008D4E65 /* Destination.swift */; };
 		2F99D0C921505A89008BAFC4 /* UpdateExtrasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F99D0C821505A89008BAFC4 /* UpdateExtrasVC.swift */; };
+		2FB0FBF02225F0360092DEC6 /* SelectPaymentMethodUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0FBEF2225F0360092DEC6 /* SelectPaymentMethodUIView.swift */; };
 		2FE0E0A3211897A6000D51A8 /* ViewOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE0E0A2211897A6000D51A8 /* ViewOrderVC.swift */; };
 		3C443FEE9403B524BDC729C5 /* Pods_To_GoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CC0DCAE92C9AE278757C1C /* Pods_To_GoTests.framework */; };
 		51F226C67DA333ACB1E80090 /* Pods_To_Go.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB38815962A90B661FDFF43F /* Pods_To_Go.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -84,6 +85,7 @@
 		2F8C4F04211B1BD300328514 /* SelectAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountVC.swift; sourceTree = "<group>"; };
 		2F9954D520ECF55F008D4E65 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		2F99D0C821505A89008BAFC4 /* UpdateExtrasVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateExtrasVC.swift; sourceTree = "<group>"; };
+		2FB0FBEF2225F0360092DEC6 /* SelectPaymentMethodUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SelectPaymentMethodUIView.swift; path = "/Users/danlages/Documents/Projects/Coffee-App/To-Go/Customer/SelectPaymentMethodUIView.swift"; sourceTree = "<absolute>"; };
 		2FE0E0A2211897A6000D51A8 /* ViewOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderVC.swift; sourceTree = "<group>"; };
 		4FDD60D7A1D67DCEB4B95FB8 /* Pods-To-GoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To-GoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-To-GoTests/Pods-To-GoTests.release.xcconfig"; sourceTree = "<group>"; };
 		56CC0DCAE92C9AE278757C1C /* Pods_To_GoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_GoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -253,6 +255,7 @@
 		89BA7E482124C18100009A52 /* Customer */ = {
 			isa = PBXGroup;
 			children = (
+				2FB0FBEF2225F0360092DEC6 /* SelectPaymentMethodUIView.swift */,
 				89BA0605210FA5B200FA0A3E /* CustomerLoginVC.swift */,
 				89BA060B2113524600FA0A3E /* CustomerRegisterVC.swift */,
 				690CA21B20C9A6EF009C6701 /* SelectCafeTableVC.swift */,
@@ -538,6 +541,7 @@
 				89BA0606210FA5B200FA0A3E /* CustomerLoginVC.swift in Sources */,
 				2F9954D620ECF55F008D4E65 /* Destination.swift in Sources */,
 				89BA7E4C2124C1F600009A52 /* BusinessHomeVC.swift in Sources */,
+				2FB0FBF02225F0360092DEC6 /* SelectPaymentMethodUIView.swift in Sources */,
 				2F25448B2203086300AB45C3 /* StoreOptionsTableViewCell.swift in Sources */,
 				899A77222157F30A008BF5D5 /* ViewOrderTableViewCell.swift in Sources */,
 				2F7AB9CB221F610000DEEBAF /* PaymentDetailsVC.swift in Sources */,

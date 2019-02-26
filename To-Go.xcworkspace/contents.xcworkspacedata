@@ -2,7 +2,7 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:To-Go/Customer/SelectPaymentMethodUIView.swift">
+      location = "group:/Users/danlages/Documents/Projects/Coffee-App/To-Go/Customer/SelectPaymentMethodUIView.swift">
    </FileRef>
    <FileRef
       location = "group:To-Go.xcodeproj">
