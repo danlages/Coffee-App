@@ -22,6 +22,14 @@
 		2F9954D620ECF55F008D4E65 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9954D520ECF55F008D4E65 /* Destination.swift */; };
 		2F99D0C921505A89008BAFC4 /* UpdateExtrasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F99D0C821505A89008BAFC4 /* UpdateExtrasVC.swift */; };
 		2FE0E0A3211897A6000D51A8 /* ViewOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE0E0A2211897A6000D51A8 /* ViewOrderVC.swift */; };
+		2FF6889F222605C30014504F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF6889D222605C30014504F /* Interface.storyboard */; };
+		2FF688A1222605C40014504F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FF688A0222605C40014504F /* Assets.xcassets */; };
+		2FF688A8222605C50014504F /* MyCoffee.Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 2FF688A7222605C50014504F /* MyCoffee.Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		2FF688AD222605C50014504F /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF688AC222605C50014504F /* InterfaceController.swift */; };
+		2FF688AF222605C50014504F /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF688AE222605C50014504F /* ExtensionDelegate.swift */; };
+		2FF688B1222605C50014504F /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF688B0222605C50014504F /* NotificationController.swift */; };
+		2FF688B3222605C50014504F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FF688B2222605C50014504F /* Assets.xcassets */; };
+		2FF688B8222605C50014504F /* MyCoffee.Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = 2FF6889B222605C30014504F /* MyCoffee.Watch.app */; };
 		3C443FEE9403B524BDC729C5 /* Pods_To_GoTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56CC0DCAE92C9AE278757C1C /* Pods_To_GoTests.framework */; };
 		51F226C67DA333ACB1E80090 /* Pods_To_Go.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB38815962A90B661FDFF43F /* Pods_To_Go.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		690CA1E820C99968009C6701 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 690CA1E720C99968009C6701 /* AppDelegate.swift */; };
@@ -52,6 +60,20 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		2FF688A9222605C50014504F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 690CA1DC20C99968009C6701 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FF688A6222605C50014504F;
+			remoteInfo = "MyCoffee.Watch Extension";
+		};
+		2FF688B6222605C50014504F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 690CA1DC20C99968009C6701 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2FF6889A222605C30014504F;
+			remoteInfo = MyCoffee.Watch;
+		};
 		690CA1FB20C99969009C6701 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 690CA1DC20C99968009C6701 /* Project object */;
@@ -67,6 +89,31 @@
 			remoteInfo = "To-Go";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2FF688BE222605C50014504F /* Embed App Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				2FF688A8222605C50014504F /* MyCoffee.Watch Extension.appex in Embed App Extensions */,
+			);
+			name = "Embed App Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FF688C0222605C50014504F /* Embed Watch Content */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "$(CONTENTS_FOLDER_PATH)/Watch";
+			dstSubfolderSpec = 16;
+			files = (
+				2FF688B8222605C50014504F /* MyCoffee.Watch.app in Embed Watch Content */,
+			);
+			name = "Embed Watch Content";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0423D64C714AD874B04589F5 /* Pods-To-GoUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To-GoUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-To-GoUITests/Pods-To-GoUITests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -85,6 +132,17 @@
 		2F9954D520ECF55F008D4E65 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		2F99D0C821505A89008BAFC4 /* UpdateExtrasVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateExtrasVC.swift; sourceTree = "<group>"; };
 		2FE0E0A2211897A6000D51A8 /* ViewOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderVC.swift; sourceTree = "<group>"; };
+		2FF6889B222605C30014504F /* MyCoffee.Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCoffee.Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FF6889E222605C30014504F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
+		2FF688A0222605C40014504F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2FF688A2222605C40014504F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FF688A7222605C50014504F /* MyCoffee.Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "MyCoffee.Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2FF688AC222605C50014504F /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
+		2FF688AE222605C50014504F /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
+		2FF688B0222605C50014504F /* NotificationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationController.swift; sourceTree = "<group>"; };
+		2FF688B2222605C50014504F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2FF688B4222605C50014504F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FF688B5222605C50014504F /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		4FDD60D7A1D67DCEB4B95FB8 /* Pods-To-GoTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To-GoTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-To-GoTests/Pods-To-GoTests.release.xcconfig"; sourceTree = "<group>"; };
 		56CC0DCAE92C9AE278757C1C /* Pods_To_GoTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_GoTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		690CA1E420C99968009C6701 /* My Coffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Coffee.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,6 +182,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		2FF688A4222605C50014504F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		690CA1E120C99968009C6701 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -164,6 +229,29 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2FF6889C222605C30014504F /* MyCoffee.Watch */ = {
+			isa = PBXGroup;
+			children = (
+				2FF6889D222605C30014504F /* Interface.storyboard */,
+				2FF688A0222605C40014504F /* Assets.xcassets */,
+				2FF688A2222605C40014504F /* Info.plist */,
+			);
+			path = MyCoffee.Watch;
+			sourceTree = "<group>";
+		};
+		2FF688AB222605C50014504F /* MyCoffee.Watch Extension */ = {
+			isa = PBXGroup;
+			children = (
+				2FF688AC222605C50014504F /* InterfaceController.swift */,
+				2FF688AE222605C50014504F /* ExtensionDelegate.swift */,
+				2FF688B0222605C50014504F /* NotificationController.swift */,
+				2FF688B2222605C50014504F /* Assets.xcassets */,
+				2FF688B4222605C50014504F /* Info.plist */,
+				2FF688B5222605C50014504F /* PushNotificationPayload.apns */,
+			);
+			path = "MyCoffee.Watch Extension";
+			sourceTree = "<group>";
+		};
 		690CA1DB20C99968009C6701 = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +260,8 @@
 				690CA1E620C99968009C6701 /* To-Go */,
 				690CA1FD20C99969009C6701 /* To-GoTests */,
 				690CA20820C9996A009C6701 /* To-GoUITests */,
+				2FF6889C222605C30014504F /* MyCoffee.Watch */,
+				2FF688AB222605C50014504F /* MyCoffee.Watch Extension */,
 				690CA1E520C99968009C6701 /* Products */,
 				11EA41C340AB298F17792FB8 /* Pods */,
 				7C2204FCD4282B52C107D640 /* Frameworks */,
@@ -184,6 +274,8 @@
 				690CA1E420C99968009C6701 /* My Coffee.app */,
 				690CA1FA20C99969009C6701 /* To-GoTests.xctest */,
 				690CA20520C9996A009C6701 /* To-GoUITests.xctest */,
+				2FF6889B222605C30014504F /* MyCoffee.Watch.app */,
+				2FF688A7222605C50014504F /* MyCoffee.Watch Extension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -284,6 +376,40 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		2FF6889A222605C30014504F /* MyCoffee.Watch */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FF688BF222605C50014504F /* Build configuration list for PBXNativeTarget "MyCoffee.Watch" */;
+			buildPhases = (
+				2FF68899222605C30014504F /* Resources */,
+				2FF688BE222605C50014504F /* Embed App Extensions */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2FF688AA222605C50014504F /* PBXTargetDependency */,
+			);
+			name = MyCoffee.Watch;
+			productName = MyCoffee.Watch;
+			productReference = 2FF6889B222605C30014504F /* MyCoffee.Watch.app */;
+			productType = "com.apple.product-type.application.watchapp2";
+		};
+		2FF688A6222605C50014504F /* MyCoffee.Watch Extension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2FF688BD222605C50014504F /* Build configuration list for PBXNativeTarget "MyCoffee.Watch Extension" */;
+			buildPhases = (
+				2FF688A3222605C50014504F /* Sources */,
+				2FF688A4222605C50014504F /* Frameworks */,
+				2FF688A5222605C50014504F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "MyCoffee.Watch Extension";
+			productName = "MyCoffee.Watch Extension";
+			productReference = 2FF688A7222605C50014504F /* MyCoffee.Watch Extension.appex */;
+			productType = "com.apple.product-type.watchkit2-extension";
+		};
 		690CA1E320C99968009C6701 /* To-Go */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 690CA20E20C9996A009C6701 /* Build configuration list for PBXNativeTarget "To-Go" */;
@@ -293,10 +419,12 @@
 				690CA1E120C99968009C6701 /* Frameworks */,
 				690CA1E220C99968009C6701 /* Resources */,
 				5F4B95D64DE137F6B113D0D2 /* [CP] Embed Pods Frameworks */,
+				2FF688C0222605C50014504F /* Embed Watch Content */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				2FF688B7222605C50014504F /* PBXTargetDependency */,
 			);
 			name = "To-Go";
 			productName = "To-Go";
@@ -347,10 +475,16 @@
 		690CA1DC20C99968009C6701 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1000;
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = "To-Go";
 				TargetAttributes = {
+					2FF6889A222605C30014504F = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					2FF688A6222605C50014504F = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					690CA1E320C99968009C6701 = {
 						CreatedOnToolsVersion = 10.0;
 					};
@@ -380,11 +514,30 @@
 				690CA1E320C99968009C6701 /* To-Go */,
 				690CA1F920C99969009C6701 /* To-GoTests */,
 				690CA20420C9996A009C6701 /* To-GoUITests */,
+				2FF6889A222605C30014504F /* MyCoffee.Watch */,
+				2FF688A6222605C50014504F /* MyCoffee.Watch Extension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		2FF68899222605C30014504F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FF688A1222605C40014504F /* Assets.xcassets in Resources */,
+				2FF6889F222605C30014504F /* Interface.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2FF688A5222605C50014504F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FF688B3222605C50014504F /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		690CA1E220C99968009C6701 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -515,6 +668,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		2FF688A3222605C50014504F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2FF688B1222605C50014504F /* NotificationController.swift in Sources */,
+				2FF688AF222605C50014504F /* ExtensionDelegate.swift in Sources */,
+				2FF688AD222605C50014504F /* InterfaceController.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		690CA1E020C99968009C6701 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -569,6 +732,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		2FF688AA222605C50014504F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FF688A6222605C50014504F /* MyCoffee.Watch Extension */;
+			targetProxy = 2FF688A9222605C50014504F /* PBXContainerItemProxy */;
+		};
+		2FF688B7222605C50014504F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2FF6889A222605C30014504F /* MyCoffee.Watch */;
+			targetProxy = 2FF688B6222605C50014504F /* PBXContainerItemProxy */;
+		};
 		690CA1FC20C99969009C6701 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 690CA1E320C99968009C6701 /* To-Go */;
@@ -590,6 +763,14 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
+		2FF6889D222605C30014504F /* Interface.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FF6889E222605C30014504F /* Base */,
+			);
+			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
 		690CA1F220C99969009C6701 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -601,6 +782,94 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		2FF688B9222605C50014504F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2QH6YF6CMQ;
+				IBSC_MODULE = MyCoffee_Watch_Extension;
+				INFOPLIST_FILE = MyCoffee.Watch/Info.plist;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		2FF688BA222605C50014504F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2QH6YF6CMQ;
+				IBSC_MODULE = MyCoffee_Watch_Extension;
+				INFOPLIST_FILE = MyCoffee.Watch/Info.plist;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle.watchkitapp";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
+		2FF688BB222605C50014504F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 46NV6C8B7K;
+				INFOPLIST_FILE = "MyCoffee.Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Debug;
+		};
+		2FF688BC222605C50014504F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 46NV6C8B7K;
+				INFOPLIST_FILE = "MyCoffee.Watch Extension/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle.watchkitapp.watchkitextension";
+				PRODUCT_NAME = "${TARGET_NAME}";
+				SDKROOT = watchos;
+				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = 4;
+				WATCHOS_DEPLOYMENT_TARGET = 5.1;
+			};
+			name = Release;
+		};
 		690CA20C20C9996A009C6701 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -856,6 +1125,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		2FF688BD222605C50014504F /* Build configuration list for PBXNativeTarget "MyCoffee.Watch Extension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FF688BB222605C50014504F /* Debug */,
+				2FF688BC222605C50014504F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2FF688BF222605C50014504F /* Build configuration list for PBXNativeTarget "MyCoffee.Watch" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2FF688B9222605C50014504F /* Debug */,
+				2FF688BA222605C50014504F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		690CA1DF20C99968009C6701 /* Build configuration list for PBXProject "To-Go" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
