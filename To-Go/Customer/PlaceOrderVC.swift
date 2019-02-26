@@ -38,7 +38,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     @IBOutlet weak var placeOrderMapView: MKMapView!
    
     
-    
     var timePicker = UIPickerView()  //Picker for selecting time for collection
     // let timePickerData = [String](arrayLiteral: "varrinutes", "15 Minutes", "20 Minutes", "25 Minutes") //List of Time Options For collection
     let timesAvaliable = [10, 15, 20, 25]
@@ -60,7 +59,7 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
         
         timePicker.delegate = self
         timePicker.dataSource = self
-        timePicker.backgroundColor = mainColor //Set Colour of Picker View
+        timePicker.backgroundColor = accentColor //Set Colour of Picker View
         self.nameForCollectionTextField.delegate = self
         locationNameLabel.text = orderDetailsData.cafeName
         self.selectPickupTimeTextField.delegate = self
@@ -78,13 +77,8 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! ActiveOrder
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        let dataData = formatter.string(from: Date() + TimeInterval(mins))
-    
-        destination.setTimeForCollection = "Collect at: " + dataData
-        destination.selectedMinutes = mins
+        let destination = segue.destination as! PaymentDetailsVC
+        destination.minsToCollect = mins
         orderDetailsData.collectionName = nameForCollectionTextField.text!
     }
     
@@ -157,8 +151,8 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
             //Next Step
         }
         else {
-            performSegue(withIdentifier: "makeOrderActive", sender: self)
-            
+            performSegue(withIdentifier: "towardsPayment", sender: self)
+            print("perform Seuge")
         }
     }
     
@@ -197,8 +191,7 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
             let destLong = placemark?.location?.coordinate.longitude
 
             locationMarker.coordinate = CLLocationCoordinate2D(latitude: destLat!, longitude: destLong!) //Set Marker for Cafe location
-            
-            self.placeOrderMapView.addAnnotation(locationMarker)
+        self.placeOrderMapView.addAnnotation(locationMarker)
             
             self.directionRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: CLLocationCoordinate2D(latitude: userLat, longitude: userLong), addressDictionary: nil))
 
