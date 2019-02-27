@@ -26,7 +26,7 @@
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
 	<key>WKCompanionAppBundleIdentifier</key>
-	<string>com.Lens.My-Coffee-Bundle</string>
+	<string>com.Lens.My-Coffee-Bundle-App</string>
 	<key>WKWatchKitApp</key>
 	<true/>
 </dict>
