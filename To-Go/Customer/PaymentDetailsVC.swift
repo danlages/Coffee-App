@@ -17,15 +17,22 @@ class PaymentDetailsVC: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func selectPaymentDetailsTapRecogniser(_ sender: Any) {
+        
+        performSegue(withIdentifier: "selectPaymentType", sender: self)
+    }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination as! ActiveOrder
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        let dataData = formatter.string(from: Date() + TimeInterval(minsToCollect))
+        if segue.identifier == "makeOrderActive" {
+            let destination = segue.destination as! ActiveOrder
+            let formatter = DateFormatter()
+            formatter.timeStyle = .short
+            let dataData = formatter.string(from: Date() + TimeInterval(minsToCollect))
         
-        destination.setTimeForCollection = "Collect at: " + dataData
-        destination.selectedMinutes = minsToCollect
+            destination.setTimeForCollection = "Collect at: " + dataData
+            destination.selectedMinutes = minsToCollect
+        }
+        
     }
     
     

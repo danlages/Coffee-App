@@ -789,11 +789,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2QH6YF6CMQ;
+				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				IBSC_MODULE = MyCoffee_Watch_Extension;
 				INFOPLIST_FILE = MyCoffee.Watch/Info.plist;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle-App.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -810,11 +810,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2QH6YF6CMQ;
+				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				IBSC_MODULE = MyCoffee_Watch_Extension;
 				INFOPLIST_FILE = MyCoffee.Watch/Info.plist;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle.watchkitapp";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle-App.watchkitapp";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -837,7 +837,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle-App.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -860,7 +860,7 @@
 					"@executable_path/../../Frameworks",
 				);
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle.watchkitapp.watchkitextension";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle-App.watchkitapp.watchkitextension";
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -993,14 +993,14 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2QH6YF6CMQ;
+				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				INFOPLIST_FILE = "To-Go/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle-App";
 				PRODUCT_NAME = "My Coffee";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -1017,14 +1017,14 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = NO;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2QH6YF6CMQ;
+				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				INFOPLIST_FILE = "To-Go/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.Lens.My-Coffee-Bundle-App";
 				PRODUCT_NAME = "My Coffee";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.2;
@@ -1039,7 +1039,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZC337WJBMX;
+				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				INFOPLIST_FILE = "To-GoTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1062,7 +1062,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = ZC337WJBMX;
+				DEVELOPMENT_TEAM = 46NV6C8B7K;
 				INFOPLIST_FILE = "To-GoTests/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
