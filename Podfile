@@ -6,10 +6,10 @@ target 'To-Go' do
   use_frameworks!
 
   # Pods for To-Go
-  pod 'Firebase/Core'
+  pod 'Firebase/Core' #Firebase Implementation
   pod 'Firebase/Auth'
   pod 'Firebase/Firestore'
-  pod 'Stripe'
+  pod 'Stripe' #Stripe Payment Implementation
   pod 'Alamofire'
 
   target 'To-GoTests' do
