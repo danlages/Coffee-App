@@ -18,7 +18,6 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     //MARK:Properties
    
     
-    
     @IBOutlet weak var locationNameLabel: UILabel!
     
     @IBOutlet weak var nameForCollectionTextField: UITextField!

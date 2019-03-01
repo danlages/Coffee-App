@@ -21,6 +21,13 @@
 		2F8C4F05211B1BD300328514 /* SelectAccountVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F8C4F04211B1BD300328514 /* SelectAccountVC.swift */; };
 		2F9954D620ECF55F008D4E65 /* Destination.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9954D520ECF55F008D4E65 /* Destination.swift */; };
 		2F99D0C921505A89008BAFC4 /* UpdateExtrasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F99D0C821505A89008BAFC4 /* UpdateExtrasVC.swift */; };
+		2FA3EF1D22281D42002668E1 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3EF1622281D41002668E1 /* Buttons.swift */; };
+		2FA3EF1E22281D42002668E1 /* PaymentContextFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3EF1722281D41002668E1 /* PaymentContextFooterView.swift */; };
+		2FA3EF1F22281D42002668E1 /* BrowseProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3EF1822281D41002668E1 /* BrowseProductsViewController.swift */; };
+		2FA3EF2022281D42002668E1 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3EF1922281D42002668E1 /* SettingsViewController.swift */; };
+		2FA3EF2222281D42002668E1 /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3EF1B22281D42002668E1 /* CheckoutRowView.swift */; };
+		2FA3EF2322281D42002668E1 /* CheckoutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3EF1C22281D42002668E1 /* CheckoutViewController.swift */; };
+		2FA3EF3722289EE2002668E1 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3EF3622289EE2002668E1 /* UserSettingsTableViewController.swift */; };
 		2FE0E0A3211897A6000D51A8 /* ViewOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE0E0A2211897A6000D51A8 /* ViewOrderVC.swift */; };
 		2FF6889F222605C30014504F /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2FF6889D222605C30014504F /* Interface.storyboard */; };
 		2FF688A1222605C40014504F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FF688A0222605C40014504F /* Assets.xcassets */; };
@@ -131,6 +138,13 @@
 		2F8C4F04211B1BD300328514 /* SelectAccountVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectAccountVC.swift; sourceTree = "<group>"; };
 		2F9954D520ECF55F008D4E65 /* Destination.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Destination.swift; sourceTree = "<group>"; };
 		2F99D0C821505A89008BAFC4 /* UpdateExtrasVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateExtrasVC.swift; sourceTree = "<group>"; };
+		2FA3EF1622281D41002668E1 /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Buttons.swift; path = "../../../myCoffee./stripe-ios-master/Example/Standard Integration (Swift)/Buttons.swift"; sourceTree = "<group>"; };
+		2FA3EF1722281D41002668E1 /* PaymentContextFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PaymentContextFooterView.swift; path = "../../../myCoffee./stripe-ios-master/Example/Standard Integration (Swift)/PaymentContextFooterView.swift"; sourceTree = "<group>"; };
+		2FA3EF1822281D41002668E1 /* BrowseProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BrowseProductsViewController.swift; path = "../../../myCoffee./stripe-ios-master/Example/Standard Integration (Swift)/BrowseProductsViewController.swift"; sourceTree = "<group>"; };
+		2FA3EF1922281D42002668E1 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SettingsViewController.swift; path = "../../../myCoffee./stripe-ios-master/Example/Standard Integration (Swift)/SettingsViewController.swift"; sourceTree = "<group>"; };
+		2FA3EF1B22281D42002668E1 /* CheckoutRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutRowView.swift; path = "../../../myCoffee./stripe-ios-master/Example/Standard Integration (Swift)/CheckoutRowView.swift"; sourceTree = "<group>"; };
+		2FA3EF1C22281D42002668E1 /* CheckoutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutViewController.swift; path = "../../../myCoffee./stripe-ios-master/Example/Standard Integration (Swift)/CheckoutViewController.swift"; sourceTree = "<group>"; };
+		2FA3EF3622289EE2002668E1 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
 		2FE0E0A2211897A6000D51A8 /* ViewOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderVC.swift; sourceTree = "<group>"; };
 		2FF6889B222605C30014504F /* MyCoffee.Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyCoffee.Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FF6889E222605C30014504F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
@@ -229,6 +243,19 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		2FA3EF1522281404002668E1 /* Payment */ = {
+			isa = PBXGroup;
+			children = (
+				2FA3EF1822281D41002668E1 /* BrowseProductsViewController.swift */,
+				2FA3EF1622281D41002668E1 /* Buttons.swift */,
+				2FA3EF1B22281D42002668E1 /* CheckoutRowView.swift */,
+				2FA3EF1C22281D42002668E1 /* CheckoutViewController.swift */,
+				2FA3EF1722281D41002668E1 /* PaymentContextFooterView.swift */,
+				2FA3EF1922281D42002668E1 /* SettingsViewController.swift */,
+			);
+			path = Payment;
+			sourceTree = "<group>";
+		};
 		2FF6889C222605C30014504F /* MyCoffee.Watch */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,6 +324,7 @@
 				895C44CA21905A69008BDE1D /* MyAPIClient.swift */,
 				690CA1F520C99969009C6701 /* Info.plist */,
 				89BA06072110C35300FA0A3E /* GoogleService-Info.plist */,
+				2FA3EF1522281404002668E1 /* Payment */,
 			);
 			path = "To-Go";
 			sourceTree = "<group>";
@@ -357,6 +385,7 @@
 				2F2967772225F8B000D74A45 /* PaymentDetailsVC.swift */,
 				2F2967752225F8A700D74A45 /* PlaceOrderVC.swift */,
 				2F99D0C821505A89008BAFC4 /* UpdateExtrasVC.swift */,
+				2FA3EF3622289EE2002668E1 /* UserSettingsTableViewController.swift */,
 				2F8C4F04211B1BD300328514 /* SelectAccountVC.swift */,
 			);
 			path = Customer;
@@ -689,10 +718,13 @@
 				2F2967762225F8A700D74A45 /* PlaceOrderVC.swift in Sources */,
 				2F53EDB5218DBE6C001659DB /* OrderDetails.swift in Sources */,
 				6942F0E320D15C4100E5A194 /* ActiveOrderVC.swift in Sources */,
+				2FA3EF2222281D42002668E1 /* CheckoutRowView.swift in Sources */,
+				2FA3EF2022281D42002668E1 /* SettingsViewController.swift in Sources */,
 				2F0A4EE4220998CE009D2D86 /* BusinessOptionsTableVC.swift in Sources */,
 				690CA22020C9A784009C6701 /* SelectCafeTableViewCell.swift in Sources */,
 				2F8796A821238B6C00EA2E23 /* SelectItemVC.swift in Sources */,
 				89BA060C2113524600FA0A3E /* CustomerRegisterVC.swift in Sources */,
+				2FA3EF2322281D42002668E1 /* CheckoutViewController.swift in Sources */,
 				2F8C4F05211B1BD300328514 /* SelectAccountVC.swift in Sources */,
 				89BA061A2123154800FA0A3E /* AddExtrasTableViewCell.swift in Sources */,
 				89BA0606210FA5B200FA0A3E /* CustomerLoginVC.swift in Sources */,
@@ -702,11 +734,15 @@
 				899A77222157F30A008BF5D5 /* ViewOrderTableViewCell.swift in Sources */,
 				2F2967782225F8B000D74A45 /* PaymentDetailsVC.swift in Sources */,
 				694334AD20CC3DAB00B70252 /* SelectItemTableViewCell.swift in Sources */,
+				2FA3EF3722289EE2002668E1 /* UserSettingsTableViewController.swift in Sources */,
 				690CA1E820C99968009C6701 /* AppDelegate.swift in Sources */,
 				89BA7E4F2124C26800009A52 /* EditMenuVC.swift in Sources */,
+				2FA3EF1E22281D42002668E1 /* PaymentContextFooterView.swift in Sources */,
 				895C44CB21905A69008BDE1D /* MyAPIClient.swift in Sources */,
 				690CA21C20C9A6EF009C6701 /* SelectCafeTableVC.swift in Sources */,
 				89BA7E4A2124C1E700009A52 /* BusinessLoginVC.swift in Sources */,
+				2FA3EF1F22281D42002668E1 /* BrowseProductsViewController.swift in Sources */,
+				2FA3EF1D22281D42002668E1 /* Buttons.swift in Sources */,
 				2F99D0C921505A89008BAFC4 /* UpdateExtrasVC.swift in Sources */,
 				2F0FCD4321233D8800432810 /* Theme.swift in Sources */,
 				89BA0602210DEAB200FA0A3E /* MenuItem.swift in Sources */,
