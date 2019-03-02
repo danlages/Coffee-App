@@ -1,18 +1,18 @@
 //
-//  UserSettingsTableViewController.swift
+//  EditPaymentOptionsTableViewController.swift
 //  To-Go
 //
-//  Created by Dan Lages on 28/02/2019.
+//  Created by Dan Lages on 01/03/2019.
 //  Copyright © 2019 To-Go. All rights reserved.
 //
 
 import UIKit
 
-class UserSettingsTableViewController: UITableViewController {
+class EditPaymentOptionsTableViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -20,36 +20,17 @@ class UserSettingsTableViewController: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
-    
-    override func tableView(_ tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-        //Adjust section headers
-        let header = view as! UITableViewHeaderFooterView
-        //header.tintColor = UIColor.gray
-        header.textLabel?.font = UIFont(name: "Helvetica", size: 12)!
-        header.textLabel?.textColor = UIColor.black
-        
-    }
-    
-    override func tableView(_ tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-        //Adjust section footers
-        let footer = view as! UITableViewHeaderFooterView
-        //footer.tintColor = UIColor.gray
-        footer.textLabel?.font = UIFont(name: "Helvetica", size: 10)!
-        footer.textLabel?.textColor = UIColor.black
-        
-    }
-
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 0
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
+    }
 
-//    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        // #warning Incomplete implementation, return the number of rows
-//        return 0
-//    }
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
 
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
