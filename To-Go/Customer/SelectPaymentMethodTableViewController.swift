@@ -1,34 +1,38 @@
 //
-//  EditPaymentOptionsTableViewController.swift
+//  SelectPaymentMethodTableViewController.swift
 //  To-Go
 //
-//  Created by Dan Lages on 01/03/2019.
+//  Created by Dan Lages on 03/03/2019.
 //  Copyright © 2019 To-Go. All rights reserved.
 //
 
 import UIKit
 
-class EditPaymentOptionsTableViewController: UITableViewController {
+class SelectPaymentMethodTableViewController: UITableViewController {
 
-    var paymentMethod = [PaymentDetails]()
-    
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navbar()
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
+    
+    func navbar() {
+        navigationController?.navigationBar.prefersLargeTitles = true // Large navigation bar
+        //let search = UISearchController(searchResultsController: nil)
+        //self.navigationItem.searchController = search
+    }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return paymentMethod.count
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,24 +40,15 @@ class EditPaymentOptionsTableViewController: UITableViewController {
         return 0
     }
 
-    
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        //Represent cards in table view
-        
-        let cellIdentifier = "paymentMethodCell"
-        
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? EditPaymentMethodTableViewCell else {
-            fatalError("The dequeued cell is not an instance of EditPaymentMethodTableViewCell.")
-        }
-        
-        let method = paymentMethod[indexPath.row]
-        
-        cell.paymentMethodTitle.text = method.cardNumber //Show card Number - need to show last 4 only
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
 
         return cell
     }
- 
+    */
 
     /*
     // Override to support conditional editing of the table view.
