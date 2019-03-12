@@ -10,9 +10,20 @@ import UIKit
 
 class AddCardTableViewController: UITableViewController {
 
+    @IBOutlet weak var cardHolderNameTextBox: UITextField!
+    
+    @IBOutlet weak var cardNumberTextBox: UITextField!
+    
+    @IBOutlet weak var expiryMonthTextBox: UITextField!
+    
+    @IBOutlet weak var expiryYearTextBox: UITextField!
+    
+    @IBOutlet weak var securityCodeTextBox: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 

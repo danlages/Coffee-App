@@ -7,31 +7,43 @@
 //
 
 import UIKit
+import os.log
 
 class AddCardViewController: UIViewController {
 
+    var paymentMethod: PaymentDetails?
+    
+    @IBOutlet weak var addCardScrollView: UIScrollView!
+    @IBOutlet weak var AddCardContainerView: UIView!
+    @IBOutlet weak var addCardButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.userInputPresent), name: UIApplication.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(self.userInputEnded), name: UIApplication.keyboardDidHideNotification, object: nil)
-
+        
         // Do any additional setup after loading the view.
     }
-    
-    @IBOutlet weak var addCardScrollView: UIScrollView!
-    @IBOutlet weak var AddCardContainerView: UIView!
-    
-    /*
+
     // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+//        if segue.identifier == "embedTableView" {
+//
+//        }
+        guard let saveButton = sender as? UIButton, saveButton === addCardButton else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+            
+            return
+        }
+        
+       // let holderName =
+    }
+    
+
     
     @objc func userInputPresent(notification: NSNotification) {
         var currentStatus = notification.userInfo
