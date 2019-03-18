@@ -12,10 +12,25 @@ import os.log
 class AddCardViewController: UIViewController {
 
     var paymentMethod: PaymentDetails?
+    var cardHolderName = ""
+    var cardNumber = ""
+    var expiryMonth = ""
+    var expiryYear = ""
+    var securityCode = ""
+    
+    var addCardChildReferenceVC: AddCardTableViewController?
     
     @IBOutlet weak var addCardScrollView: UIScrollView!
     @IBOutlet weak var AddCardContainerView: UIView!
-    @IBOutlet weak var addCardButton: UIButton!
+    
+    @IBOutlet weak var addCardButtonOutlet: UIButton!
+    
+    @IBAction func addCardButton(_ sender: Any) {
+        //Perform action to trigger segue here
+  
+    }
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,23 +43,36 @@ class AddCardViewController: UIViewController {
 
     // MARK: - Navigation
 
+    func saveContainerViewReference(vc:AddCardTableViewController){  //Method for implementing referenc between parent and continer views - Implemented in order to share varibales.
+        self.addCardChildReferenceVC = vc
+        
+        cardHolderName = (self.addCardChildReferenceVC?.cardHolderNameTextBox.text)!
+        cardNumber = (self.addCardChildReferenceVC?.cardNumberTextBox.text)!
+        expiryMonth = (self.addCardChildReferenceVC?.expiryMonthTextBox.text)!
+        expiryYear = (self.addCardChildReferenceVC?.expiryYearTextBox.text)!
+        securityCode = (self.addCardChildReferenceVC?.securityCodeTextBox.text)!
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         super.prepare(for: segue, sender: sender)
-//        if segue.identifier == "embedTableView" {
-//
-//        }
-        guard let saveButton = sender as? UIButton, saveButton === addCardButton else {
-            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
-            
-            return
-        }
         
-       // let holderName =
-    }
+        guard let button = sender as? UIButton, button === addCardButtonOutlet else {
+            os_log("The save button was not pressed, cancelling", log: OSLog.default, type: .debug)
+
+            return
+            }
+        
+        
+        paymentMethod = PaymentDetails(cardHolderName: cardHolderName, cardNumber: cardNumber, expiryMonth: expiryMonth, expiryYear: expiryYear, securityCode: securityCode)
+        
+        
+            //Access Container view text views here and apply to payment details class
+        }
     
 
-    
+
+
     @objc func userInputPresent(notification: NSNotification) {
         var currentStatus = notification.userInfo
         let insetSize = currentStatus![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect //set inset size to size of keyboard/picker

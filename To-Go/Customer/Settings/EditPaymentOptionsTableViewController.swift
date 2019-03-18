@@ -7,12 +7,11 @@
 //
 
 import UIKit
+import os.log
 
 class EditPaymentOptionsTableViewController: UITableViewController {
 
-    var paymentMethod = [PaymentDetails]()
-    
-
+    var paymentMethods = [PaymentDetails]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,7 +27,7 @@ class EditPaymentOptionsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return paymentMethod.count
+        return paymentMethods.count
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -36,6 +35,10 @@ class EditPaymentOptionsTableViewController: UITableViewController {
         return 0
     }
 
+    
+//    @IBAction func unwindToPayments(sender: UIStoryboardSegue) {
+//        if let sourceViewController = sender.source as? AddCardViewController, paymentMethod = sourceViewController.paymentMethod
+//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
@@ -47,12 +50,14 @@ class EditPaymentOptionsTableViewController: UITableViewController {
             fatalError("The dequeued cell is not an instance of EditPaymentMethodTableViewCell.")
         }
         
-        let method = paymentMethod[indexPath.row]
+        let method = paymentMethods[indexPath.row]
         
         cell.paymentMethodTitle.text = method.cardNumber //Show card Number - need to show last 4 only
 
         return cell
     }
+
+    
  
 
     /*
@@ -90,14 +95,37 @@ class EditPaymentOptionsTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
+        
+        super.prepare(for: segue, sender: sender)
+        
+        switch segue.identifier {
+        case "AddPaymentMethod":
+            os_log("Send to Add Card", log:OSLog.default, type: .debug)
+        case "ViewPaymentMethod":
+             os_log("Send to View Card", log: OSLog.default, type: .debug)
+        default:
+            fatalError("Unexpected Segue Identifier; \(String(describing: segue.identifier))")
+        }
     }
-    */
+    
+    
+    @IBAction func unwindToMethodsList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? AddCardViewController, let
+            paymentMethod = sourceViewController.paymentMethod {
+            let newIndexPath = IndexPath(row: paymentMethods.count, section: 0)
+            paymentMethods.append(paymentMethod)
+            tableView.insertRows(at: [newIndexPath], with: .automatic)
+        }
+    }
+    
+    
+
 
 }
