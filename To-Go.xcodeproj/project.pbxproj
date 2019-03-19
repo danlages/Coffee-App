@@ -22,7 +22,6 @@
 		2F4FCAE42240FBFD00BAC86F /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4FCADD2240FBFD00BAC86F /* Buttons.swift */; };
 		2F4FCAE52240FBFD00BAC86F /* BrowseProductsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4FCADE2240FBFD00BAC86F /* BrowseProductsViewController.swift */; };
 		2F4FCAE62240FBFD00BAC86F /* CheckoutRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4FCADF2240FBFD00BAC86F /* CheckoutRowView.swift */; };
-		2F4FCAE72240FBFD00BAC86F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4FCAE02240FBFD00BAC86F /* AppDelegate.swift */; };
 		2F4FCAE82240FBFD00BAC86F /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4FCAE12240FBFD00BAC86F /* SettingsViewController.swift */; };
 		2F53EDB5218DBE6C001659DB /* OrderDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F53EDB4218DBE6C001659DB /* OrderDetails.swift */; };
 		2F7AB9C7221F50F200DEEBAF /* UserOnboarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2F7AB9C6221F50F200DEEBAF /* UserOnboarding.storyboard */; };
@@ -148,7 +147,6 @@
 		2F4FCADD2240FBFD00BAC86F /* Buttons.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
 		2F4FCADE2240FBFD00BAC86F /* BrowseProductsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrowseProductsViewController.swift; sourceTree = "<group>"; };
 		2F4FCADF2240FBFD00BAC86F /* CheckoutRowView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CheckoutRowView.swift; sourceTree = "<group>"; };
-		2F4FCAE02240FBFD00BAC86F /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2F4FCAE12240FBFD00BAC86F /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		2F53EDB4218DBE6C001659DB /* OrderDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetails.swift; sourceTree = "<group>"; };
 		2F7AB9C6221F50F200DEEBAF /* UserOnboarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UserOnboarding.storyboard; sourceTree = "<group>"; };
@@ -278,7 +276,6 @@
 		2FA3EF1522281404002668E1 /* Payment */ = {
 			isa = PBXGroup;
 			children = (
-				2F4FCAE02240FBFD00BAC86F /* AppDelegate.swift */,
 				2F4FCADE2240FBFD00BAC86F /* BrowseProductsViewController.swift */,
 				2F4FCADD2240FBFD00BAC86F /* Buttons.swift */,
 				2F4FCADF2240FBFD00BAC86F /* CheckoutRowView.swift */,
@@ -777,7 +774,6 @@
 				690CA1E820C99968009C6701 /* AppDelegate.swift in Sources */,
 				89BA7E4F2124C26800009A52 /* EditMenuVC.swift in Sources */,
 				895C44CB21905A69008BDE1D /* MyAPIClient.swift in Sources */,
-				2F4FCAE72240FBFD00BAC86F /* AppDelegate.swift in Sources */,
 				2FF2BE11222BE13500C95ECD /* EditPaymentMethodTableViewCell.swift in Sources */,
 				690CA21C20C9A6EF009C6701 /* SelectCafeTableVC.swift in Sources */,
 				2F4FCAE32240FBFD00BAC86F /* PaymentContextFooterView.swift in Sources */,
