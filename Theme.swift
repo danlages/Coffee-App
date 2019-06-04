@@ -11,7 +11,7 @@ import Foundation
 
 let selectedThemeKey = "ThemeKey"
 
-let accentColor = UIColor(red: 46.0/255.0, green: 19.0/255.0, blue: 8.0/255.0, alpha: 1.0) // Define accent color - brown
+let accentColor = UIColor(red: 69.0/255.0, green: 68.0/255.0, blue: 68.0/255.0, alpha: 1.0) // Define accent color - brown
 
 let mainColor = UIColor(red: 249.0/255.0, green: 245.0/255.0, blue: 237.0/255.0, alpha: 1.0)// Define main color - off white
 

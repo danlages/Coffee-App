@@ -27,12 +27,12 @@ class EditPaymentOptionsTableViewController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return paymentMethods.count
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return paymentMethods.count
     }
 
     
@@ -106,7 +106,7 @@ class EditPaymentOptionsTableViewController: UITableViewController {
         super.prepare(for: segue, sender: sender)
         
         switch segue.identifier {
-        case "AddPaymentMethod":
+        case "addMethod":
             os_log("Send to Add Card", log:OSLog.default, type: .debug)
         case "ViewPaymentMethod":
              os_log("Send to View Card", log: OSLog.default, type: .debug)
@@ -119,8 +119,10 @@ class EditPaymentOptionsTableViewController: UITableViewController {
     @IBAction func unwindToMethodsList(sender: UIStoryboardSegue) {
         if let sourceViewController = sender.source as? AddCardViewController, let
             paymentMethod = sourceViewController.paymentMethod {
-            let newIndexPath = IndexPath(row: paymentMethods.count, section: 0)
+            let newIndexPath = IndexPath(row:paymentMethods.count, section: 0)
+            
             paymentMethods.append(paymentMethod)
+            
             tableView.insertRows(at: [newIndexPath], with: .automatic)
         }
     }

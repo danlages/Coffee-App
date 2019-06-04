@@ -18,18 +18,20 @@ class AddCardViewController: UIViewController {
     var expiryYear = ""
     var securityCode = ""
     
-    var addCardChildReferenceVC: AddCardTableViewController?
     
     @IBOutlet weak var addCardScrollView: UIScrollView!
-    @IBOutlet weak var AddCardContainerView: UIView!
+    
+    @IBOutlet weak var cardholderNameTextField: UITextField!
+    
+    @IBOutlet weak var cardNumberTextField: UITextField!
+    
+    @IBOutlet weak var expiryMonthTextField: UITextField!
+    
+    @IBOutlet weak var expiryYearTextField: UITextField!
+    
+    @IBOutlet weak var securityCodeTextField: UITextField!
     
     @IBOutlet weak var addCardButtonOutlet: UIButton!
-    
-    @IBAction func addCardButton(_ sender: Any) {
-        //Perform action to trigger segue here
-  
-    }
-    
     
     
     override func viewDidLoad() {
@@ -43,18 +45,8 @@ class AddCardViewController: UIViewController {
 
     // MARK: - Navigation
 
-    func saveContainerViewReference(vc:AddCardTableViewController){  //Method for implementing referenc between parent and continer views - Implemented in order to share varibales.
-        self.addCardChildReferenceVC = vc
-        
-        cardHolderName = (self.addCardChildReferenceVC?.cardHolderNameTextBox.text)!
-        cardNumber = (self.addCardChildReferenceVC?.cardNumberTextBox.text)!
-        expiryMonth = (self.addCardChildReferenceVC?.expiryMonthTextBox.text)!
-        expiryYear = (self.addCardChildReferenceVC?.expiryYearTextBox.text)!
-        securityCode = (self.addCardChildReferenceVC?.securityCodeTextBox.text)!
-    }
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: (Any)?) {
         super.prepare(for: segue, sender: sender)
         
         guard let button = sender as? UIButton, button === addCardButtonOutlet else {
@@ -63,16 +55,23 @@ class AddCardViewController: UIViewController {
             return
             }
         
+     
+        
+        cardHolderName = cardholderNameTextField.text!
+        cardNumber = cardNumberTextField.text!
+         expiryMonth = expiryMonthTextField.text!
+        expiryYear = expiryYearTextField.text!
+        securityCode = securityCodeTextField.text!
+        os_log("saved")
         
         paymentMethod = PaymentDetails(cardHolderName: cardHolderName, cardNumber: cardNumber, expiryMonth: expiryMonth, expiryYear: expiryYear, securityCode: securityCode)
+        
+        //Perform action to trigger segue here
         
         
             //Access Container view text views here and apply to payment details class
         }
     
-
-
-
     @objc func userInputPresent(notification: NSNotification) {
         var currentStatus = notification.userInfo
         let insetSize = currentStatus![UIResponder.keyboardFrameEndUserInfoKey] as! CGRect //set inset size to size of keyboard/picker
