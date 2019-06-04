@@ -9,17 +9,10 @@
 import UIKit
 
 
+
 class AddCardTableViewController: UITableViewController {
 
-    @IBOutlet weak var cardHolderNameTextBox: UITextField!
-    
-    @IBOutlet weak var cardNumberTextBox: UITextField!
-    
-    @IBOutlet weak var expiryMonthTextBox: UITextField!
-    
-    @IBOutlet weak var expiryYearTextBox: UITextField!
-    
-    @IBOutlet weak var securityCodeTextBox: UITextField!
+
     
     
     override func viewDidLoad() {
@@ -34,10 +27,6 @@ class AddCardTableViewController: UITableViewController {
     }
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        let addCardParent = self.parent as! AddCardViewController
-        addCardParent.saveContainerViewReference(vc: self)
-    }
 
 
     // MARK: - Table view data source
