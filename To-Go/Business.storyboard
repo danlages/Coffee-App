@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aks-jp-md3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="aks-jp-md3">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -349,7 +349,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.54396939280000001" green="0.41967898609999998" blue="0.38081705570000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Drh-fa-OVQ" firstAttribute="trailing" secondItem="zLM-Lw-Td3" secondAttribute="trailing" id="Epa-F1-5Hi"/>
                             <constraint firstItem="Drh-fa-OVQ" firstAttribute="top" secondItem="er4-X5-JRG" secondAttribute="bottom" constant="44" id="KIu-d2-e6p"/>
@@ -527,7 +527,7 @@
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" red="0.54396939280000001" green="0.41967898609999998" blue="0.38081705570000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="ZEd-Og-lEV"/>
                     </view>
                 </viewController>
@@ -596,7 +596,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                         </subviews>
-                        <color key="backgroundColor" red="0.54396939280000001" green="0.41967898609999998" blue="0.38081705570000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="XTF-20-sIB" firstAttribute="trailing" secondItem="dDe-Ba-GeQ" secondAttribute="trailing" constant="32" id="7fd-R8-IRO"/>
                             <constraint firstItem="XTF-20-sIB" firstAttribute="trailing" secondItem="tJ5-wn-EkS" secondAttribute="trailing" constant="32" id="87E-Bo-5Qz"/>
@@ -995,7 +995,7 @@
                                 </state>
                             </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.54396939280000001" green="0.41967898609999998" blue="0.38081705570000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="yVB-e6-9FN" firstAttribute="trailing" secondItem="Jtv-8N-UU5" secondAttribute="trailing" constant="39" id="5SR-UW-eBi"/>
                             <constraint firstItem="etc-fs-Rlf" firstAttribute="leading" secondItem="yVB-e6-9FN" secondAttribute="leading" constant="32" id="5jN-k5-Cfk"/>
@@ -1031,7 +1031,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo" width="4096" height="1927"/>
+        <image name="Logo" width="2048" height="963.5"/>
         <image name="coffee-beans" width="5472" height="3648"/>
     </resources>
 </document>

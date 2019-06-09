@@ -49,9 +49,7 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
         navigationController?.navigationBar.prefersLargeTitles = true // Laege navigation bar
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        orderDetailsData.cost = orderRunningTotal //Update cost data model with final cost of order
-    }
+
     
     func displayActionSheet() {
         let actionSheet = UIAlertController(title: "Item Selected", message: "Would you like to edit or delete this item?", preferredStyle: .actionSheet)
@@ -87,11 +85,6 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
     
     //MARK: Sample Data
     private func loadSampleMenuItems() {
-        /*guard let menuItem1 = MenuItem(name: "Coffee", size: "Small", price: 2) else{
-            
-            fatalError("Unable to create the training ground menu item") //Error message
-        }
-        menuItems += [menuItem1]*/
         
         let count = orderItems.count - 1
         var currentExtras = [String]()
@@ -208,4 +201,13 @@ class ViewOrderVC: UIViewController, UITableViewDelegate, UITableViewDataSource 
             //remove if indexPath.row == 0 if only want to close extras when clicked and nothing else
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) { //Seuge identifies the item selected, in preperation for server fetch
+            orderDetailsData.cost = orderRunningTotal
+            let destination = segue.destination as! PlaceOrderVC
+            destination.orderItems = orderItems
+            destination.orderPrices = orderPrices
+            destination.orderRunningTotal = orderRunningTotal
+    }
+        
 }

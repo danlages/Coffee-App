@@ -35,7 +35,19 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     @IBOutlet weak var placeOrderScrollView: UIScrollView!
     
     @IBOutlet weak var placeOrderMapView: MKMapView!
-   
+
+    var orderItems = [OrderItems]()
+    var orderPrices = [Float]()
+    var orderRunningTotal = Float()
+    
+    var orderItem = [String]() //stores item with extras to add to order - recieved from add extras
+    var orderItemPrice = Float()
+    
+    
+    var menuItems  = [MenuItem]()  //Creates a mutable array of menu item objects - allowing for the addition of items after initilsation
+    var basketCount = 0
+    var maxOrderCount = 4
+    var selectedCafe = ""
     
     var timePicker = UIPickerView()  //Picker for selecting time for collection
     // let timePickerData = [String](arrayLiteral: "varrinutes", "15 Minutes", "20 Minutes", "25 Minutes") //List of Time Options For collection
@@ -77,6 +89,9 @@ class PlaceOrderVC: UIViewController, UITableViewDelegate, UIPickerViewDataSourc
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination as! PaymentDetailsVC
+        destination.orderItems = orderItems
+        destination.orderPrices = orderPrices
+        destination.orderRunningTotal = orderRunningTotal
         destination.minsToCollect = mins
         orderDetailsData.collectionName = nameForCollectionTextField.text!
     }
