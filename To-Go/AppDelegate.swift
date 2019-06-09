@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let theme = ManageThemes.currentTheme() //Apply Theme
         ManageThemes.applyTheme(theme: theme)
         
-        STPPaymentConfiguration.shared().publishableKey = "pk_test_I4wfhkNYDjcvwx8x8aBKSxP9"
+        STPPaymentConfiguration.shared().publishableKey = "pk_test_5YPNcY29WVhd2QpVlJ5tbWVC00UVY1SHWl"
         
         //STPPaymentConfiguration.shared().appleMerchantIdentifier = "your apple merchant identifier"
         

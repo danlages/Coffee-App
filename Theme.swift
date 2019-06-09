@@ -11,9 +11,9 @@ import Foundation
 
 let selectedThemeKey = "ThemeKey"
 
-let accentColor = UIColor(red: 69.0/255.0, green: 68.0/255.0, blue: 68.0/255.0, alpha: 1.0) // Define accent color - brown
+let accentColor = UIColor(red: 69.0/255.0, green: 68.0/255.0, blue: 68.0/255.0, alpha: 1.0) // Define accent color - Grey
 
-let mainColor = UIColor(red: 249.0/255.0, green: 245.0/255.0, blue: 237.0/255.0, alpha: 1.0)// Define main color - off white
+let mainColor = UIColor(red: 245.0/255.0, green: 245.0/255.0, blue: 245.0/255.0, alpha: 1.0)// Define main color - off white
 
 let mapviewColor = UIColor(red: 0.12/255.0, green: 158.0/255.0, blue: 225.0/255.0, alpha: 1.0)
 
