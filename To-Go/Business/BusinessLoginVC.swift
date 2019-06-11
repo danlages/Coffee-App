@@ -10,6 +10,9 @@ import UIKit
 
 class BusinessLoginVC: UIViewController {
 
+    @IBOutlet weak var createAccountButton: UIButton!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,6 +23,8 @@ class BusinessLoginVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
 
     /*
