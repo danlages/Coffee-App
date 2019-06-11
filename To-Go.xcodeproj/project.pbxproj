@@ -26,6 +26,8 @@
 		2F99D0C921505A89008BAFC4 /* UpdateExtrasVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F99D0C821505A89008BAFC4 /* UpdateExtrasVC.swift */; };
 		2F9FD52E222970FE00D376CB /* AddCardTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9FD52D222970FE00D376CB /* AddCardTableViewController.swift */; };
 		2FA3EF3722289EE2002668E1 /* UserSettingsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA3EF3622289EE2002668E1 /* UserSettingsTableViewController.swift */; };
+		2FA8050722B0596400BA5F46 /* CafeRegisterAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA8050622B0596400BA5F46 /* CafeRegisterAccountViewController.swift */; };
+		2FA8050922B05E4500BA5F46 /* AddCafeAddressVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA8050822B05E4500BA5F46 /* AddCafeAddressVC.swift */; };
 		2FE0E0A3211897A6000D51A8 /* ViewOrderVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE0E0A2211897A6000D51A8 /* ViewOrderVC.swift */; };
 		2FF2BE09222AB01300C95ECD /* PaymentDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF2BE08222AB01300C95ECD /* PaymentDetails.swift */; };
 		2FF2BE0B222BC17800C95ECD /* AboutMyCoffeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FF2BE0A222BC17800C95ECD /* AboutMyCoffeeViewController.swift */; };
@@ -146,6 +148,8 @@
 		2F99D0C821505A89008BAFC4 /* UpdateExtrasVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdateExtrasVC.swift; sourceTree = "<group>"; };
 		2F9FD52D222970FE00D376CB /* AddCardTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCardTableViewController.swift; sourceTree = "<group>"; };
 		2FA3EF3622289EE2002668E1 /* UserSettingsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingsTableViewController.swift; sourceTree = "<group>"; };
+		2FA8050622B0596400BA5F46 /* CafeRegisterAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CafeRegisterAccountViewController.swift; sourceTree = "<group>"; };
+		2FA8050822B05E4500BA5F46 /* AddCafeAddressVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCafeAddressVC.swift; sourceTree = "<group>"; };
 		2FE0E0A2211897A6000D51A8 /* ViewOrderVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewOrderVC.swift; sourceTree = "<group>"; };
 		2FF2BE08222AB01300C95ECD /* PaymentDetails.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentDetails.swift; sourceTree = "<group>"; };
 		2FF2BE0A222BC17800C95ECD /* AboutMyCoffeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutMyCoffeeViewController.swift; sourceTree = "<group>"; };
@@ -372,6 +376,8 @@
 				89BA7E492124C1E700009A52 /* BusinessLoginVC.swift */,
 				89BA7E4B2124C1F600009A52 /* BusinessHomeVC.swift */,
 				89BA7E4E2124C26800009A52 /* EditMenuVC.swift */,
+				2FA8050622B0596400BA5F46 /* CafeRegisterAccountViewController.swift */,
+				2FA8050822B05E4500BA5F46 /* AddCafeAddressVC.swift */,
 			);
 			path = Business;
 			sourceTree = "<group>";
@@ -746,8 +752,10 @@
 				2F9FD52E222970FE00D376CB /* AddCardTableViewController.swift in Sources */,
 				89BA7E4C2124C1F600009A52 /* BusinessHomeVC.swift in Sources */,
 				2F25448B2203086300AB45C3 /* StoreOptionsTableViewCell.swift in Sources */,
+				2FA8050722B0596400BA5F46 /* CafeRegisterAccountViewController.swift in Sources */,
 				899A77222157F30A008BF5D5 /* ViewOrderTableViewCell.swift in Sources */,
 				2F2967782225F8B000D74A45 /* PaymentDetailsVC.swift in Sources */,
+				2FA8050922B05E4500BA5F46 /* AddCafeAddressVC.swift in Sources */,
 				694334AD20CC3DAB00B70252 /* SelectItemTableViewCell.swift in Sources */,
 				2FA3EF3722289EE2002668E1 /* UserSettingsTableViewController.swift in Sources */,
 				2FF2BE09222AB01300C95ECD /* PaymentDetails.swift in Sources */,
