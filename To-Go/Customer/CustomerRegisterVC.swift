@@ -1,10 +1,7 @@
 //
 //  RegisterVC.swift
 //  To-Go
-//
-//  Created by Sophie Traynor on 02/08/2018.
-//  Copyright © 2018 To-Go. All rights reserved.
-//
+
 
 import UIKit
 import FirebaseAuth
@@ -57,6 +54,7 @@ class CustomerRegisterVC: UIViewController, UITextFieldDelegate {
         alert.addAction(UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
         }))
+        
         self.present(alert, animated: true, completion: nil)
     }
  
