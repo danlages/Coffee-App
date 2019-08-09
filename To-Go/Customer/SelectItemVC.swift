@@ -72,16 +72,13 @@ class SelectItemVC: UIViewController, UITableViewDelegate, UITableViewDataSource
         let view = UIView(frame: CGRect(x: 0, y: 0, width: 60, height: 40))
         
         let imageView = UIImageView(image: image!)
-      
-        imageView.frame = CGRect(x: view.bounds.width-imageView.bounds.width, y: 0, width: 45, height: 45)
-        view.addSubview(imageView)
+
         
         let label = UILabel(frame: CGRect(x: view.bounds.width-imageView.bounds.width + 12, y: 4.5, width: 45, height: 45))
-
+        
         label.textColor = UIColor.white
         label.text = String(basketCount)
         view.addSubview(label)
-        
         //Allow user Interaction for tap gesture seuge
         let basketTapGesture = UITapGestureRecognizer(target: self, action: #selector(SelectItemVC.basketSelected)) //Tap Gesture recogiser for for basket view
         view.addGestureRecognizer(basketTapGesture)

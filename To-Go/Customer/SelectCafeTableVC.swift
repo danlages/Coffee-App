@@ -45,8 +45,6 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
     var distanceFromUser: [String] = []
 
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -107,7 +105,7 @@ class SelectCafeTableVC: UITableViewController, CLLocationManagerDelegate {
                     
                     cafe.name = document.data()["Name"] as? String ?? ""
                     cafe.email = document.data()["Email"] as? String ?? ""
-                    cafe.addressNo = document.data()["Address No."] as? String ?? ""
+                    cafe.addressNo = document.data()["Address No"] as? String ?? ""
                     cafe.addressStreet = document.data()["Address Street"] as? String ?? ""
                     cafe.addressPostcode = document.data()["Postcode"] as? String ?? ""
                     cafe.openingTime = document.data()["Opening Time"] as? String ?? ""
